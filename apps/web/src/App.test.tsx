@@ -60,13 +60,13 @@ describe('navigation', () => {
     expect(await screen.findByRole('heading', { name: 'No NISAR observations loaded' })).toBeInTheDocument();
   });
 
-  it('lists every case study and labels unbuilt fixtures and synthetic data', async () => {
+  it('lists every case study and labels unavailable analyses and synthetic data', async () => {
     renderApp('/events');
     expect(
       await screen.findByRole('heading', { level: 1, name: /Earthquakes observed by NISAR/ }),
     ).toBeInTheDocument();
-    expect(await screen.findAllByText('FIXTURE NOT BUILT YET')).toHaveLength(4);
-    expect(screen.getByText('FIXTURE READY')).toBeInTheDocument();
+    expect(await screen.findAllByText('ANALYSIS UNAVAILABLE')).toHaveLength(4);
+    expect(screen.getByText('ANALYSIS READY')).toBeInTheDocument();
     expect(screen.getByText(/SYNTHETIC TEST DATA ENABLED/)).toBeInTheDocument();
   });
 
@@ -86,7 +86,7 @@ describe('navigation', () => {
 
   it('lists the case studies and the open data sources on the About page', async () => {
     renderApp('/about');
-    expect(await screen.findAllByText('FIXTURE NOT BUILT YET')).toHaveLength(4);
+    expect(await screen.findAllByText('ANALYSIS UNAVAILABLE')).toHaveLength(4);
     for (const name of ['NISAR L2 GUNW', 'Earthquake catalogue', 'Roads and places']) {
       expect(screen.getByText(name)).toBeInTheDocument();
     }
@@ -94,8 +94,8 @@ describe('navigation', () => {
   });
 });
 
-describe('automatic updates', () => {
-  it('says when automatic checking has not run, and marks automatically added case studies', async () => {
+describe('case study publication', () => {
+  it('marks automatically added case studies without exposing ingestion diagnostics', async () => {
     const auto = {
       ...fixtures.events.events[0]!,
       id: 'japan-2026-07-28',
@@ -119,14 +119,33 @@ describe('automatic updates', () => {
       },
     });
     renderApp('/events');
-    expect(await screen.findByText(/last checked 15 Nov 2026/)).toBeInTheDocument();
-    expect(screen.getByText(/2 earthquakes are waiting for NISAR/)).toBeInTheDocument();
-    expect(screen.getByText(/ADDED AUTOMATICALLY · 15 Nov/)).toBeInTheDocument();
+    expect(await screen.findByText(/ADDED AUTOMATICALLY · 15 Nov/)).toBeInTheDocument();
+    expect(screen.queryByText(/Automatic updates|last checked|scripts\/auto_ingest/)).not.toBeInTheDocument();
   });
 
-  it('reports when automatic checking has never run', async () => {
+  it('shows case studies without server setup messages when ingestion has never run', async () => {
     renderApp('/events');
-    expect(await screen.findByText(/Automatic checking has not run on this server yet/)).toBeInTheDocument();
+    expect(await screen.findByText('ANALYSIS READY')).toBeInTheDocument();
+    expect(screen.queryByText(/Automatic checking|scripts\/auto_ingest/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Case studies published/)).not.toBeInTheDocument();
+  });
+
+  it('shows the publication time without deployment details on the release site', async () => {
+    mockApi({
+      '/api/v1/events': {
+        body: {
+          ...fixtures.events,
+          snapshot: { generated_utc: '2026-11-15T05:12:00Z', commit: '0123456789abcdef' },
+        },
+      },
+    });
+    renderApp('/events');
+    const published = await screen.findByText('15 Nov 2026, 05:12 UTC');
+    expect(published).toHaveAttribute('datetime', '2026-11-15T05:12:00Z');
+    expect(published.parentElement).toHaveTextContent('Case studies published');
+    expect(
+      screen.queryByText(/static snapshot|commit 0123456|next rebuild|on this server|scripts\/auto_ingest/),
+    ).not.toBeInTheDocument();
   });
 });
 

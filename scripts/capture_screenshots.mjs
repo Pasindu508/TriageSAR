@@ -28,11 +28,11 @@ const dashboard = async (id) => {
 
 await page.goto(base + '/about');
 await page.getByRole('heading', { level: 1 }).waitFor();
-await page.getByText('FIXTURE READY').first().waitFor();
+await page.getByText('ANALYSIS READY').first().waitFor();
 await shot('08-about.png', 800);
 
 await page.goto(base + '/events');
-await page.getByText('FIXTURE READY').first().waitFor();
+await page.getByText('ANALYSIS READY').first().waitFor();
 await shot('01-case-studies.png', 1000);
 
 await dashboard('kumamoto-2026-07-28');

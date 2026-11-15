@@ -24,11 +24,11 @@ export function EventCard({ event }: { event: EventSummary }) {
         Interferogram:{' '}
         {ref && sec
           ? `${shortDate(ref.start_utc)} → ${shortDate(sec.start_utc)}`
-          : 'not built on this machine'}
+          : 'Acquisition dates unavailable'}
       </p>
       <span className="chips" style={{ marginTop: 0 }}>
         <span className={`chip ${event.status === 'ready' ? 'chip-valid' : 'chip-warn'}`}>
-          {event.status === 'ready' ? 'FIXTURE READY' : 'FIXTURE NOT BUILT YET'}
+          {event.status === 'ready' ? 'ANALYSIS READY' : 'ANALYSIS UNAVAILABLE'}
         </span>
         {event.added_by === 'auto_ingest' ? (
           <span
