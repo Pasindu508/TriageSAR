@@ -30,7 +30,7 @@ jobs:
           node-version: "24"
           cache: npm
           cache-dependency-path: apps/web/package-lock.json
-      - run: pip install -e .
+      - run: pip install -e ".[dev]"  # the exporter uses FastAPI's TestClient
       - run: npm ci
         working-directory: apps/web
       - name: Verify fixtures
