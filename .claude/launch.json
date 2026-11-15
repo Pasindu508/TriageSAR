@@ -1,0 +1,32 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "triagesar-dev-synthetic",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": [
+        "-c",
+        "TRIAGESAR_INCLUDE_SYNTHETIC=1 .venv/bin/uvicorn app.main:app --app-dir apps/api --port 8000"
+      ],
+      "port": 8000
+    },
+    {
+      "name": "triagesar-demo",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": [
+        "-c",
+        ".venv/bin/python -m uvicorn app.main:app --app-dir apps/api --port 8001"
+      ],
+      "port": 8001
+    },
+    {
+      "name": "triagesar",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": [
+        "-c",
+        "env -u TRIAGESAR_INCLUDE_SYNTHETIC .venv/bin/python -m uvicorn app.main:app --app-dir apps/api --host 127.0.0.1 --port 8000 --workers 1"
+      ],
+      "port": 8000
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+ "schema_version": "1.0",
+ "app_version": "0.1.0",
+ "event": {
+  "id": "synthetic-test-event",
+  "title": "SYNTHETIC TEST EVENT (not real)",
+  "summary": "TEST ONLY - synthetic values, not NASA observations. Used for automated tests and UI development.",
+  "data_kind": "synthetic_test",
+  "data_label": "SYNTHETIC TEST DATA - not NASA observations",
+  "status": "ready",
+  "status_message": "Fixture and road extract are available.",
+  "build_command": null,
+  "event_time_utc": null,
+  "event_source_name": null,
+  "event_source_url": null,
+  "bbox_wgs84": [
+   0.02,
+   0.02,
+   0.33,
+   0.25
+  ],
+  "granule_id": "TEST_ONLY_SYNTHETIC_GUNW_NOT_A_NASA_PRODUCT",
+  "acquisitions": [
+   {
+    "role": "reference",
+    "start_utc": "2000-01-01T00:00:00.000000000",
+    "end_utc": "2000-01-01T00:00:30.000000000"
+   },
+   {
+    "role": "secondary",
+    "start_utc": "2000-01-13T00:00:00.000000000",
+    "end_utc": "2000-01-13T00:00:30.000000000"
+   }
+  ],
+  "epicentres": [],
+  "place": null,
+  "magnitude": null,
+  "acquisition_dates": [],
+  "acquisition_dates_source": null,
+  "added_by": "test",
+  "added_on": null
+ },
+ "notes": [],
+ "disclaimer": "This is not a damage assessment. Satellite-observed ground motion does not show whether a road, bridge or structure is damaged; the location is prioritised for human field inspection only.",
+ "zone_count": 2,
+ "queue_length": 4,
+ "quality": {
+  "total_pixels": 133610,
+  "counts": {
+   "EXCLUDED": 8213,
+   "CAUTION": 4341,
+   "VALID": 121056
+  },
+  "fractions": {
+   "EXCLUDED": 0.06146994985405284,
+   "CAUTION": 0.03249008307761395,
+   "VALID": 0.9060399670683332
+  },
+  "reason_counts": {
+   "PHASE_MISSING": 0,
+   "COHERENCE_MISSING": 0,
+   "LOW_COHERENCE": 3573,
+   "UNWRAP_COMPONENT_ZERO": 3428,
+   "PRODUCT_MASK": 4640,
+   "MODERATE_COHERENCE": 3441,
+   "SMALL_COMPONENT": 900
+  },
+  "reason_text": {
+   "PHASE_MISSING": "no unwrapped phase value in the product",
+   "COHERENCE_MISSING": "no coherence value in the product",
+   "LOW_COHERENCE": "coherence below the exclusion threshold",
+   "UNWRAP_COMPONENT_ZERO": "not assigned to a reliable unwrapped region (connected component 0)",
+   "PRODUCT_MASK": "flagged by the product's own mask layer",
+   "MODERATE_COHERENCE": "coherence between the exclusion and caution thresholds",
+   "SMALL_COMPONENT": "belongs to a small isolated unwrapped region"
+  },
+  "unwrapped_region_count": 2,
+  "largest_region_pixels": 129282,
+  "masking_applied": true,
+  "product_mask_used": true,
+  "product_mask_note": "product mask decoded as water flag / reference sub-swath / secondary sub-swath: 0 fill, 4640 water and 0 invalid-sample pixels are flagged; 100 pixels carry acquisition anomaly bits and 0 carry the ionosphere-interpolation bit (reported, not excluded)"
+ },
+ "radar": {
+  "wavelength_m": 0.2398339664,
+  "center_frequency_hz": 1250000000.0,
+  "derivation": "center_frequency",
+  "source_hdf5_path": "/science/LSAR/GUNW/grids/frequencyA/centerFrequency",
+  "frequency": "A",
+  "polarisation": "HH",
+  "metres_per_fringe": 0.1199169832,
+  "equation": "delta_r [m] = wavelength [m] * unwrapped_phase [rad] / (4 * pi)",
+  "sign_convention": "Positive LOS range change = ground moved away from the satellite along the radar line of sight between the reference (earlier) and secondary (later) acquisition."
+ },
+ "reference": {
+  "method": "local_plane",
+  "quantity": "local LOS range change",
+  "description": "For zones and ranking, each pixel is compared with a plane fitted to the usable pixels of the same unwrapped region within a 4.1 km window around it, so the values measure motion that differs from the surroundings, not motion shared by the whole area.",
+  "window_m": 4080.0,
+  "unreferenced_pixels": 1,
+  "scene_description": "The motion layer on the map shows LOS range change relative to the median of the same unwrapped region over the whole study area.",
+  "component_reference_m": {
+   "1": 0.8547908244522783,
+   "2": 1.4897282479232303
+  }
+ },
+ "threshold": {
+  "threshold_m": 0.03,
+  "floor_m": 0.03,
+  "robust_sigma_m": 0.0033405382325751003,
+  "mad_m": 0.0022531621695501824,
+  "multiplier": 3.0,
+  "rule": "|local LOS range change| >= max(0.03 m, 3 x 1.4826 x MAD)",
+  "binding": "floor",
+  "note": "Screening rule, not a physical truth. The floor and the multiplier were fixed before any real data were inspected; the local reference was adopted after the first real run (see docs/UNCERTAINTY.md)."
+ },
+ "sensitivity": {
+  "runs": 212,
+  "perturbation_fraction": 0.2,
+  "top1_changed_fraction": 0.3632075471698113,
+  "unstable": true,
+  "spearman_min": 0.8,
+  "spearman_median": 1.0,
+  "unstable_threshold": 0.2,
+  "description": "Each weight was perturbed by up to \u00b120% (one at a time and in 200 seeded random draws), renormalised, and the queue re-ranked."
+ },
+ "road_coverage": {
+  "road_count": 7,
+  "road_pixels": 1459,
+  "valid_pixels": 1176,
+  "caution_pixels": 174,
+  "excluded_pixels": 109,
+  "excluded_fraction": 0.07470870459218643,
+  "note": "Share of road-crossed pixels with no usable radar observation. These roads are unobserved, not cleared."
+ },
+ "weights": {
+  "displacement_magnitude": 0.35,
+  "overlap_extent": 0.15,
+  "valid_fraction": 0.15,
+  "coherence": 0.1,
+  "proximity": 0.15,
+  "road_class": 0.1
+ },
+ "corrections": {
+  "available_layers": [
+   "/science/LSAR/GUNW/grids/frequencyA/unwrappedInterferogram/HH/ionospherePhaseScreen",
+   "/science/LSAR/GUNW/metadata/radarGrid/slantRangeSolidEarthTidesPhase",
+   "/science/LSAR/GUNW/metadata/radarGrid/wetTroposphericPhaseScreen"
+  ],
+  "applied": [],
+  "statement": "TriageSAR applies no ionospheric, tropospheric or solid-Earth-tide correction to the unwrapped phase. Correction layers listed as available ship with the product and are left untouched."
+ },
+ "caveats": [
+  "Line-of-sight (LOS) range change is a one-dimensional projection of ground motion onto the radar viewing direction. Full 3-D motion is not recovered from a single interferogram.",
+  "All values are relative, never absolute displacements, and they are not ground truth. The map colours show motion relative to the median of each unwrapped region in the study area; zones and ranking use the reference described under Methodology.",
+  "No ionospheric, tropospheric or solid-Earth-tide correction has been applied by TriageSAR.",
+  "Excluded pixels are unobserved, not unmoved. Vegetation, steep terrain, water and rapid surface change reduce radar coherence.",
+  "Ground motion is not infrastructure damage. The queue prioritises human field inspection; it is not a substitute for engineering assessment."
+ ],
+ "infrastructure": {
+  "highway_classes": [
+   "motorway",
+   "trunk",
+   "primary",
+   "secondary",
+   "tertiary"
+  ],
+  "corridor_buffer_m": 250.0,
+  "proximity_limit_m": 1000.0
+ },
+ "provenance_summary": {
+  "event_id": "synthetic-test-event",
+  "data_kind": "synthetic_test",
+  "granule_id": "TEST_ONLY_SYNTHETIC_GUNW_NOT_A_NASA_PRODUCT",
+  "collection": null,
+  "provider": null,
+  "product_version": "0.0-TEST",
+  "software_version": "0.0-TEST",
+  "processing_datetime": "2000-01-14T00:00:00",
+  "reference_start_utc": "2000-01-01T00:00:00.000000000",
+  "secondary_start_utc": "2000-01-13T00:00:00.000000000",
+  "orbit_pass_direction": "Ascending",
+  "track_number": 1,
+  "frame_number": 1,
+  "fixture_command": "tests.support.synthetic.build_synthetic_event",
+  "fixture_built_at_utc": "2026-11-15T02:36:21Z",
+  "application_version": "0.1.0"
+ }
+}

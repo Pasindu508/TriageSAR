@@ -1,0 +1,600 @@
+{
+ "schema_version": "1.0",
+ "app_version": "0.1.0",
+ "event_id": "synthetic-test-event",
+ "score_label": "Inspection priority score",
+ "disclaimer": "This is not a damage assessment. Satellite-observed ground motion does not show whether a road, bridge or structure is damaged; the location is prioritised for human field inspection only.",
+ "total": 4,
+ "offset": 0,
+ "limit": 200,
+ "weights": {
+  "displacement_magnitude": 0.35,
+  "overlap_extent": 0.15,
+  "valid_fraction": 0.15,
+  "coherence": 0.1,
+  "proximity": 0.15,
+  "road_class": 0.1
+ },
+ "sensitivity": {
+  "runs": 212,
+  "perturbation_fraction": 0.2,
+  "top1_changed_fraction": 0.3632075471698113,
+  "unstable": true,
+  "spearman_min": 0.8,
+  "spearman_median": 1.0,
+  "unstable_threshold": 0.2,
+  "description": "Each weight was perturbed by up to \u00b120% (one at a time and in 200 seeded random draws), renormalised, and the queue re-ranked."
+ },
+ "items": [
+  {
+   "id": "synthetic-test-event--z02-r001",
+   "event_id": "synthetic-test-event",
+   "rank": 1,
+   "zone_id": "Z02",
+   "asset_type": "road",
+   "asset_name": "TEST Road Charlie (T2)",
+   "name_source": "osm:name",
+   "highway_class": "trunk",
+   "osm_way_ids": [
+    900007
+   ],
+   "relation": "overlaps",
+   "overlap_length_m": 1203.8,
+   "distance_m": 0.0,
+   "bridge_tagged_length_m": 0.0,
+   "evidence_quality": "VALID",
+   "score": 78.07,
+   "components": [
+    {
+     "name": "displacement_magnitude",
+     "label": "Observed LOS motion at the road",
+     "value": 0.7254,
+     "weight": 0.35,
+     "points": 25.39,
+     "raw_value": 0.08032481667164144,
+     "raw_unit": "m",
+     "basis": "90th percentile of |local LOS range change| in the road corridor, divided by the largest such value among all candidates in this event (0.111 m)"
+    },
+    {
+     "name": "overlap_extent",
+     "label": "Length of road inside the zone",
+     "value": 0.5149,
+     "weight": 0.15,
+     "points": 7.72,
+     "raw_value": 1203.7739470848298,
+     "raw_unit": "m",
+     "basis": "road length inside the zone, divided by the longest such overlap in this event (2338 m)"
+    },
+    {
+     "name": "valid_fraction",
+     "label": "Share of valid radar pixels",
+     "value": 0.859,
+     "weight": 0.15,
+     "points": 12.88,
+     "raw_value": 0.8589743589743589,
+     "raw_unit": "fraction",
+     "basis": "share of corridor pixels classified VALID"
+    },
+    {
+     "name": "coherence",
+     "label": "Median coherence",
+     "value": 0.8074,
+     "weight": 0.1,
+     "points": 8.07,
+     "raw_value": 0.8074468374252319,
+     "raw_unit": "coherence",
+     "basis": "median interferometric coherence of corridor pixels"
+    },
+    {
+     "name": "proximity",
+     "label": "Closeness to the deformation zone",
+     "value": 1.0,
+     "weight": 0.15,
+     "points": 15.0,
+     "raw_value": 0.0,
+     "raw_unit": "m",
+     "basis": "1 when the road crosses the zone, otherwise 1 - distance / 1000 m"
+    },
+    {
+     "name": "road_class",
+     "label": "Road class (OSM highway tag)",
+     "value": 0.9,
+     "weight": 0.1,
+     "points": 9.0,
+     "raw_value": null,
+     "raw_unit": "trunk",
+     "basis": "configured value for the OSM highway class (network role, not criticality)"
+    }
+   ],
+   "corridor": {
+    "buffer_m": 250.0,
+    "pixel_count": 156,
+    "valid_pixels": 134,
+    "caution_pixels": 0,
+    "excluded_pixels": 22,
+    "valid_fraction": 0.8589743589743589,
+    "usable_fraction": 0.8589743589743589,
+    "median_los_m": -0.06010739588716962,
+    "p90_abs_los_m": 0.08032481667164144,
+    "max_abs_los_m": 0.0904552176598793,
+    "iqr_los_m": 0.03756276946494844,
+    "scene_median_los_m": -0.1862836212852374,
+    "coherence_summary": {
+     "min": 0.09031184017658234,
+     "p25": 0.7700639814138412,
+     "median": 0.8074468374252319,
+     "p75": 0.8455769419670105,
+     "max": 0.9615685343742371
+    }
+   },
+   "stability": {
+    "min_rank": 1,
+    "max_rank": 2,
+    "stable": true
+   },
+   "explanation": {
+    "short_reason": "1.2 km of road inside deformation zone Z02; up to 8.0 cm local LOS motion (90th percentile) along the corridor.",
+    "summary": "Radar-observed surface motion forms a contiguous zone that crosses 1.2 km of this road. Radar quality is VALID over 86% of the 250 m corridor (14% excluded); evidence quality: VALID. This is not a damage assessment. Satellite-observed ground motion does not show whether a road, bridge or structure is damaged; the location is prioritised for human field inspection only.",
+    "why_ranked": [
+     "Inspection priority score 78.1 / 100 puts this road at rank 1. The score is the weighted sum of six visible factors:",
+     "Observed LOS motion at the road: value 0.73 x weight 0.35 = 25.4 points (90th percentile of |local LOS range change| in the road corridor, divided by the largest such value among all candidates in this event (0.111 m)).",
+     "Length of road inside the zone: value 0.51 x weight 0.15 = 7.7 points (road length inside the zone, divided by the longest such overlap in this event (2338 m)).",
+     "Share of valid radar pixels: value 0.86 x weight 0.15 = 12.9 points (share of corridor pixels classified VALID).",
+     "Median coherence: value 0.81 x weight 0.10 = 8.1 points (median interferometric coherence of corridor pixels).",
+     "Closeness to the deformation zone: value 1.00 x weight 0.15 = 15.0 points (1 when the road crosses the zone, otherwise 1 - distance / 1000 m).",
+     "Road class (OSM highway tag): value 0.90 x weight 0.10 = 9.0 points (configured value for the OSM highway class (network role, not criticality))."
+    ],
+    "caveats": [
+     "Values are line-of-sight range change, a 1-D projection of the true 3-D motion. For zones and ranking, each pixel is compared with a plane fitted to the usable pixels of the same unwrapped region within a 4.1 km window around it, so the values measure motion that differs from the surroundings, not motion shared by the whole area.",
+     "22 of 156 corridor pixels are excluded; absence of observed motion there does not mean absence of motion."
+    ],
+    "disclaimer": "This is not a damage assessment. Satellite-observed ground motion does not show whether a road, bridge or structure is damaged; the location is prioritised for human field inspection only."
+   },
+   "marker_lonlat": [
+    0.247163,
+    0.110973
+   ],
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      0.247163,
+      0.110973
+     ],
+     [
+      0.257934,
+      0.111835
+     ]
+    ]
+   }
+  },
+  {
+   "id": "synthetic-test-event--z01-r001",
+   "event_id": "synthetic-test-event",
+   "rank": 2,
+   "zone_id": "Z01",
+   "asset_type": "road",
+   "asset_name": "TEST Road Alpha (T1)",
+   "name_source": "osm:name",
+   "highway_class": "primary",
+   "osm_way_ids": [
+    900001,
+    900002
+   ],
+   "relation": "overlaps",
+   "overlap_length_m": 2337.8,
+   "distance_m": 0.0,
+   "bridge_tagged_length_m": 0.0,
+   "evidence_quality": "CAUTION",
+   "score": 77.28,
+   "components": [
+    {
+     "name": "displacement_magnitude",
+     "label": "Observed LOS motion at the road",
+     "value": 1.0,
+     "weight": 0.35,
+     "points": 35.0,
+     "raw_value": 0.11073627135399063,
+     "raw_unit": "m",
+     "basis": "90th percentile of |local LOS range change| in the road corridor, divided by the largest such value among all candidates in this event (0.111 m)"
+    },
+    {
+     "name": "overlap_extent",
+     "label": "Length of road inside the zone",
+     "value": 1.0,
+     "weight": 0.15,
+     "points": 15.0,
+     "raw_value": 2337.767181247106,
+     "raw_unit": "m",
+     "basis": "road length inside the zone, divided by the longest such overlap in this event (2338 m)"
+    },
+    {
+     "name": "valid_fraction",
+     "label": "Share of valid radar pixels",
+     "value": 0.0038,
+     "weight": 0.15,
+     "points": 0.06,
+     "raw_value": 0.003816793893129771,
+     "raw_unit": "fraction",
+     "basis": "share of corridor pixels classified VALID"
+    },
+    {
+     "name": "coherence",
+     "label": "Median coherence",
+     "value": 0.4226,
+     "weight": 0.1,
+     "points": 4.23,
+     "raw_value": 0.42255671322345734,
+     "raw_unit": "coherence",
+     "basis": "median interferometric coherence of corridor pixels"
+    },
+    {
+     "name": "proximity",
+     "label": "Closeness to the deformation zone",
+     "value": 1.0,
+     "weight": 0.15,
+     "points": 15.0,
+     "raw_value": 0.0,
+     "raw_unit": "m",
+     "basis": "1 when the road crosses the zone, otherwise 1 - distance / 1000 m"
+    },
+    {
+     "name": "road_class",
+     "label": "Road class (OSM highway tag)",
+     "value": 0.8,
+     "weight": 0.1,
+     "points": 8.0,
+     "raw_value": null,
+     "raw_unit": "primary",
+     "basis": "configured value for the OSM highway class (network role, not criticality)"
+    }
+   ],
+   "corridor": {
+    "buffer_m": 250.0,
+    "pixel_count": 262,
+    "valid_pixels": 1,
+    "caution_pixels": 261,
+    "excluded_pixels": 0,
+    "valid_fraction": 0.003816793893129771,
+    "usable_fraction": 1.0,
+    "median_los_m": 0.06519152805559181,
+    "p90_abs_los_m": 0.11073627135399063,
+    "max_abs_los_m": 0.1267107719198255,
+    "iqr_los_m": 0.0510446644138457,
+    "scene_median_los_m": 0.24943842019073048,
+    "coherence_summary": {
+     "min": 0.32737329602241516,
+     "p25": 0.4035199135541916,
+     "median": 0.42255671322345734,
+     "p75": 0.4429309293627739,
+     "max": 0.503506600856781
+    }
+   },
+   "stability": {
+    "min_rank": 1,
+    "max_rank": 3,
+    "stable": false
+   },
+   "explanation": {
+    "short_reason": "2.3 km of road inside deformation zone Z01; up to 11.1 cm local LOS motion (90th percentile) along the corridor.",
+    "summary": "Radar-observed surface motion forms a contiguous zone that crosses 2.3 km of this road. Radar quality is VALID over 0% of the 250 m corridor (0% excluded); evidence quality: CAUTION. This is not a damage assessment. Satellite-observed ground motion does not show whether a road, bridge or structure is damaged; the location is prioritised for human field inspection only.",
+    "why_ranked": [
+     "Inspection priority score 77.3 / 100 puts this road at rank 2. The score is the weighted sum of six visible factors:",
+     "Observed LOS motion at the road: value 1.00 x weight 0.35 = 35.0 points (90th percentile of |local LOS range change| in the road corridor, divided by the largest such value among all candidates in this event (0.111 m)).",
+     "Length of road inside the zone: value 1.00 x weight 0.15 = 15.0 points (road length inside the zone, divided by the longest such overlap in this event (2338 m)).",
+     "Share of valid radar pixels: value 0.00 x weight 0.15 = 0.1 points (share of corridor pixels classified VALID).",
+     "Median coherence: value 0.42 x weight 0.10 = 4.2 points (median interferometric coherence of corridor pixels).",
+     "Closeness to the deformation zone: value 1.00 x weight 0.15 = 15.0 points (1 when the road crosses the zone, otherwise 1 - distance / 1000 m).",
+     "Road class (OSM highway tag): value 0.80 x weight 0.10 = 8.0 points (configured value for the OSM highway class (network role, not criticality))."
+    ],
+    "caveats": [
+     "Values are line-of-sight range change, a 1-D projection of the true 3-D motion. For zones and ranking, each pixel is compared with a plane fitted to the usable pixels of the same unwrapped region within a 4.1 km window around it, so the values measure motion that differs from the surroundings, not motion shared by the whole area.",
+     "Radar quality along this corridor is limited; treat the measured motion with caution."
+    ],
+    "disclaimer": "This is not a damage assessment. Satellite-observed ground motion does not show whether a road, bridge or structure is damaged; the location is prioritised for human field inspection only."
+   },
+   "marker_lonlat": [
+    0.134415,
+    0.189302
+   ],
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      0.113593,
+      0.186699
+     ],
+     [
+      0.134415,
+      0.189302
+     ]
+    ]
+   }
+  },
+  {
+   "id": "synthetic-test-event--z02-r002",
+   "event_id": "synthetic-test-event",
+   "rank": 3,
+   "zone_id": "Z02",
+   "asset_type": "road",
+   "asset_name": "TEST Road Bravo",
+   "name_source": "osm:name",
+   "highway_class": "secondary",
+   "osm_way_ids": [
+    900003
+   ],
+   "relation": "overlaps",
+   "overlap_length_m": 1183.6,
+   "distance_m": 0.0,
+   "bridge_tagged_length_m": 0.0,
+   "evidence_quality": "VALID",
+   "score": 73.37,
+   "components": [
+    {
+     "name": "displacement_magnitude",
+     "label": "Observed LOS motion at the road",
+     "value": 0.6977,
+     "weight": 0.35,
+     "points": 24.42,
+     "raw_value": 0.07725933704171987,
+     "raw_unit": "m",
+     "basis": "90th percentile of |local LOS range change| in the road corridor, divided by the largest such value among all candidates in this event (0.111 m)"
+    },
+    {
+     "name": "overlap_extent",
+     "label": "Length of road inside the zone",
+     "value": 0.5063,
+     "weight": 0.15,
+     "points": 7.59,
+     "raw_value": 1183.6057497858426,
+     "raw_unit": "m",
+     "basis": "road length inside the zone, divided by the longest such overlap in this event (2338 m)"
+    },
+    {
+     "name": "valid_fraction",
+     "label": "Share of valid radar pixels",
+     "value": 0.8153,
+     "weight": 0.15,
+     "points": 12.23,
+     "raw_value": 0.8152866242038217,
+     "raw_unit": "fraction",
+     "basis": "share of corridor pixels classified VALID"
+    },
+    {
+     "name": "coherence",
+     "label": "Median coherence",
+     "value": 0.8132,
+     "weight": 0.1,
+     "points": 8.13,
+     "raw_value": 0.813178300857544,
+     "raw_unit": "coherence",
+     "basis": "median interferometric coherence of corridor pixels"
+    },
+    {
+     "name": "proximity",
+     "label": "Closeness to the deformation zone",
+     "value": 1.0,
+     "weight": 0.15,
+     "points": 15.0,
+     "raw_value": 0.0,
+     "raw_unit": "m",
+     "basis": "1 when the road crosses the zone, otherwise 1 - distance / 1000 m"
+    },
+    {
+     "name": "road_class",
+     "label": "Road class (OSM highway tag)",
+     "value": 0.6,
+     "weight": 0.1,
+     "points": 6.0,
+     "raw_value": null,
+     "raw_unit": "secondary",
+     "basis": "configured value for the OSM highway class (network role, not criticality)"
+    }
+   ],
+   "corridor": {
+    "buffer_m": 250.0,
+    "pixel_count": 157,
+    "valid_pixels": 128,
+    "caution_pixels": 0,
+    "excluded_pixels": 29,
+    "valid_fraction": 0.8152866242038217,
+    "usable_fraction": 0.8152866242038217,
+    "median_los_m": -0.05564347757879601,
+    "p90_abs_los_m": 0.07725933704171987,
+    "max_abs_los_m": 0.0904552176598793,
+    "iqr_los_m": 0.028011978284774114,
+    "scene_median_los_m": -0.1846568674974262,
+    "coherence_summary": {
+     "min": 0.09031184017658234,
+     "p25": 0.7594440579414368,
+     "median": 0.813178300857544,
+     "p75": 0.850777268409729,
+     "max": 0.9684996604919434
+    }
+   },
+   "stability": {
+    "min_rank": 2,
+    "max_rank": 3,
+    "stable": true
+   },
+   "explanation": {
+    "short_reason": "1.2 km of road inside deformation zone Z02; up to 7.7 cm local LOS motion (90th percentile) along the corridor.",
+    "summary": "Radar-observed surface motion forms a contiguous zone that crosses 1.2 km of this road. Radar quality is VALID over 82% of the 250 m corridor (18% excluded); evidence quality: VALID. This is not a damage assessment. Satellite-observed ground motion does not show whether a road, bridge or structure is damaged; the location is prioritised for human field inspection only.",
+    "why_ranked": [
+     "Inspection priority score 73.4 / 100 puts this road at rank 3. The score is the weighted sum of six visible factors:",
+     "Observed LOS motion at the road: value 0.70 x weight 0.35 = 24.4 points (90th percentile of |local LOS range change| in the road corridor, divided by the largest such value among all candidates in this event (0.111 m)).",
+     "Length of road inside the zone: value 0.51 x weight 0.15 = 7.6 points (road length inside the zone, divided by the longest such overlap in this event (2338 m)).",
+     "Share of valid radar pixels: value 0.82 x weight 0.15 = 12.2 points (share of corridor pixels classified VALID).",
+     "Median coherence: value 0.81 x weight 0.10 = 8.1 points (median interferometric coherence of corridor pixels).",
+     "Closeness to the deformation zone: value 1.00 x weight 0.15 = 15.0 points (1 when the road crosses the zone, otherwise 1 - distance / 1000 m).",
+     "Road class (OSM highway tag): value 0.60 x weight 0.10 = 6.0 points (configured value for the OSM highway class (network role, not criticality))."
+    ],
+    "caveats": [
+     "Values are line-of-sight range change, a 1-D projection of the true 3-D motion. For zones and ranking, each pixel is compared with a plane fitted to the usable pixels of the same unwrapped region within a 4.1 km window around it, so the values measure motion that differs from the surroundings, not motion shared by the whole area.",
+     "29 of 157 corridor pixels are excluded; absence of observed motion there does not mean absence of motion."
+    ],
+    "disclaimer": "This is not a damage assessment. Satellite-observed ground motion does not show whether a road, bridge or structure is damaged; the location is prioritised for human field inspection only."
+   },
+   "marker_lonlat": [
+    0.257934,
+    0.114876
+   ],
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      0.252908,
+      0.105453
+     ],
+     [
+      0.257934,
+      0.114876
+     ]
+    ]
+   }
+  },
+  {
+   "id": "synthetic-test-event--z02-r003",
+   "event_id": "synthetic-test-event",
+   "rank": 4,
+   "zone_id": "Z02",
+   "asset_type": "road",
+   "asset_name": "Unnamed tertiary road (OSM way 900008)",
+   "name_source": "unnamed",
+   "highway_class": "tertiary",
+   "osm_way_ids": [
+    900008
+   ],
+   "relation": "near",
+   "overlap_length_m": 0.0,
+   "distance_m": 574.2,
+   "bridge_tagged_length_m": 0.0,
+   "evidence_quality": "VALID",
+   "score": 35.54,
+   "components": [
+    {
+     "name": "displacement_magnitude",
+     "label": "Observed LOS motion at the road",
+     "value": 0.1484,
+     "weight": 0.35,
+     "points": 5.19,
+     "raw_value": 0.01642912716286926,
+     "raw_unit": "m",
+     "basis": "90th percentile of |local LOS range change| in the road corridor, divided by the largest such value among all candidates in this event (0.111 m)"
+    },
+    {
+     "name": "overlap_extent",
+     "label": "Length of road inside the zone",
+     "value": 0.0,
+     "weight": 0.15,
+     "points": 0.0,
+     "raw_value": 0.0,
+     "raw_unit": "m",
+     "basis": "road length inside the zone, divided by the longest such overlap in this event (2338 m)"
+    },
+    {
+     "name": "valid_fraction",
+     "label": "Share of valid radar pixels",
+     "value": 0.7917,
+     "weight": 0.15,
+     "points": 11.87,
+     "raw_value": 0.7916666666666666,
+     "raw_unit": "fraction",
+     "basis": "share of corridor pixels classified VALID"
+    },
+    {
+     "name": "coherence",
+     "label": "Median coherence",
+     "value": 0.8085,
+     "weight": 0.1,
+     "points": 8.08,
+     "raw_value": 0.808451384305954,
+     "raw_unit": "coherence",
+     "basis": "median interferometric coherence of corridor pixels"
+    },
+    {
+     "name": "proximity",
+     "label": "Closeness to the deformation zone",
+     "value": 0.4258,
+     "weight": 0.15,
+     "points": 6.39,
+     "raw_value": 574.1791642706357,
+     "raw_unit": "m",
+     "basis": "1 when the road crosses the zone, otherwise 1 - distance / 1000 m"
+    },
+    {
+     "name": "road_class",
+     "label": "Road class (OSM highway tag)",
+     "value": 0.4,
+     "weight": 0.1,
+     "points": 4.0,
+     "raw_value": null,
+     "raw_unit": "tertiary",
+     "basis": "configured value for the OSM highway class (network role, not criticality)"
+    }
+   ],
+   "corridor": {
+    "buffer_m": 250.0,
+    "pixel_count": 216,
+    "valid_pixels": 171,
+    "caution_pixels": 0,
+    "excluded_pixels": 45,
+    "valid_fraction": 0.7916666666666666,
+    "usable_fraction": 0.7916666666666666,
+    "median_los_m": 0.011713292540620257,
+    "p90_abs_los_m": 0.01642912716286926,
+    "max_abs_los_m": 0.02295235111920224,
+    "iqr_los_m": 0.0061606613792454246,
+    "scene_median_los_m": -0.12418682390339575,
+    "coherence_summary": {
+     "min": 0.10799775272607803,
+     "p25": 0.7460664957761765,
+     "median": 0.808451384305954,
+     "p75": 0.8501321226358414,
+     "max": 0.938073456287384
+    }
+   },
+   "stability": {
+    "min_rank": 4,
+    "max_rank": 4,
+    "stable": true
+   },
+   "explanation": {
+    "short_reason": "574 m from deformation zone Z02; up to 1.6 cm local LOS motion (90th percentile) along the corridor.",
+    "summary": "A contiguous zone of radar-observed surface motion lies 574 m from this road. Radar quality is VALID over 79% of the 250 m corridor (21% excluded); evidence quality: VALID. This is not a damage assessment. Satellite-observed ground motion does not show whether a road, bridge or structure is damaged; the location is prioritised for human field inspection only.",
+    "why_ranked": [
+     "Inspection priority score 35.5 / 100 puts this road at rank 4. The score is the weighted sum of six visible factors:",
+     "Observed LOS motion at the road: value 0.15 x weight 0.35 = 5.2 points (90th percentile of |local LOS range change| in the road corridor, divided by the largest such value among all candidates in this event (0.111 m)).",
+     "Length of road inside the zone: value 0.00 x weight 0.15 = 0.0 points (road length inside the zone, divided by the longest such overlap in this event (2338 m)).",
+     "Share of valid radar pixels: value 0.79 x weight 0.15 = 11.9 points (share of corridor pixels classified VALID).",
+     "Median coherence: value 0.81 x weight 0.10 = 8.1 points (median interferometric coherence of corridor pixels).",
+     "Closeness to the deformation zone: value 0.43 x weight 0.15 = 6.4 points (1 when the road crosses the zone, otherwise 1 - distance / 1000 m).",
+     "Road class (OSM highway tag): value 0.40 x weight 0.10 = 4.0 points (configured value for the OSM highway class (network role, not criticality))."
+    ],
+    "caveats": [
+     "Values are line-of-sight range change, a 1-D projection of the true 3-D motion. For zones and ranking, each pixel is compared with a plane fitted to the usable pixels of the same unwrapped region within a 4.1 km window around it, so the values measure motion that differs from the surroundings, not motion shared by the whole area.",
+     "45 of 216 corridor pixels are excluded; absence of observed motion there does not mean absence of motion.",
+     "This road has no name or reference tag in OpenStreetMap."
+    ],
+    "disclaimer": "This is not a damage assessment. Satellite-observed ground motion does not show whether a road, bridge or structure is damaged; the location is prioritised for human field inspection only."
+   },
+   "marker_lonlat": [
+    0.242496,
+    0.1
+   ],
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      0.242496,
+      0.1
+     ],
+     [
+      0.260448,
+      0.1
+     ]
+    ]
+   }
+  }
+ ]
+}

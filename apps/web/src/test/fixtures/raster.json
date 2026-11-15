@@ -1,0 +1,80 @@
+{
+ "schema_version": "1.0",
+ "app_version": "0.1.0",
+ "event_id": "synthetic-test-event",
+ "displacement_url": "/api/v1/events/synthetic-test-event/raster/displacement.png",
+ "quality_url": "/api/v1/events/synthetic-test-event/raster/quality.png",
+ "local_url": "/api/v1/events/synthetic-test-event/raster/local.png",
+ "local_colour_limit_m": 0.03,
+ "local_note": "For zones and ranking, each pixel is compared with a plane fitted to the usable pixels of the same unwrapped region within a 4.1 km window around it, so the values measure motion that differs from the surroundings, not motion shared by the whole area.",
+ "coordinates": [
+  [
+   0.0202411,
+   0.2497944
+  ],
+  [
+   0.3297185,
+   0.2497944
+  ],
+  [
+   0.3297185,
+   0.0259638
+  ],
+  [
+   0.0202411,
+   0.0259638
+  ]
+ ],
+ "width": 430,
+ "height": 311,
+ "colour_limit_m": 0.2936815714537611,
+ "colour_scale": "Symmetric about zero; limit = 98th percentile of the absolute value over usable pixels, per layer.",
+ "display_note": "Display images are resampled (nearest neighbour) to Web Mercator. Analysis uses the native grid only.",
+ "grid": {
+  "crs_name": "WGS 84 / UTM zone 31N",
+  "epsg": 32631,
+  "width": 431,
+  "height": 310,
+  "pixel_size_x_m": 80.0,
+  "pixel_size_y_m": 80.0,
+  "pixel_area_m2": 6400.0,
+  "bounds_wgs84": [
+   0.020241,
+   0.025659,
+   0.329753,
+   0.249794
+  ]
+ },
+ "legend": [
+  {
+   "key": "away",
+   "label": "Range increase",
+   "description": "Ground moved away from the satellite (relative).",
+   "encoding": "orange, opacity grows with magnitude"
+  },
+  {
+   "key": "towards",
+   "label": "Range decrease",
+   "description": "Ground moved towards the satellite (relative).",
+   "encoding": "blue, opacity grows with magnitude"
+  },
+  {
+   "key": "caution",
+   "label": "CAUTION",
+   "description": "Usable but weaker radar evidence.",
+   "encoding": "yellow dots"
+  },
+  {
+   "key": "excluded",
+   "label": "EXCLUDED",
+   "description": "No usable observation. Unobserved, not unmoved.",
+   "encoding": "grey diagonal hatching"
+  },
+  {
+   "key": "zone",
+   "label": "Deformation zone",
+   "description": "Contiguous quality-approved pixels above the screening threshold.",
+   "encoding": "white outline with zone number"
+  }
+ ]
+}

@@ -1,0 +1,212 @@
+{
+  "manifest_version": "1.0",
+  "data_kind": "nasa_nisar_gunw",
+  "event": {
+    "id": "panama-2026-10-09",
+    "title": "Azuero Peninsula earthquake, Panama, 9 October 2026",
+    "summary": "Co-event NISAR L-band interferogram (2026-10-05 to 2026-10-17) over Azuero Peninsula, Panama, spanning the M 7.7 earthquake.",
+    "event_time_utc": "2026-10-09T17:56:05Z",
+    "event_source_name": "USGS Earthquake Hazards Program, event us6000u18k (M 7.7 mww, 10 km WSW of Pitaloza Arriba, Panama)",
+    "event_source_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u18k",
+    "notes": [
+      "Epicentre of us6000u18k (USGS): 7.6069 N, 80.7566 W, depth 10 km. Catalogue values retrieved 15 November 2026 and may be revised by USGS."
+    ]
+  },
+  "source": {
+    "granule_id": "NISAR_L2_PR_GUNW_032_076_A_005_033_4000_SH_20261005T105604_20261005T105616_20261017T105604_20261017T105616_P05023_N_P_J_001",
+    "file_name": "NISAR_L2_PR_GUNW_032_076_A_005_033_4000_SH_20261005T105604_20261005T105616_20261017T105604_20261017T105616_P05023_N_P_J_001.h5",
+    "collection": "NISAR_L2_GUNW_PROVISIONAL_V1",
+    "concept_id": "C2854335566-ASF",
+    "provider": "NASA Alaska Satellite Facility DAAC (ASF)",
+    "download_url": "https://nisar.asf.earthdatacloud.nasa.gov/NISAR/NISAR_L2_GUNW_PROVISIONAL_V1/NISAR_L2_PR_GUNW_032_076_A_005_033_4000_SH_20261005T105604_20261005T105616_20261017T105604_20261017T105616_P05023_N_P_J_001/NISAR_L2_PR_GUNW_032_076_A_005_033_4000_SH_20261005T105604_20261005T105616_20261017T105604_20261017T105616_P05023_N_P_J_001.h5",
+    "source_size_bytes": 1245708288,
+    "product_version": "1.0.11",
+    "product_type": "GUNW",
+    "processing_datetime": "2026-10-19T07:13:22",
+    "software_version": "0.25.16",
+    "track_number": 76,
+    "frame_number": 5,
+    "orbit_pass_direction": "Ascending",
+    "look_direction": "Left",
+    "identification": {
+      "composite_release_id": "P05023",
+      "frame_number": 5,
+      "granule_id": "NISAR_L2_PR_GUNW_032_076_A_005_033_4000_SH_20261005T105604_20261005T105616_20261017T105604_20261017T105616_P05023_N_P_J_001",
+      "is_urgent_observation": "False",
+      "look_direction": "Left",
+      "mission_id": "NISAR",
+      "orbit_pass_direction": "Ascending",
+      "processing_datetime": "2026-10-19T07:13:22",
+      "processing_type": "Nominal",
+      "product_level": "L2",
+      "product_specification_version": "1.5.0",
+      "product_type": "GUNW",
+      "product_version": "1.0.11",
+      "absolute_orbit_number": 6230,
+      "reference_end_time": "2026-10-05T10:56:16.999342105",
+      "reference_start_time": "2026-10-05T10:56:04.000000000",
+      "secondary_end_time": "2026-10-17T10:56:16.999342105",
+      "secondary_start_time": "2026-10-17T10:56:04.000000000",
+      "track_number": 76
+    },
+    "identification_paths": {
+      "bounding_polygon": "/science/LSAR/identification/boundingPolygon",
+      "composite_release_id": "/science/LSAR/identification/compositeReleaseId",
+      "frame_number": "/science/LSAR/identification/frameNumber",
+      "granule_id": "/science/LSAR/identification/granuleId",
+      "is_urgent_observation": "/science/LSAR/identification/isUrgentObservation",
+      "look_direction": "/science/LSAR/identification/lookDirection",
+      "mission_id": "/science/LSAR/identification/missionId",
+      "orbit_pass_direction": "/science/LSAR/identification/orbitPassDirection",
+      "processing_datetime": "/science/LSAR/identification/processingDateTime",
+      "processing_type": "/science/LSAR/identification/processingType",
+      "product_level": "/science/LSAR/identification/productLevel",
+      "product_specification_version": "/science/LSAR/identification/productSpecificationVersion",
+      "product_type": "/science/LSAR/identification/productType",
+      "product_version": "/science/LSAR/identification/productVersion",
+      "absolute_orbit_number": "/science/LSAR/identification/referenceAbsoluteOrbitNumber",
+      "reference_end_time": "/science/LSAR/identification/referenceZeroDopplerEndTime",
+      "reference_start_time": "/science/LSAR/identification/referenceZeroDopplerStartTime",
+      "secondary_end_time": "/science/LSAR/identification/secondaryZeroDopplerEndTime",
+      "secondary_start_time": "/science/LSAR/identification/secondaryZeroDopplerStartTime",
+      "track_number": "/science/LSAR/identification/trackNumber"
+    }
+  },
+  "acquisition": {
+    "reference_start_utc": "2026-10-05T10:56:04.000000000",
+    "reference_end_utc": "2026-10-05T10:56:16.999342105",
+    "secondary_start_utc": "2026-10-17T10:56:04.000000000",
+    "secondary_end_utc": "2026-10-17T10:56:16.999342105"
+  },
+  "radar": {
+    "wavelength_m": 0.2419632429378531,
+    "center_frequency_hz": 1239000000.0,
+    "derivation": "center_frequency",
+    "source_hdf5_path": "/science/LSAR/GUNW/grids/frequencyA/centerFrequency",
+    "frequency": "A",
+    "polarisation": "HH"
+  },
+  "aoi": {
+    "bbox_wgs84_requested": [
+      -81.113,
+      7.25,
+      -80.2,
+      7.855
+    ],
+    "row_start": 711,
+    "row_stop": 1548,
+    "col_start": 325,
+    "col_stop": 1585,
+    "source_height": 4131,
+    "source_width": 4230
+  },
+  "grid": {
+    "epsg": 32617,
+    "wkt": "PROJCRS[\"WGS 84 / UTM zone 17N\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4326]],CONVERSION[\"UTM zone 17N\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-81,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",500000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Navigation and medium accuracy spatial referencing.\"],AREA[\"Between 84\u00b0W and 78\u00b0W, northern hemisphere between equator and 84\u00b0N, onshore and offshore. Bahamas. Ecuador - north of equator. Canada - Nunavut; Ontario; Quebec. Cayman Islands. Colombia. Costa Rica. Cuba. Jamaica. Nicaragua. Panama. United States (USA).\"],BBOX[0,-84,84,-78]],ID[\"EPSG\",32617]]",
+    "transform": [
+      80.0,
+      0.0,
+      487520.0,
+      0.0,
+      -80.0,
+      868320.0
+    ],
+    "width": 1260,
+    "height": 837
+  },
+  "layers": {
+    "coherence": {
+      "file": "coherence.tif",
+      "hdf5_path": "/science/LSAR/GUNW/grids/frequencyA/unwrappedInterferogram/HH/coherenceMagnitude",
+      "dtype": "float32",
+      "units": "1",
+      "fill_value": null,
+      "fill_value_is_nan": true,
+      "description": "Coherence magnitude between HH layers",
+      "sha256": "8ab4e9cbf288cf4b7b4e55bc67326faa77a2519df10807f3668cfc0f81f3f637",
+      "bytes": 2631377
+    },
+    "connected_components": {
+      "file": "connected_components.tif",
+      "hdf5_path": "/science/LSAR/GUNW/grids/frequencyA/unwrappedInterferogram/HH/connectedComponents",
+      "dtype": "uint16",
+      "units": "1",
+      "fill_value": 65535.0,
+      "fill_value_is_nan": false,
+      "description": "Connected components for HH layer",
+      "sha256": "02383dc08f95319c44958a311a6c9bff93fa57463fa4ef69071bd8b296e459b7",
+      "bytes": 15893
+    },
+    "ionosphere_phase_screen": {
+      "file": "ionosphere_phase_screen.tif",
+      "hdf5_path": "/science/LSAR/GUNW/grids/frequencyA/unwrappedInterferogram/HH/ionospherePhaseScreen",
+      "dtype": "float32",
+      "units": "radians",
+      "fill_value": null,
+      "fill_value_is_nan": true,
+      "description": "Ionosphere phase screen",
+      "sha256": "08ccb2bdd76ad5984faed2456661f133e15288f94eaed76a75d3b199b047bdbd",
+      "bytes": 1585185
+    },
+    "ionosphere_phase_screen_uncertainty": {
+      "file": "ionosphere_phase_screen_uncertainty.tif",
+      "hdf5_path": "/science/LSAR/GUNW/grids/frequencyA/unwrappedInterferogram/HH/ionospherePhaseScreenUncertainty",
+      "dtype": "float32",
+      "units": "radians",
+      "fill_value": null,
+      "fill_value_is_nan": true,
+      "description": "Uncertainty of the ionosphere phase screen",
+      "sha256": "71fe243887fad770f9b7be5852960aef2b6b02fa8b0dcdfcb8439030ba4517e8",
+      "bytes": 1782235
+    },
+    "mask": {
+      "file": "mask.tif",
+      "hdf5_path": "/science/LSAR/GUNW/grids/frequencyA/unwrappedInterferogram/mask",
+      "dtype": "uint32",
+      "units": null,
+      "fill_value": 255.0,
+      "fill_value_is_nan": false,
+      "description": "Combination of a water mask, a mask of subswaths of valid samples, and data anomalies in the reference RSLC and the geometrically coregistered secondary RSLC. Each pixel value is encoded as a 32-bit unsigned integer. Bits 0-7 represent subswath encoding, where the most significant digit represents the water flag of that pixel in the reference RSLC, where 1 is water and 0 is non-water; the second most significant digit corresponds to the subswath number of the reference RSLC, and the least significant digit corresponds to the subswath number of the secondary RSLC; a value of 0 in either digit indicates an invalid sample in the corresponding RSLC. Bits 8-15 represent bitwise anomaly flags for the secondary RSLC, and bits 16-23 represent bitwise anomaly flags for the reference RSLC, with each bit corresponding to a specific anomaly condition. A value of 0 in the anomaly bits indicates that no anomaly is detected in the corresponding RSLC. Bit 24 indicates a bit mask for ionospheric phase mask used during filtering of ionospheric phase. This ionospheric phase mask indicates pixels which were masked out and filled with interpolated data. Bits 25-31 are reserved for future use",
+      "sha256": "982405a24c07f40b8ed1f5563831b04c8e46975b076988d8895e9f6993337d95",
+      "bytes": 28682
+    },
+    "unwrapped_phase": {
+      "file": "unwrapped_phase.tif",
+      "hdf5_path": "/science/LSAR/GUNW/grids/frequencyA/unwrappedInterferogram/HH/unwrappedPhase",
+      "dtype": "float32",
+      "units": "radians",
+      "fill_value": null,
+      "fill_value_is_nan": true,
+      "description": "Unwrapped interferogram between HH layers",
+      "sha256": "61b5a8a4d6df485c2527c27b08f640dd51e1a0135df3f71566cc7340c4643e7e",
+      "bytes": 824271
+    }
+  },
+  "corrections": {
+    "available_layers": [
+      "/science/LSAR/GUNW/grids/frequencyA/unwrappedInterferogram/HH/ionospherePhaseScreen",
+      "/science/LSAR/GUNW/grids/frequencyA/unwrappedInterferogram/HH/ionospherePhaseScreenUncertainty",
+      "/science/LSAR/GUNW/metadata/radarGrid/hydrostaticTroposphericPhaseScreen",
+      "/science/LSAR/GUNW/metadata/radarGrid/slantRangeSolidEarthTidesPhase",
+      "/science/LSAR/GUNW/metadata/radarGrid/wetTroposphericPhaseScreen"
+    ],
+    "applied": [],
+    "statement": "TriageSAR applies no ionospheric, tropospheric or solid-Earth-tide correction to the unwrapped phase. Correction layers listed as available ship with the product and are left untouched."
+  },
+  "transformations": [
+    "Cropped to rows 711:1548, columns 325:1585 of the 4131 x 4230 source grid (pixel centres inside the requested bbox).",
+    "Each layer written unchanged (same dtype, no scaling, no resampling, no interpolation) to a DEFLATE-compressed GeoTIFF in the product's native CRS."
+  ],
+  "build": {
+    "command": "python scripts/build_demo_fixture.py --event panama-2026-10-09",
+    "built_at_utc": "2026-11-15T02:01:06Z",
+    "app_version": "0.1.0",
+    "tool_versions": {
+      "python": "3.12.16",
+      "h5py": "3.16.0",
+      "hdf5": "2.0.0",
+      "numpy": "2.5.4",
+      "rasterio": "1.5.2"
+    }
+  }
+}

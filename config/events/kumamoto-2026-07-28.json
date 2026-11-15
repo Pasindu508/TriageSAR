@@ -1,0 +1,67 @@
+{
+  "id": "kumamoto-2026-07-28",
+  "title": "Kumamoto Region earthquake, Japan, 28 July 2026",
+  "summary": "Co-event NISAR L-band interferogram (2026-07-21 to 2026-08-14) over Kumamoto Prefecture, Kyushu, Japan, spanning the M 6.8 earthquake.",
+  "event_time_utc": "2026-07-28T07:27:14Z",
+  "event_source_name": "USGS Earthquake Hazards Program, event us6000tgb9 (M 6.8 mww, The 2026 Kumamoto Region, Japan Earthquake)",
+  "event_source_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tgb9",
+  "notes": [
+    "Epicentre of us6000tgb9 (USGS): 32.6177 N, 130.6601 E, depth 8 km. Catalogue values retrieved 15 November 2026 and may be revised by USGS."
+  ],
+  "epicentres": [
+    {
+      "usgs_id": "us6000tgb9",
+      "magnitude": 6.8,
+      "magnitude_type": "mww",
+      "lon": 130.6601,
+      "lat": 32.6177,
+      "time_utc": "2026-07-28T07:27:14Z",
+      "place": "The 2026 Kumamoto Region, Japan Earthquake"
+    }
+  ],
+  "aoi_bbox_wgs84": [
+    130.12,
+    32.3,
+    131.27,
+    32.95
+  ],
+  "granule": {
+    "granule_id": "NISAR_L2_PR_GUNW_026_024_A_018_028_4000_SH_20260721T202900_20260721T202934_20260814T202858_20260814T202933_P05023_N_F_J_001",
+    "file_name": "NISAR_L2_PR_GUNW_026_024_A_018_028_4000_SH_20260721T202900_20260721T202934_20260814T202858_20260814T202933_P05023_N_F_J_001.h5",
+    "collection": "NISAR_L2_GUNW_PROVISIONAL_V1",
+    "concept_id": "C2854335566-ASF",
+    "provider": "NASA Alaska Satellite Facility DAAC (ASF)",
+    "download_url": "https://nisar.asf.earthdatacloud.nasa.gov/NISAR/NISAR_L2_GUNW_PROVISIONAL_V1/NISAR_L2_PR_GUNW_026_024_A_018_028_4000_SH_20260721T202900_20260721T202934_20260814T202858_20260814T202933_P05023_N_F_J_001/NISAR_L2_PR_GUNW_026_024_A_018_028_4000_SH_20260721T202900_20260721T202934_20260814T202858_20260814T202933_P05023_N_F_J_001.h5",
+    "flight_direction": "ASCENDING",
+    "frame": 18,
+    "track": 24,
+    "pge_version": "R05.02.3",
+    "footprint_wkt": "POLYGON ((133.17716 31.95932, 132.4878 34.02112, 129.87186 33.36225, 130.6174 31.31664, 133.17716 31.95932))",
+    "source_size_bytes": 2348810240,
+    "discovered_with": "python scripts/discover_nisar.py --bbox 130.12 32.3 131.27 32.95 --start 2026-06-18 --end 2026-07-29 --product GUNW",
+    "discovered_on": "2026-11-15"
+  },
+  "acquisitions": [
+    {
+      "date": "2026-06-27",
+      "used": false
+    },
+    {
+      "date": "2026-07-09",
+      "used": false
+    },
+    {
+      "date": "2026-07-21",
+      "used": true
+    },
+    {
+      "date": "2026-08-14",
+      "used": true
+    },
+    {
+      "date": "2026-08-26",
+      "used": false
+    }
+  ],
+  "acquisitions_source": "ASF Search API, NISAR GUNW products on track 24, frame 18, retrieved 2026-11-15"
+}

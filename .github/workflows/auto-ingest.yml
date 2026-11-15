@@ -1,0 +1,57 @@
+name: Auto-ingest new NISAR case studies
+
+# Once a day, look for significant earthquakes that NISAR has imaged before and after, build their fixtures
+# through the normal pipeline, and open a pull request for review. Nothing is merged automatically.
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+    inputs:
+      max_new:
+        description: "Maximum new case studies in this run"
+        default: "3"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: auto-ingest
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -e .
+      - name: Find and ingest new case studies
+        env:
+          # Repository secret holding a NASA Earthdata Login token (never printed).
+          EARTHDATA_TOKEN: ${{ secrets.EARTHDATA_TOKEN }}
+        run: python scripts/auto_ingest.py --max-new "${{ github.event.inputs.max_new || '3' }}"
+      - name: Verify every fixture
+        run: python scripts/verify_fixture_hashes.py
+      - name: Open a pull request if anything changed
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Only a new case study (a change to the registry) is worth a pull request; state-only runs are not kept.
+          if git diff --quiet -- data/fixtures/demo_manifest.json; then
+            echo "No new case studies."; exit 0
+          fi
+          branch="auto-ingest/$(date -u +%Y-%m-%d)"
+          git config user.name "triagesar-auto-ingest"
+          git config user.email "auto-ingest@users.noreply.github.com"
+          git checkout -b "$branch"
+          git add config/events data/fixtures
+          git commit -m "Auto-ingest: new NISAR case studies $(date -u +%Y-%m-%d)"
+          git push --force -u origin "$branch"
+          gh pr create --fill --base "${{ github.event.repository.default_branch }}" --head "$branch" \
+            --body "Case studies found by scripts/auto_ingest.py. Review the event definitions, fixtures and the run log before merging." \
+            || echo "A pull request for $branch already exists."

@@ -1,0 +1,13 @@
+# Single-container local deployment: API and built web app on http://localhost:8000
+services:
+  triagesar:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    image: triagesar:0.1.0
+    ports:
+      - "8000:8000"
+    read_only: true
+    tmpfs:
+      - /tmp
+    restart: unless-stopped

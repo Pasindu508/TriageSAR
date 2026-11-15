@@ -1,0 +1,86 @@
+# TriageSAR analysis configuration.
+# Every threshold here is a SCREENING value chosen for the prototype before the
+# demo data were inspected. None of them is a physical truth. See docs/UNCERTAINTY.md.
+
+[quality]
+# Pixels with interferometric coherence below this are EXCLUDED from analysis.
+coherence_exclude_below = 0.30
+# Pixels with coherence in [exclude, caution) are kept but flagged CAUTION.
+coherence_caution_below = 0.50
+# connectedComponents == 0 means the unwrapper did not assign the pixel to a
+# reliable region; such pixels are EXCLUDED.
+exclude_unwrap_component_zero = true
+# Pixels in connected components smaller than this are flagged CAUTION because
+# the phase offset of a small isolated component relative to its neighbours is
+# ambiguous.
+small_component_pixels = 2000
+# Honour the product's own mask layer when it is present in the fixture.
+use_product_mask = true
+# Card-level "evidence quality" label for a road corridor:
+#   VALID        when at least summary_valid_fraction of corridor pixels are VALID
+#   CAUTION      when at least summary_usable_fraction are VALID or CAUTION
+#   INSUFFICIENT otherwise
+summary_valid_fraction = 0.75
+summary_usable_fraction = 0.50
+
+[reference]
+# Unwrapped phase is relative, so every value needs a reference.
+#   "local_plane"      (default) each pixel is compared with a plane fitted to the usable pixels of the
+#                      same unwrapped region inside a square window centred on it. This isolates motion
+#                      that differs from its surroundings and is insensitive to scene-wide motion and to
+#                      long-wavelength atmosphere.
+#   "component_median" each unwrapped region is referenced to its own median over the whole study area.
+#                      This was the first rule; on a scene where the whole study area moved it measures
+#                      the earthquake's broad field and finds no zones (see docs/UNCERTAINTY.md).
+method = "local_plane"
+# Side of the local reference window. Chosen to be several times wider than the 500 m road corridor
+# and the smallest accepted zone, and far narrower than an earthquake's regional field.
+window_m = 4000.0
+# A pixel gets a local reference only if at least this share of its window is usable.
+min_window_fraction = 0.25
+
+[hotspot]
+# Candidate threshold on |referenced LOS range change| =
+#   max(threshold_floor_m, robust_sigma_multiplier * 1.4826 * MAD)
+threshold_floor_m = 0.03
+robust_sigma_multiplier = 3.0
+# Regions smaller than this are rejected as isolated pixels.
+min_area_km2 = 0.5
+# Pixel connectivity used for region labelling (4 or 8).
+connectivity = 8
+# Whether CAUTION pixels may be part of a candidate region.
+include_caution_pixels = true
+
+[infrastructure]
+highway_classes = ["motorway", "trunk", "primary", "secondary", "tertiary"]
+# Half-width of the corridor around a road used to summarise radar evidence.
+corridor_buffer_m = 250.0
+# Roads further than this from a deformation zone are not listed for it.
+proximity_limit_m = 1000.0
+
+[prioritisation.weights]
+# Must be non-negative. They are renormalised to sum to 1.
+displacement_magnitude = 0.35
+overlap_extent = 0.15
+valid_fraction = 0.15
+coherence = 0.10
+proximity = 0.15
+road_class = 0.10
+
+[prioritisation.road_class_values]
+# Functional class taken directly from the OSM `highway` tag. This is a network
+# role, not a statement that a road is "critical".
+motorway = 1.0
+trunk = 0.9
+primary = 0.8
+secondary = 0.6
+tertiary = 0.4
+
+[sensitivity]
+# Each weight is perturbed by up to +/- this fraction, then renormalised.
+perturbation_fraction = 0.20
+random_draws = 200
+seed = 20260624
+# The ranking is labelled UNSTABLE when the #1 item changes in more than this
+# fraction of perturbed runs.
+unstable_top1_change_fraction = 0.20

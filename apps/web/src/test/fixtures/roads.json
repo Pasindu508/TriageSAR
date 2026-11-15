@@ -1,0 +1,254 @@
+{
+ "schema_version": "1.0",
+ "app_version": "0.1.0",
+ "event_id": "synthetic-test-event",
+ "attribution": "TEST ONLY synthetic roads (not OpenStreetMap data)",
+ "licence_url": "https://www.openstreetmap.org/copyright",
+ "roads": {
+  "type": "FeatureCollection",
+  "test_only": "TEST ONLY - synthetic values, not NASA observations",
+  "features": [
+   {
+    "type": "Feature",
+    "properties": {
+     "osm_id": 900001,
+     "highway": "primary",
+     "name": "TEST Road Alpha",
+     "ref": "T1",
+     "bridge": false,
+     "tunnel": false
+    },
+    "geometry": {
+     "type": "LineString",
+     "coordinates": [
+      [
+       0.03,
+       0.18
+      ],
+      [
+       0.1,
+       0.185
+      ],
+      [
+       0.14,
+       0.19
+      ]
+     ]
+    }
+   },
+   {
+    "type": "Feature",
+    "properties": {
+     "osm_id": 900002,
+     "highway": "primary",
+     "name": "TEST Road Alpha",
+     "ref": "T1",
+     "bridge": true,
+     "tunnel": false
+    },
+    "geometry": {
+     "type": "LineString",
+     "coordinates": [
+      [
+       0.14,
+       0.19
+      ],
+      [
+       0.2,
+       0.2
+      ],
+      [
+       0.31,
+       0.215
+      ]
+     ]
+    }
+   },
+   {
+    "type": "Feature",
+    "properties": {
+     "osm_id": 900003,
+     "highway": "secondary",
+     "name": "TEST Road Bravo",
+     "ref": null,
+     "bridge": false,
+     "tunnel": false
+    },
+    "geometry": {
+     "type": "LineString",
+     "coordinates": [
+      [
+       0.22,
+       0.03
+      ],
+      [
+       0.25,
+       0.1
+      ],
+      [
+       0.258,
+       0.115
+      ],
+      [
+       0.3,
+       0.24
+      ]
+     ]
+    }
+   },
+   {
+    "type": "Feature",
+    "properties": {
+     "osm_id": 900004,
+     "highway": "tertiary",
+     "name": null,
+     "ref": null,
+     "bridge": false,
+     "tunnel": false
+    },
+    "geometry": {
+     "type": "LineString",
+     "coordinates": [
+      [
+       0.05,
+       0.05
+      ],
+      [
+       0.12,
+       0.08
+      ],
+      [
+       0.17,
+       0.06
+      ]
+     ]
+    }
+   },
+   {
+    "type": "Feature",
+    "properties": {
+     "osm_id": 900005,
+     "highway": "motorway",
+     "name": null,
+     "ref": "T9",
+     "bridge": false,
+     "tunnel": false
+    },
+    "geometry": {
+     "type": "LineString",
+     "coordinates": [
+      [
+       0.03,
+       0.23
+      ],
+      [
+       0.15,
+       0.245
+      ],
+      [
+       0.32,
+       0.245
+      ]
+     ]
+    }
+   },
+   {
+    "type": "Feature",
+    "properties": {
+     "osm_id": 900007,
+     "highway": "trunk",
+     "name": "TEST Road Charlie",
+     "ref": "T2",
+     "bridge": false,
+     "tunnel": false
+    },
+    "geometry": {
+     "type": "LineString",
+     "coordinates": [
+      [
+       0.21,
+       0.108
+      ],
+      [
+       0.26,
+       0.112
+      ],
+      [
+       0.325,
+       0.11
+      ]
+     ]
+    }
+   },
+   {
+    "type": "Feature",
+    "properties": {
+     "osm_id": 900008,
+     "highway": "tertiary",
+     "name": null,
+     "ref": null,
+     "bridge": false,
+     "tunnel": false
+    },
+    "geometry": {
+     "type": "LineString",
+     "coordinates": [
+      [
+       0.23,
+       0.1
+      ],
+      [
+       0.262,
+       0.1
+      ]
+     ]
+    }
+   },
+   {
+    "type": "Feature",
+    "properties": {
+     "osm_id": 900006,
+     "highway": "residential",
+     "name": "TEST Lane (not ranked)",
+     "ref": null,
+     "bridge": false,
+     "tunnel": false
+    },
+    "geometry": {
+     "type": "LineString",
+     "coordinates": [
+      [
+       0.1,
+       0.17
+      ],
+      [
+       0.11,
+       0.18
+      ]
+     ]
+    }
+   }
+  ]
+ },
+ "places": {
+  "type": "FeatureCollection",
+  "test_only": "TEST ONLY - synthetic values, not NASA observations",
+  "features": [
+   {
+    "type": "Feature",
+    "properties": {
+     "osm_id": 910001,
+     "place": "town",
+     "name": "Testville (synthetic)"
+    },
+    "geometry": {
+     "type": "Point",
+     "coordinates": [
+      0.09,
+      0.17
+     ]
+    }
+   }
+  ]
+ }
+}

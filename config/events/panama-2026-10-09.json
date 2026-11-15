@@ -1,0 +1,67 @@
+{
+  "id": "panama-2026-10-09",
+  "title": "Azuero Peninsula earthquake, Panama, 9 October 2026",
+  "summary": "Co-event NISAR L-band interferogram (2026-10-05 to 2026-10-17) over Azuero Peninsula, Panama, spanning the M 7.7 earthquake.",
+  "event_time_utc": "2026-10-09T17:56:05Z",
+  "event_source_name": "USGS Earthquake Hazards Program, event us6000u18k (M 7.7 mww, 10 km WSW of Pitaloza Arriba, Panama)",
+  "event_source_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u18k",
+  "notes": [
+    "Epicentre of us6000u18k (USGS): 7.6069 N, 80.7566 W, depth 10 km. Catalogue values retrieved 15 November 2026 and may be revised by USGS."
+  ],
+  "epicentres": [
+    {
+      "usgs_id": "us6000u18k",
+      "magnitude": 7.7,
+      "magnitude_type": "mww",
+      "lon": -80.7566,
+      "lat": 7.6069,
+      "time_utc": "2026-10-09T17:56:05Z",
+      "place": "10 km WSW of Pitaloza Arriba, Panama"
+    }
+  ],
+  "aoi_bbox_wgs84": [
+    -81.113,
+    7.25,
+    -80.2,
+    7.855
+  ],
+  "granule": {
+    "granule_id": "NISAR_L2_PR_GUNW_032_076_A_005_033_4000_SH_20261005T105604_20261005T105616_20261017T105604_20261017T105616_P05023_N_P_J_001",
+    "file_name": "NISAR_L2_PR_GUNW_032_076_A_005_033_4000_SH_20261005T105604_20261005T105616_20261017T105604_20261017T105616_P05023_N_P_J_001.h5",
+    "collection": "NISAR_L2_GUNW_PROVISIONAL_V1",
+    "concept_id": "C2854335566-ASF",
+    "provider": "NASA Alaska Satellite Facility DAAC (ASF)",
+    "download_url": "https://nisar.asf.earthdatacloud.nasa.gov/NISAR/NISAR_L2_GUNW_PROVISIONAL_V1/NISAR_L2_PR_GUNW_032_076_A_005_033_4000_SH_20261005T105604_20261005T105616_20261017T105604_20261017T105616_P05023_N_P_J_001/NISAR_L2_PR_GUNW_032_076_A_005_033_4000_SH_20261005T105604_20261005T105616_20261017T105604_20261017T105616_P05023_N_P_J_001.h5",
+    "flight_direction": "ASCENDING",
+    "frame": 5,
+    "track": 76,
+    "pge_version": "R05.02.3",
+    "footprint_wkt": "POLYGON ((-78.71081 7.38355, -78.88949 8.15861, -81.11308 7.64327, -80.93134 6.87113, -78.71081 7.38355))",
+    "source_size_bytes": 1245708288,
+    "discovered_with": "python scripts/discover_nisar.py --bbox -81.35 7.25 -80.2 7.9 --start 2026-08-30 --end 2026-10-10 --product GUNW",
+    "discovered_on": "2026-11-15"
+  },
+  "acquisitions": [
+    {
+      "date": "2026-08-30",
+      "used": false
+    },
+    {
+      "date": "2026-09-11",
+      "used": false
+    },
+    {
+      "date": "2026-10-05",
+      "used": true
+    },
+    {
+      "date": "2026-10-17",
+      "used": true
+    },
+    {
+      "date": "2026-10-29",
+      "used": false
+    }
+  ],
+  "acquisitions_source": "ASF Search API, NISAR GUNW products on track 76, frame 5, retrieved 2026-11-15"
+}

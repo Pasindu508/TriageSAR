@@ -1,0 +1,67 @@
+{
+  "id": "flores-2026-08-14",
+  "title": "Flores Sea earthquake, Indonesia, 14 August 2026",
+  "summary": "Co-event NISAR L-band interferogram (2026-08-12 to 2026-08-24) over north coast of Flores, Indonesia, spanning the M 7.8 earthquake.",
+  "event_time_utc": "2026-08-14T21:58:21Z",
+  "event_source_name": "USGS Earthquake Hazards Program, event us6000tkt2 (M 7.8 mww, 66 km NNW of Ende, Indonesia)",
+  "event_source_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkt2",
+  "notes": [
+    "Epicentre of us6000tkt2 (USGS): 8.3358 S, 121.3446 E, depth 10 km. Catalogue values retrieved 15 November 2026 and may be revised by USGS."
+  ],
+  "epicentres": [
+    {
+      "usgs_id": "us6000tkt2",
+      "magnitude": 7.8,
+      "magnitude_type": "mww",
+      "lon": 121.3446,
+      "lat": -8.3358,
+      "time_utc": "2026-08-14T21:58:21Z",
+      "place": "66 km NNW of Ende, Indonesia"
+    }
+  ],
+  "aoi_bbox_wgs84": [
+    120.95,
+    -8.92,
+    122.1,
+    -8.27
+  ],
+  "granule": {
+    "granule_id": "NISAR_L2_PR_GUNW_027_168_A_173_028_4000_SH_20260812T214030_20260812T214104_20260824T214029_20260824T214104_P05023_N_F_J_001",
+    "file_name": "NISAR_L2_PR_GUNW_027_168_A_173_028_4000_SH_20260812T214030_20260812T214104_20260824T214029_20260824T214104_P05023_N_F_J_001.h5",
+    "collection": "NISAR_L2_GUNW_PROVISIONAL_V1",
+    "concept_id": "C2854335566-ASF",
+    "provider": "NASA Alaska Satellite Facility DAAC (ASF)",
+    "download_url": "https://nisar.asf.earthdatacloud.nasa.gov/NISAR/NISAR_L2_GUNW_PROVISIONAL_V1/NISAR_L2_PR_GUNW_027_168_A_173_028_4000_SH_20260812T214030_20260812T214104_20260824T214029_20260824T214104_P05023_N_F_J_001/NISAR_L2_PR_GUNW_027_168_A_173_028_4000_SH_20260812T214030_20260812T214104_20260824T214029_20260824T214104_P05023_N_F_J_001.h5",
+    "flight_direction": "ASCENDING",
+    "frame": 173,
+    "track": 168,
+    "pge_version": "R05.02.3",
+    "footprint_wkt": "POLYGON ((122.71954 -9.87216, 122.27445 -7.78465, 120.02229 -8.24904, 120.4505 -10.33077, 122.71954 -9.87216))",
+    "source_size_bytes": 2290089984,
+    "discovered_with": "python scripts/discover_nisar.py --bbox 120.95 -8.92 122.1 -8.27 --start 2026-07-06 --end 2026-08-16 --product GUNW",
+    "discovered_on": "2026-11-15"
+  },
+  "acquisitions": [
+    {
+      "date": "2026-07-07",
+      "used": false
+    },
+    {
+      "date": "2026-07-19",
+      "used": false
+    },
+    {
+      "date": "2026-08-12",
+      "used": true
+    },
+    {
+      "date": "2026-08-24",
+      "used": true
+    },
+    {
+      "date": "2026-09-17",
+      "used": false
+    }
+  ],
+  "acquisitions_source": "ASF Search API, NISAR GUNW products on track 168, frame 173, retrieved 2026-11-15"
+}

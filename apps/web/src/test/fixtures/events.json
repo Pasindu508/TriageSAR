@@ -1,0 +1,302 @@
+{
+ "schema_version": "1.0",
+ "app_version": "0.1.0",
+ "events": [
+  {
+   "id": "venezuela-2026-06-24",
+   "title": "Northern Venezuela earthquakes, 24 June 2026",
+   "summary": "Co-seismic NISAR L-band interferogram (13 June to 25 June 2026) over the coastal ranges west of Caracas, spanning the M 7.5 earthquake of 24 June 2026.",
+   "data_kind": "nasa_nisar_gunw",
+   "data_label": "NASA-ISRO NISAR L2 GUNW observations",
+   "status": "fixture_not_built",
+   "status_message": "The real-data fixture for this event has not been built on this machine yet. No observations are shown rather than showing placeholder values.",
+   "build_command": "python scripts/build_demo_fixture.py --event venezuela-2026-06-24",
+   "event_time_utc": "2026-06-24T22:05:04Z",
+   "event_source_name": "USGS Earthquake Hazards Program, event us6000t7zp (M 7.5 mww, 20 km W of Catia La Mar, Venezuela)",
+   "event_source_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000t7zp",
+   "bbox_wgs84": [
+    -68.1,
+    10.05,
+    -66.95,
+    10.7
+   ],
+   "granule_id": "NISAR_L2_PR_GUNW_022_162_A_007_023_4000_SH_20260613T100656_20260613T100731_20260625T100655_20260625T100730_P05023_N_F_J_001",
+   "acquisitions": [],
+   "epicentres": [
+    {
+     "usgs_id": "us6000t7zp",
+     "magnitude": 7.5,
+     "magnitude_type": "mww",
+     "lon": -67.2205,
+     "lat": 10.5955,
+     "time_utc": "2026-06-24T22:05:04Z",
+     "place": "20 km W of Catia La Mar, Venezuela"
+    },
+    {
+     "usgs_id": "us6000t7zc",
+     "magnitude": 7.2,
+     "magnitude_type": "mww",
+     "lon": -68.5564,
+     "lat": 10.3713,
+     "time_utc": "2026-06-24T22:04:31Z",
+     "place": "20 km E of San Felipe, Venezuela"
+    }
+   ],
+   "place": "20 km W of Catia La Mar, Venezuela",
+   "magnitude": 7.5,
+   "acquisition_dates": [
+    {
+     "date": "2026-05-20",
+     "used": false
+    },
+    {
+     "date": "2026-06-01",
+     "used": false
+    },
+    {
+     "date": "2026-06-13",
+     "used": true
+    },
+    {
+     "date": "2026-06-25",
+     "used": true
+    },
+    {
+     "date": "2026-07-07",
+     "used": false
+    },
+    {
+     "date": "2026-07-19",
+     "used": false
+    }
+   ],
+   "acquisition_dates_source": "ASF Search API, NISAR GUNW products on track 162, frame 7, retrieved 2026-11-15",
+   "added_by": "manual",
+   "added_on": null
+  },
+  {
+   "id": "kumamoto-2026-07-28",
+   "title": "Kumamoto Region earthquake, Japan, 28 July 2026",
+   "summary": "Co-event NISAR L-band interferogram (2026-07-21 to 2026-08-14) over Kumamoto Prefecture, Kyushu, Japan, spanning the M 6.8 earthquake.",
+   "data_kind": "nasa_nisar_gunw",
+   "data_label": "NASA-ISRO NISAR L2 GUNW observations",
+   "status": "fixture_not_built",
+   "status_message": "The real-data fixture for this event has not been built on this machine yet. No observations are shown rather than showing placeholder values.",
+   "build_command": "python scripts/build_demo_fixture.py --event kumamoto-2026-07-28",
+   "event_time_utc": "2026-07-28T07:27:14Z",
+   "event_source_name": "USGS Earthquake Hazards Program, event us6000tgb9 (M 6.8 mww, The 2026 Kumamoto Region, Japan Earthquake)",
+   "event_source_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tgb9",
+   "bbox_wgs84": [
+    130.12,
+    32.3,
+    131.27,
+    32.95
+   ],
+   "granule_id": "NISAR_L2_PR_GUNW_026_024_A_018_028_4000_SH_20260721T202900_20260721T202934_20260814T202858_20260814T202933_P05023_N_F_J_001",
+   "acquisitions": [],
+   "epicentres": [
+    {
+     "usgs_id": "us6000tgb9",
+     "magnitude": 6.8,
+     "magnitude_type": "mww",
+     "lon": 130.6601,
+     "lat": 32.6177,
+     "time_utc": "2026-07-28T07:27:14Z",
+     "place": "The 2026 Kumamoto Region, Japan Earthquake"
+    }
+   ],
+   "place": "The 2026 Kumamoto Region, Japan Earthquake",
+   "magnitude": 6.8,
+   "acquisition_dates": [
+    {
+     "date": "2026-06-27",
+     "used": false
+    },
+    {
+     "date": "2026-07-09",
+     "used": false
+    },
+    {
+     "date": "2026-07-21",
+     "used": true
+    },
+    {
+     "date": "2026-08-14",
+     "used": true
+    },
+    {
+     "date": "2026-08-26",
+     "used": false
+    }
+   ],
+   "acquisition_dates_source": "ASF Search API, NISAR GUNW products on track 24, frame 18, retrieved 2026-11-15",
+   "added_by": "manual",
+   "added_on": null
+  },
+  {
+   "id": "panama-2026-10-09",
+   "title": "Azuero Peninsula earthquake, Panama, 9 October 2026",
+   "summary": "Co-event NISAR L-band interferogram (2026-10-05 to 2026-10-17) over Azuero Peninsula, Panama, spanning the M 7.7 earthquake.",
+   "data_kind": "nasa_nisar_gunw",
+   "data_label": "NASA-ISRO NISAR L2 GUNW observations",
+   "status": "fixture_not_built",
+   "status_message": "The real-data fixture for this event has not been built on this machine yet. No observations are shown rather than showing placeholder values.",
+   "build_command": "python scripts/build_demo_fixture.py --event panama-2026-10-09",
+   "event_time_utc": "2026-10-09T17:56:05Z",
+   "event_source_name": "USGS Earthquake Hazards Program, event us6000u18k (M 7.7 mww, 10 km WSW of Pitaloza Arriba, Panama)",
+   "event_source_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u18k",
+   "bbox_wgs84": [
+    -81.113,
+    7.25,
+    -80.2,
+    7.855
+   ],
+   "granule_id": "NISAR_L2_PR_GUNW_032_076_A_005_033_4000_SH_20261005T105604_20261005T105616_20261017T105604_20261017T105616_P05023_N_P_J_001",
+   "acquisitions": [],
+   "epicentres": [
+    {
+     "usgs_id": "us6000u18k",
+     "magnitude": 7.7,
+     "magnitude_type": "mww",
+     "lon": -80.7566,
+     "lat": 7.6069,
+     "time_utc": "2026-10-09T17:56:05Z",
+     "place": "10 km WSW of Pitaloza Arriba, Panama"
+    }
+   ],
+   "place": "10 km WSW of Pitaloza Arriba, Panama",
+   "magnitude": 7.7,
+   "acquisition_dates": [
+    {
+     "date": "2026-08-30",
+     "used": false
+    },
+    {
+     "date": "2026-09-11",
+     "used": false
+    },
+    {
+     "date": "2026-10-05",
+     "used": true
+    },
+    {
+     "date": "2026-10-17",
+     "used": true
+    },
+    {
+     "date": "2026-10-29",
+     "used": false
+    }
+   ],
+   "acquisition_dates_source": "ASF Search API, NISAR GUNW products on track 76, frame 5, retrieved 2026-11-15",
+   "added_by": "manual",
+   "added_on": null
+  },
+  {
+   "id": "flores-2026-08-14",
+   "title": "Flores Sea earthquake, Indonesia, 14 August 2026",
+   "summary": "Co-event NISAR L-band interferogram (2026-08-12 to 2026-08-24) over north coast of Flores, Indonesia, spanning the M 7.8 earthquake.",
+   "data_kind": "nasa_nisar_gunw",
+   "data_label": "NASA-ISRO NISAR L2 GUNW observations",
+   "status": "fixture_not_built",
+   "status_message": "The real-data fixture for this event has not been built on this machine yet. No observations are shown rather than showing placeholder values.",
+   "build_command": "python scripts/build_demo_fixture.py --event flores-2026-08-14",
+   "event_time_utc": "2026-08-14T21:58:21Z",
+   "event_source_name": "USGS Earthquake Hazards Program, event us6000tkt2 (M 7.8 mww, 66 km NNW of Ende, Indonesia)",
+   "event_source_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkt2",
+   "bbox_wgs84": [
+    120.95,
+    -8.92,
+    122.1,
+    -8.27
+   ],
+   "granule_id": "NISAR_L2_PR_GUNW_027_168_A_173_028_4000_SH_20260812T214030_20260812T214104_20260824T214029_20260824T214104_P05023_N_F_J_001",
+   "acquisitions": [],
+   "epicentres": [
+    {
+     "usgs_id": "us6000tkt2",
+     "magnitude": 7.8,
+     "magnitude_type": "mww",
+     "lon": 121.3446,
+     "lat": -8.3358,
+     "time_utc": "2026-08-14T21:58:21Z",
+     "place": "66 km NNW of Ende, Indonesia"
+    }
+   ],
+   "place": "66 km NNW of Ende, Indonesia",
+   "magnitude": 7.8,
+   "acquisition_dates": [
+    {
+     "date": "2026-07-07",
+     "used": false
+    },
+    {
+     "date": "2026-07-19",
+     "used": false
+    },
+    {
+     "date": "2026-08-12",
+     "used": true
+    },
+    {
+     "date": "2026-08-24",
+     "used": true
+    },
+    {
+     "date": "2026-09-17",
+     "used": false
+    }
+   ],
+   "acquisition_dates_source": "ASF Search API, NISAR GUNW products on track 168, frame 173, retrieved 2026-11-15",
+   "added_by": "manual",
+   "added_on": null
+  },
+  {
+   "id": "synthetic-test-event",
+   "title": "SYNTHETIC TEST EVENT (not real)",
+   "summary": "TEST ONLY - synthetic values, not NASA observations. Used for automated tests and UI development.",
+   "data_kind": "synthetic_test",
+   "data_label": "SYNTHETIC TEST DATA - not NASA observations",
+   "status": "ready",
+   "status_message": "Fixture and road extract are available.",
+   "build_command": null,
+   "event_time_utc": null,
+   "event_source_name": null,
+   "event_source_url": null,
+   "bbox_wgs84": [
+    0.02,
+    0.02,
+    0.33,
+    0.25
+   ],
+   "granule_id": "TEST_ONLY_SYNTHETIC_GUNW_NOT_A_NASA_PRODUCT",
+   "acquisitions": [
+    {
+     "role": "reference",
+     "start_utc": "2000-01-01T00:00:00.000000000",
+     "end_utc": "2000-01-01T00:00:30.000000000"
+    },
+    {
+     "role": "secondary",
+     "start_utc": "2000-01-13T00:00:00.000000000",
+     "end_utc": "2000-01-13T00:00:30.000000000"
+    }
+   ],
+   "epicentres": [],
+   "place": null,
+   "magnitude": null,
+   "acquisition_dates": [],
+   "acquisition_dates_source": null,
+   "added_by": "test",
+   "added_on": null
+  }
+ ],
+ "auto_ingest": {
+  "enabled": false,
+  "last_checked_utc": null,
+  "checked_until": null,
+  "added_total": 0,
+  "waiting": 0,
+  "description": "scripts/auto_ingest.py checks the USGS catalogue for significant shallow earthquakes and the ASF catalogue for NISAR interferograms that bracket them, and adds each one through the same pipeline as the hand-made case studies."
+ }
+}

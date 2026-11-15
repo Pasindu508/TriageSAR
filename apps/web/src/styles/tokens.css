@@ -1,0 +1,43 @@
+/* TriageSAR design tokens: light dashboard with a dark navy sidebar and dark map canvas. */
+:root {
+  --bg: #f3f5f9;
+  --surface: #ffffff;
+  --surface-2: #f7f8fb;
+  --surface-3: #eef1f6;
+  --border: #e3e7ee;
+  --border-strong: #c9d0dc;
+  --text: #0f1b2d; /* 17.0:1 on --surface */
+  --text-muted: #4a5568; /* 7.5:1 on --surface */
+  --text-faint: #5f6b7d; /* 5.6:1 on --surface */
+  --accent: #1d4ed8; /* links, 6.7:1 */
+  --accent-strong: #1e3a8a;
+  --brand: #f97316;
+  --brand-ink: #9a3412; /* brand text on light, 7.1:1 */
+  --ink: #0f1b2d; /* primary buttons */
+  --focus: #f59e0b;
+  --away: #e69f00; /* range increase (Okabe-Ito orange) */
+  --towards: #56b4e9; /* range decrease (Okabe-Ito sky blue) */
+  --valid: #047857; /* 5.5:1 on white */
+  --valid-bg: #ecfdf5;
+  --caution: #92400e; /* 7.1:1 on white */
+  --caution-bg: #fffbeb;
+  --excluded: #475569;
+  --excluded-bg: #f1f5f9;
+  --danger: #b42318;
+  --danger-bg: #fef3f2;
+  --priority: #c2410c;
+  --priority-bg: #fff7ed;
+
+  --side-bg: #0b1324;
+  --side-text: #e6ecf5;
+  --side-muted: #a7b3c7;
+
+  --map-bg: #0a111e;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow: 0 1px 2px rgb(16 24 40 / 6%), 0 4px 16px rgb(16 24 40 / 6%);
+  --shadow-lg: 0 12px 40px rgb(16 24 40 / 18%);
+  --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --mono: ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+  --sidebar-w: 236px;
+}

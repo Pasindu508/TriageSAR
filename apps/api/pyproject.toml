@@ -1,0 +1,10 @@
+# The API is packaged together with the science library by the repository-root pyproject.toml
+# (`pip install -e .`). This file only records how to run it on its own.
+[project]
+name = "triagesar-api"
+version = "0.1.0"
+description = "FastAPI service for TriageSAR (installed through the repository-root pyproject.toml)"
+requires-python = ">=3.12"
+
+[tool.triagesar]
+run = "uvicorn app.main:app --app-dir apps/api --port 8000"

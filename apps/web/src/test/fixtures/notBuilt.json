@@ -1,0 +1,9 @@
+{
+ "schema_version": "1.0",
+ "app_version": "0.1.0",
+ "error": {
+  "code": "fixture_not_built",
+  "message": "The real-data fixture for this event has not been built on this machine yet. No observations are shown rather than showing placeholder values.",
+  "hint": "python scripts/build_demo_fixture.py --event venezuela-2026-06-24"
+ }
+}

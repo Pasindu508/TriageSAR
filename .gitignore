@@ -1,0 +1,36 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Node
+node_modules/
+apps/web/dist/
+apps/web/test-results/
+apps/web/playwright-report/
+
+# Secrets - never commit credentials
+.env
+.env.*
+!.env.example
+.netrc
+
+# Data that must not be committed
+data/raw/
+*.h5
+*.h5.part
+.cache/
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
+
+# Local planning notes (not part of the project)
+deep-research-report.md

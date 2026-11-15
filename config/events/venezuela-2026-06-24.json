@@ -1,0 +1,81 @@
+{
+  "id": "venezuela-2026-06-24",
+  "title": "Northern Venezuela earthquakes, 24 June 2026",
+  "summary": "Co-seismic NISAR L-band interferogram (13 June to 25 June 2026) over the coastal ranges west of Caracas, spanning the M 7.5 earthquake of 24 June 2026.",
+  "event_time_utc": "2026-06-24T22:05:04Z",
+  "event_source_name": "USGS Earthquake Hazards Program, event us6000t7zp (M 7.5 mww, 20 km W of Catia La Mar, Venezuela)",
+  "event_source_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000t7zp",
+  "notes": [
+    "USGS also lists event us6000t7zc (M 7.2 mww, 20 km E of San Felipe, Venezuela) at 2026-06-24T22:04:31Z, about half a minute earlier: https://earthquake.usgs.gov/earthquakes/eventpage/us6000t7zc",
+    "Epicentre of us6000t7zp (USGS): 10.5955 N, 67.2205 W, depth 10 km. Catalogue values retrieved 14 November 2026 and may be revised by USGS."
+  ],
+  "epicentres": [
+    {
+      "usgs_id": "us6000t7zp",
+      "magnitude": 7.5,
+      "magnitude_type": "mww",
+      "lon": -67.2205,
+      "lat": 10.5955,
+      "time_utc": "2026-06-24T22:05:04Z",
+      "place": "20 km W of Catia La Mar, Venezuela"
+    },
+    {
+      "usgs_id": "us6000t7zc",
+      "magnitude": 7.2,
+      "magnitude_type": "mww",
+      "lon": -68.5564,
+      "lat": 10.3713,
+      "time_utc": "2026-06-24T22:04:31Z",
+      "place": "20 km E of San Felipe, Venezuela"
+    }
+  ],
+  "aoi_bbox_wgs84": [
+    -68.1,
+    10.05,
+    -66.95,
+    10.7
+  ],
+  "granule": {
+    "granule_id": "NISAR_L2_PR_GUNW_022_162_A_007_023_4000_SH_20260613T100656_20260613T100731_20260625T100655_20260625T100730_P05023_N_F_J_001",
+    "file_name": "NISAR_L2_PR_GUNW_022_162_A_007_023_4000_SH_20260613T100656_20260613T100731_20260625T100655_20260625T100730_P05023_N_F_J_001.h5",
+    "collection": "NISAR_L2_GUNW_PROVISIONAL_V1",
+    "concept_id": "C2854335566-ASF",
+    "provider": "NASA Alaska Satellite Facility DAAC (ASF)",
+    "download_url": "https://nisar.asf.earthdatacloud.nasa.gov/NISAR/NISAR_L2_GUNW_PROVISIONAL_V1/NISAR_L2_PR_GUNW_022_162_A_007_023_4000_SH_20260613T100656_20260613T100731_20260625T100655_20260625T100730_P05023_N_F_J_001/NISAR_L2_PR_GUNW_022_162_A_007_023_4000_SH_20260613T100656_20260613T100731_20260625T100655_20260625T100730_P05023_N_F_J_001.h5",
+    "flight_direction": "ASCENDING",
+    "frame": 7,
+    "track": 162,
+    "pge_version": "R05.02.3",
+    "footprint_wkt": "POLYGON ((-66.84927 10.06663, -67.34953 12.21377, -69.60483 11.68027, -69.08281 9.5437, -66.84927 10.06663))",
+    "source_size_bytes": 2336227328,
+    "discovered_with": "python scripts/discover_nisar.py --bbox -68.5 9.5 -65.5 11.5 --start 2026-06-10 --end 2026-07-05 --product GUNW",
+    "discovered_on": "2026-11-14"
+  },
+  "acquisitions": [
+    {
+      "date": "2026-05-20",
+      "used": false
+    },
+    {
+      "date": "2026-06-01",
+      "used": false
+    },
+    {
+      "date": "2026-06-13",
+      "used": true
+    },
+    {
+      "date": "2026-06-25",
+      "used": true
+    },
+    {
+      "date": "2026-07-07",
+      "used": false
+    },
+    {
+      "date": "2026-07-19",
+      "used": false
+    }
+  ],
+  "acquisitions_source": "ASF Search API, NISAR GUNW products on track 162, frame 7, retrieved 2026-11-15"
+}

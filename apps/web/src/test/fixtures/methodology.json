@@ -1,0 +1,195 @@
+{
+ "schema_version": "1.0",
+ "app_version": "0.1.0",
+ "pipeline": [
+  {
+   "step": "1. Read",
+   "detail": "Unwrapped phase, coherence, connected components and mask are read from the NISAR GUNW fixture exactly as distributed."
+  },
+  {
+   "step": "2. Convert",
+   "detail": "Phase is converted to line-of-sight range change using the wavelength derived from the product's own centre-frequency metadata."
+  },
+  {
+   "step": "3. Quality gate",
+   "detail": "Every pixel is classed VALID, CAUTION or EXCLUDED by transparent rules. Excluded pixels are never interpolated."
+  },
+  {
+   "step": "4. Reference",
+   "detail": "Unwrapped phase is relative. For zones and ranking, each pixel is compared with a plane fitted to its surroundings in the same unwrapped region, so motion shared by the whole area does not count as a local anomaly. The map's surface-motion layer stays relative to the scene median."
+  },
+  {
+   "step": "5. Zones",
+   "detail": "Contiguous groups of quality-approved pixels above a screening threshold become deformation zones; tiny groups are rejected."
+  },
+  {
+   "step": "6. Intersect",
+   "detail": "Zones are intersected with OpenStreetMap roads; radar evidence is summarised along each road corridor."
+  },
+  {
+   "step": "7. Rank",
+   "detail": "A weighted sum of six visible factors gives the inspection priority score. Weights are perturbed to test ranking stability."
+  }
+ ],
+ "equation": "delta_r [m] = wavelength [m] * unwrapped_phase [rad] / (4 * pi)",
+ "sign_convention": "Positive LOS range change = ground moved away from the satellite along the radar line of sight between the reference (earlier) and secondary (later) acquisition.",
+ "sign_convention_basis": "The NISAR GUNW product specification does not state the sign convention in words. TriageSAR derives it from the ISCE3 processing software, which forms the interferogram as reference x conj(secondary) with the reference being the earlier acquisition. The inspection ranking uses only the magnitude of the motion, so it does not depend on the sign. The NASA/JPL displacement maps for this event use the opposite convention (positive = towards the satellite).",
+ "quality_states": [
+  {
+   "state": "VALID",
+   "meaning": "Passes every rule. Used in analysis.",
+   "encoding": "no overlay"
+  },
+  {
+   "state": "CAUTION",
+   "meaning": "Usable but weaker evidence. Used in analysis and flagged.",
+   "encoding": "yellow dots"
+  },
+  {
+   "state": "EXCLUDED",
+   "meaning": "Not used. Unobserved, not unmoved.",
+   "encoding": "grey diagonal hatching"
+  }
+ ],
+ "quality_rules": [
+  {
+   "rule": "coherence < 0.3",
+   "result": "EXCLUDED",
+   "rationale": "Low coherence means the radar signal decorrelated between the two dates; the phase is noise. Screening value."
+  },
+  {
+   "rule": "0.3 <= coherence < 0.5",
+   "result": "CAUTION",
+   "rationale": "Moderate coherence: phase is usable but noisier. Screening value."
+  },
+  {
+   "rule": "connected component = 0, or fill value",
+   "result": "EXCLUDED",
+   "rationale": "The product marks these pixels as not reliably unwrapped (NISAR ATBD)."
+  },
+  {
+   "rule": "connected component smaller than 2000 pixels",
+   "result": "CAUTION",
+   "rationale": "The phase offset of a small isolated region relative to its neighbours is ambiguous. Screening value."
+  },
+  {
+   "rule": "product mask: fill, water, or invalid sub-swath",
+   "result": "EXCLUDED",
+   "rationale": "Flags shipped with the product itself (NISAR GUNW specification)."
+  },
+  {
+   "rule": "no phase or coherence value",
+   "result": "EXCLUDED",
+   "rationale": "Nothing was observed."
+  }
+ ],
+ "threshold_rule": "Each pixel is first compared with a plane fitted to the usable pixels of the same unwrapped region within a 4 km window around it. A pixel is a zone candidate when the absolute difference is at least max(3 cm, 3 x 1.4826 x MAD of all such differences). Zones smaller than 0.5 km2 are rejected. The floor, the multiplier and the minimum area were fixed before any real data were inspected; the local reference replaced a scene-median reference after the first real run found that the earthquake's broad motion swamped it.",
+ "score_formula": "Inspection priority score = 100 x sum(weight x factor), each factor between 0 and 1",
+ "score_components": [
+  {
+   "name": "displacement_magnitude",
+   "label": "Observed LOS motion at the road",
+   "weight": 0.35
+  },
+  {
+   "name": "overlap_extent",
+   "label": "Length of road inside the zone",
+   "weight": 0.15
+  },
+  {
+   "name": "valid_fraction",
+   "label": "Share of valid radar pixels",
+   "weight": 0.15
+  },
+  {
+   "name": "coherence",
+   "label": "Median coherence",
+   "weight": 0.1
+  },
+  {
+   "name": "proximity",
+   "label": "Closeness to the deformation zone",
+   "weight": 0.15
+  },
+  {
+   "name": "road_class",
+   "label": "Road class (OSM highway tag)",
+   "weight": 0.1
+  }
+ ],
+ "sensitivity": "Every weight is perturbed by up to \u00b120% (12 one-at-a-time runs and 200 seeded random draws). If the top item changes in more than 20% of runs the ranking is labelled UNSTABLE.",
+ "corrections": "The GUNW product ships ionosphere, troposphere and solid-Earth-tide layers but does not remove them from the unwrapped phase, and neither does TriageSAR. Road corridors are 250 m either side of the road; roads within 1000 m of a zone are listed.",
+ "limitations": [
+  "One interferogram gives motion along one viewing direction only; horizontal motion parallel to the satellite track is almost invisible.",
+  "Values are relative, never absolute. Zones measure motion that differs from the surrounding 4 km, so motion that is smooth over many kilometres (such as most of an earthquake's broad deformation field) is deliberately not reported as a zone, even when it is large.",
+  "No atmospheric (ionosphere, troposphere) or solid-Earth-tide correction is applied, so long-wavelength atmospheric signal can be mistaken for motion.",
+  "Phase-unwrapping errors can create or hide jumps of half a wavelength; isolated small unwrapped regions are flagged CAUTION for this reason.",
+  "Vegetated, steep, water-covered or rapidly changing terrain loses coherence and is excluded: it is unobserved, not safe.",
+  "Road geometry and names come from OpenStreetMap and may be incomplete or out of date.",
+  "The NISAR product used is a PROVISIONAL (partially validated) release.",
+  "All thresholds and weights are screening values chosen for a prototype; they have not been calibrated against field inspections."
+ ],
+ "not_claimed": [
+  "TriageSAR does not detect structural damage.",
+  "TriageSAR does not predict casualties or losses.",
+  "NISAR observations are not treated as ground truth.",
+  "The inspection priority score is not a probability, an accuracy or a statistical confidence."
+ ],
+ "config": {
+  "quality": {
+   "coherence_exclude_below": 0.3,
+   "coherence_caution_below": 0.5,
+   "exclude_unwrap_component_zero": true,
+   "small_component_pixels": 2000,
+   "use_product_mask": true,
+   "summary_valid_fraction": 0.75,
+   "summary_usable_fraction": 0.5
+  },
+  "reference": {
+   "method": "local_plane",
+   "window_m": 4000.0,
+   "min_window_fraction": 0.25
+  },
+  "hotspot": {
+   "threshold_floor_m": 0.03,
+   "robust_sigma_multiplier": 3.0,
+   "min_area_km2": 0.5,
+   "connectivity": 8,
+   "include_caution_pixels": true
+  },
+  "infrastructure": {
+   "highway_classes": [
+    "motorway",
+    "trunk",
+    "primary",
+    "secondary",
+    "tertiary"
+   ],
+   "corridor_buffer_m": 250.0,
+   "proximity_limit_m": 1000.0
+  },
+  "prioritisation": {
+   "weights": {
+    "displacement_magnitude": 0.35,
+    "overlap_extent": 0.15,
+    "valid_fraction": 0.15,
+    "coherence": 0.1,
+    "proximity": 0.15,
+    "road_class": 0.1
+   },
+   "road_class_values": {
+    "motorway": 1.0,
+    "trunk": 0.9,
+    "primary": 0.8,
+    "secondary": 0.6,
+    "tertiary": 0.4
+   }
+  },
+  "sensitivity": {
+   "perturbation_fraction": 0.2,
+   "random_draws": 200,
+   "seed": 20260624,
+   "unstable_top1_change_fraction": 0.2
+  }
+ }
+}

@@ -1,0 +1,2935 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "TriageSAR API",
+    "description": "From NISAR surface motion to an evidence-ranked infrastructure inspection queue. The inspection priority score is not a probability of damage. All endpoints are read-only.",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "tags": [
+          "system"
+        ],
+        "summary": "Health",
+        "operationId": "health_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/events": {
+      "get": {
+        "tags": [
+          "events"
+        ],
+        "summary": "List Events",
+        "operationId": "list_events_api_v1_events_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/events/{event_id}": {
+      "get": {
+        "tags": [
+          "events"
+        ],
+        "summary": "Get Event",
+        "operationId": "get_event_api_v1_events__event_id__get",
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9][a-z0-9-]{1,62}$",
+              "title": "Event Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventDetail"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/events/{event_id}/raster/metadata": {
+      "get": {
+        "tags": [
+          "raster"
+        ],
+        "summary": "Raster Metadata",
+        "operationId": "raster_metadata_api_v1_events__event_id__raster_metadata_get",
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9][a-z0-9-]{1,62}$",
+              "title": "Event Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RasterMetadata"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/events/{event_id}/raster/{layer}.png": {
+      "get": {
+        "tags": [
+          "raster"
+        ],
+        "summary": "Raster Png",
+        "operationId": "raster_png_api_v1_events__event_id__raster__layer__png_get",
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9][a-z0-9-]{1,62}$",
+              "title": "Event Id"
+            }
+          },
+          {
+            "name": "layer",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^(displacement|quality|local)$",
+              "title": "Layer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              },
+              "image/png": {}
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/events/{event_id}/hotspots": {
+      "get": {
+        "tags": [
+          "analysis"
+        ],
+        "summary": "Hotspots",
+        "operationId": "hotspots_api_v1_events__event_id__hotspots_get",
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9][a-z0-9-]{1,62}$",
+              "title": "Event Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HotspotsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/events/{event_id}/inspection-queue": {
+      "get": {
+        "tags": [
+          "analysis"
+        ],
+        "summary": "Inspection Queue",
+        "operationId": "inspection_queue_api_v1_events__event_id__inspection_queue_get",
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9][a-z0-9-]{1,62}$",
+              "title": "Event Id"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 200,
+              "minimum": 1,
+              "default": 25,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100000,
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QueueResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/events/{event_id}/profile/{target}": {
+      "get": {
+        "tags": [
+          "analysis"
+        ],
+        "summary": "Profile",
+        "operationId": "profile_api_v1_events__event_id__profile__target__get",
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9][a-z0-9-]{1,62}$",
+              "title": "Event Id"
+            }
+          },
+          {
+            "name": "target",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 96,
+              "pattern": "^(Z\\d{2,4}|[a-z0-9][a-z0-9-]{1,62}--z\\d{2,4}-r\\d{3,5})$",
+              "title": "Target"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfileResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/events/{event_id}/thumbnail/{target}.png": {
+      "get": {
+        "tags": [
+          "raster"
+        ],
+        "summary": "Thumbnail",
+        "operationId": "thumbnail_api_v1_events__event_id__thumbnail__target__png_get",
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9][a-z0-9-]{1,62}$",
+              "title": "Event Id"
+            }
+          },
+          {
+            "name": "target",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 96,
+              "pattern": "^(Z\\d{2,4}|[a-z0-9][a-z0-9-]{1,62}--z\\d{2,4}-r\\d{3,5})$",
+              "title": "Target"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              },
+              "image/png": {}
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/events/{event_id}/roads": {
+      "get": {
+        "tags": [
+          "infrastructure"
+        ],
+        "summary": "Roads",
+        "operationId": "roads_api_v1_events__event_id__roads_get",
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9][a-z0-9-]{1,62}$",
+              "title": "Event Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoadsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/events/{event_id}/ablation": {
+      "get": {
+        "tags": [
+          "analysis"
+        ],
+        "summary": "Ablation",
+        "operationId": "ablation_api_v1_events__event_id__ablation_get",
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 64,
+              "pattern": "^[a-z0-9][a-z0-9-]{1,62}$",
+              "title": "Event Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AblationResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/inspection/{inspection_id}": {
+      "get": {
+        "tags": [
+          "analysis"
+        ],
+        "summary": "Inspection",
+        "operationId": "inspection_api_v1_inspection__inspection_id__get",
+        "parameters": [
+          {
+            "name": "inspection_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 96,
+              "pattern": "^[a-z0-9][a-z0-9-]{1,62}--z\\d{2,4}-r\\d{3,5}$",
+              "title": "Inspection Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InspectionResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/provenance": {
+      "get": {
+        "tags": [
+          "provenance"
+        ],
+        "summary": "Provenance",
+        "operationId": "provenance_api_v1_provenance_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProvenanceResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/methodology": {
+      "get": {
+        "tags": [
+          "provenance"
+        ],
+        "summary": "Methodology",
+        "operationId": "methodology_api_v1_methodology_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MethodologyResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AblationResponse": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "app_version": {
+            "type": "string",
+            "title": "App Version",
+            "default": "0.1.0"
+          },
+          "event_id": {
+            "type": "string",
+            "title": "Event Id"
+          },
+          "ablation": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ablation"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "event_id",
+          "ablation"
+        ],
+        "title": "AblationResponse"
+      },
+      "Acquisition": {
+        "properties": {
+          "role": {
+            "type": "string",
+            "enum": [
+              "reference",
+              "secondary"
+            ],
+            "title": "Role"
+          },
+          "start_utc": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Start Utc"
+          },
+          "end_utc": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "End Utc"
+          }
+        },
+        "type": "object",
+        "required": [
+          "role",
+          "start_utc",
+          "end_utc"
+        ],
+        "title": "Acquisition"
+      },
+      "AcquisitionDate": {
+        "properties": {
+          "date": {
+            "type": "string",
+            "title": "Date"
+          },
+          "used": {
+            "type": "boolean",
+            "title": "Used"
+          }
+        },
+        "type": "object",
+        "required": [
+          "date",
+          "used"
+        ],
+        "title": "AcquisitionDate"
+      },
+      "AutoIngestStatus": {
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "title": "Enabled"
+          },
+          "last_checked_utc": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Checked Utc"
+          },
+          "checked_until": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Checked Until"
+          },
+          "added_total": {
+            "type": "integer",
+            "title": "Added Total"
+          },
+          "waiting": {
+            "type": "integer",
+            "title": "Waiting"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          }
+        },
+        "type": "object",
+        "required": [
+          "enabled",
+          "last_checked_utc",
+          "checked_until",
+          "added_total",
+          "waiting",
+          "description"
+        ],
+        "title": "AutoIngestStatus"
+      },
+      "CorridorSummary": {
+        "properties": {
+          "buffer_m": {
+            "type": "number",
+            "title": "Buffer M"
+          },
+          "pixel_count": {
+            "type": "integer",
+            "title": "Pixel Count"
+          },
+          "valid_pixels": {
+            "type": "integer",
+            "title": "Valid Pixels"
+          },
+          "caution_pixels": {
+            "type": "integer",
+            "title": "Caution Pixels"
+          },
+          "excluded_pixels": {
+            "type": "integer",
+            "title": "Excluded Pixels"
+          },
+          "valid_fraction": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Valid Fraction"
+          },
+          "usable_fraction": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Usable Fraction"
+          },
+          "median_los_m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Median Los M"
+          },
+          "p90_abs_los_m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "P90 Abs Los M"
+          },
+          "max_abs_los_m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Abs Los M"
+          },
+          "iqr_los_m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Iqr Los M"
+          },
+          "scene_median_los_m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Scene Median Los M"
+          },
+          "coherence_summary": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/FiveNumber"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "buffer_m",
+          "pixel_count",
+          "valid_pixels",
+          "caution_pixels",
+          "excluded_pixels",
+          "valid_fraction",
+          "usable_fraction",
+          "median_los_m",
+          "p90_abs_los_m",
+          "max_abs_los_m",
+          "iqr_los_m",
+          "scene_median_los_m",
+          "coherence_summary"
+        ],
+        "title": "CorridorSummary"
+      },
+      "ErrorBody": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          },
+          "hint": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Hint"
+          }
+        },
+        "type": "object",
+        "required": [
+          "code",
+          "message"
+        ],
+        "title": "ErrorBody"
+      },
+      "ErrorResponse": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "app_version": {
+            "type": "string",
+            "title": "App Version",
+            "default": "0.1.0"
+          },
+          "error": {
+            "$ref": "#/components/schemas/ErrorBody"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "title": "ErrorResponse"
+      },
+      "EventDetail": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "app_version": {
+            "type": "string",
+            "title": "App Version",
+            "default": "0.1.0"
+          },
+          "event": {
+            "$ref": "#/components/schemas/EventSummary"
+          },
+          "notes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Notes"
+          },
+          "disclaimer": {
+            "type": "string",
+            "title": "Disclaimer"
+          },
+          "zone_count": {
+            "type": "integer",
+            "title": "Zone Count"
+          },
+          "queue_length": {
+            "type": "integer",
+            "title": "Queue Length"
+          },
+          "quality": {
+            "$ref": "#/components/schemas/QualitySummary"
+          },
+          "radar": {
+            "$ref": "#/components/schemas/RadarSummary"
+          },
+          "reference": {
+            "$ref": "#/components/schemas/ReferenceSummary"
+          },
+          "threshold": {
+            "$ref": "#/components/schemas/ThresholdSummary"
+          },
+          "sensitivity": {
+            "$ref": "#/components/schemas/SensitivitySummary"
+          },
+          "road_coverage": {
+            "$ref": "#/components/schemas/RoadCoverage"
+          },
+          "weights": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Weights"
+          },
+          "corrections": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Corrections"
+          },
+          "caveats": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Caveats"
+          },
+          "infrastructure": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Infrastructure"
+          },
+          "provenance_summary": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Provenance Summary"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "event",
+          "notes",
+          "disclaimer",
+          "zone_count",
+          "queue_length",
+          "quality",
+          "radar",
+          "reference",
+          "threshold",
+          "sensitivity",
+          "road_coverage",
+          "weights",
+          "corrections",
+          "caveats",
+          "infrastructure",
+          "provenance_summary"
+        ],
+        "title": "EventDetail"
+      },
+      "EventSummary": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "summary": {
+            "type": "string",
+            "title": "Summary"
+          },
+          "data_kind": {
+            "type": "string",
+            "enum": [
+              "nasa_nisar_gunw",
+              "synthetic_test"
+            ],
+            "title": "Data Kind"
+          },
+          "data_label": {
+            "type": "string",
+            "title": "Data Label"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ready",
+              "fixture_not_built",
+              "roads_missing"
+            ],
+            "title": "Status"
+          },
+          "status_message": {
+            "type": "string",
+            "title": "Status Message"
+          },
+          "build_command": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Build Command"
+          },
+          "event_time_utc": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Event Time Utc"
+          },
+          "event_source_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Event Source Name"
+          },
+          "event_source_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Event Source Url"
+          },
+          "bbox_wgs84": {
+            "anyOf": [
+              {
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "type": "array",
+                "maxItems": 4,
+                "minItems": 4
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bbox Wgs84"
+          },
+          "granule_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Granule Id"
+          },
+          "acquisitions": {
+            "items": {
+              "$ref": "#/components/schemas/Acquisition"
+            },
+            "type": "array",
+            "title": "Acquisitions"
+          },
+          "epicentres": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Epicentres"
+          },
+          "place": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Place"
+          },
+          "magnitude": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Magnitude"
+          },
+          "acquisition_dates": {
+            "items": {
+              "$ref": "#/components/schemas/AcquisitionDate"
+            },
+            "type": "array",
+            "title": "Acquisition Dates"
+          },
+          "acquisition_dates_source": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Acquisition Dates Source"
+          },
+          "added_by": {
+            "type": "string",
+            "enum": [
+              "manual",
+              "auto_ingest",
+              "test"
+            ],
+            "title": "Added By",
+            "default": "manual"
+          },
+          "added_on": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Added On"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "summary",
+          "data_kind",
+          "data_label",
+          "status",
+          "status_message",
+          "build_command",
+          "event_time_utc",
+          "event_source_name",
+          "event_source_url",
+          "bbox_wgs84",
+          "granule_id",
+          "acquisitions"
+        ],
+        "title": "EventSummary"
+      },
+      "EventsResponse": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "app_version": {
+            "type": "string",
+            "title": "App Version",
+            "default": "0.1.0"
+          },
+          "events": {
+            "items": {
+              "$ref": "#/components/schemas/EventSummary"
+            },
+            "type": "array",
+            "title": "Events"
+          },
+          "auto_ingest": {
+            "$ref": "#/components/schemas/AutoIngestStatus"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "events",
+          "auto_ingest"
+        ],
+        "title": "EventsResponse"
+      },
+      "Explanation": {
+        "properties": {
+          "short_reason": {
+            "type": "string",
+            "title": "Short Reason"
+          },
+          "summary": {
+            "type": "string",
+            "title": "Summary"
+          },
+          "why_ranked": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Why Ranked"
+          },
+          "caveats": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Caveats"
+          },
+          "disclaimer": {
+            "type": "string",
+            "title": "Disclaimer"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "short_reason",
+          "summary",
+          "why_ranked",
+          "caveats",
+          "disclaimer"
+        ],
+        "title": "Explanation"
+      },
+      "FiveNumber": {
+        "properties": {
+          "min": {
+            "type": "number",
+            "title": "Min"
+          },
+          "p25": {
+            "type": "number",
+            "title": "P25"
+          },
+          "median": {
+            "type": "number",
+            "title": "Median"
+          },
+          "p75": {
+            "type": "number",
+            "title": "P75"
+          },
+          "max": {
+            "type": "number",
+            "title": "Max"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "min",
+          "p25",
+          "median",
+          "p75",
+          "max"
+        ],
+        "title": "FiveNumber"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "HealthResponse": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "app_version": {
+            "type": "string",
+            "title": "App Version",
+            "default": "0.1.0"
+          },
+          "status": {
+            "type": "string",
+            "const": "ok",
+            "title": "Status",
+            "default": "ok"
+          },
+          "events_total": {
+            "type": "integer",
+            "title": "Events Total"
+          },
+          "events_ready": {
+            "type": "integer",
+            "title": "Events Ready"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "events_total",
+          "events_ready"
+        ],
+        "title": "HealthResponse"
+      },
+      "HotspotsResponse": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "app_version": {
+            "type": "string",
+            "title": "App Version",
+            "default": "0.1.0"
+          },
+          "event_id": {
+            "type": "string",
+            "title": "Event Id"
+          },
+          "type": {
+            "type": "string",
+            "const": "FeatureCollection",
+            "title": "Type",
+            "default": "FeatureCollection"
+          },
+          "features": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Features"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "event_id",
+          "features"
+        ],
+        "title": "HotspotsResponse"
+      },
+      "InspectionItem": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "event_id": {
+            "type": "string",
+            "title": "Event Id"
+          },
+          "rank": {
+            "type": "integer",
+            "title": "Rank"
+          },
+          "zone_id": {
+            "type": "string",
+            "title": "Zone Id"
+          },
+          "asset_type": {
+            "type": "string",
+            "title": "Asset Type"
+          },
+          "asset_name": {
+            "type": "string",
+            "title": "Asset Name"
+          },
+          "name_source": {
+            "type": "string",
+            "title": "Name Source"
+          },
+          "highway_class": {
+            "type": "string",
+            "title": "Highway Class"
+          },
+          "osm_way_ids": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "title": "Osm Way Ids"
+          },
+          "relation": {
+            "type": "string",
+            "enum": [
+              "overlaps",
+              "near"
+            ],
+            "title": "Relation"
+          },
+          "overlap_length_m": {
+            "type": "number",
+            "title": "Overlap Length M"
+          },
+          "distance_m": {
+            "type": "number",
+            "title": "Distance M"
+          },
+          "bridge_tagged_length_m": {
+            "type": "number",
+            "title": "Bridge Tagged Length M"
+          },
+          "evidence_quality": {
+            "type": "string",
+            "enum": [
+              "VALID",
+              "CAUTION",
+              "INSUFFICIENT"
+            ],
+            "title": "Evidence Quality"
+          },
+          "score": {
+            "type": "number",
+            "title": "Score"
+          },
+          "components": {
+            "items": {
+              "$ref": "#/components/schemas/ScoreComponent"
+            },
+            "type": "array",
+            "title": "Components"
+          },
+          "corridor": {
+            "$ref": "#/components/schemas/CorridorSummary"
+          },
+          "stability": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RankStability"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "explanation": {
+            "$ref": "#/components/schemas/Explanation"
+          },
+          "marker_lonlat": {
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "type": "array",
+            "maxItems": 2,
+            "minItems": 2,
+            "title": "Marker Lonlat"
+          },
+          "geometry": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Geometry"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "event_id",
+          "rank",
+          "zone_id",
+          "asset_type",
+          "asset_name",
+          "name_source",
+          "highway_class",
+          "osm_way_ids",
+          "relation",
+          "overlap_length_m",
+          "distance_m",
+          "bridge_tagged_length_m",
+          "evidence_quality",
+          "score",
+          "components",
+          "corridor",
+          "stability",
+          "explanation",
+          "marker_lonlat",
+          "geometry"
+        ],
+        "title": "InspectionItem"
+      },
+      "InspectionResponse": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "app_version": {
+            "type": "string",
+            "title": "App Version",
+            "default": "0.1.0"
+          },
+          "item": {
+            "$ref": "#/components/schemas/InspectionItem"
+          },
+          "zone": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Zone"
+          },
+          "provenance_summary": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Provenance Summary"
+          },
+          "weights": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Weights"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "item",
+          "zone",
+          "provenance_summary",
+          "weights"
+        ],
+        "title": "InspectionResponse"
+      },
+      "LegendEntry": {
+        "properties": {
+          "key": {
+            "type": "string",
+            "title": "Key"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          },
+          "encoding": {
+            "type": "string",
+            "title": "Encoding"
+          }
+        },
+        "type": "object",
+        "required": [
+          "key",
+          "label",
+          "description",
+          "encoding"
+        ],
+        "title": "LegendEntry"
+      },
+      "MethodologyResponse": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "app_version": {
+            "type": "string",
+            "title": "App Version",
+            "default": "0.1.0"
+          },
+          "pipeline": {
+            "items": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Pipeline"
+          },
+          "equation": {
+            "type": "string",
+            "title": "Equation"
+          },
+          "sign_convention": {
+            "type": "string",
+            "title": "Sign Convention"
+          },
+          "sign_convention_basis": {
+            "type": "string",
+            "title": "Sign Convention Basis"
+          },
+          "quality_states": {
+            "items": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Quality States"
+          },
+          "quality_rules": {
+            "items": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Quality Rules"
+          },
+          "threshold_rule": {
+            "type": "string",
+            "title": "Threshold Rule"
+          },
+          "score_formula": {
+            "type": "string",
+            "title": "Score Formula"
+          },
+          "score_components": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Score Components"
+          },
+          "sensitivity": {
+            "type": "string",
+            "title": "Sensitivity"
+          },
+          "corrections": {
+            "type": "string",
+            "title": "Corrections"
+          },
+          "limitations": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Limitations"
+          },
+          "not_claimed": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Not Claimed"
+          },
+          "config": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Config"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "pipeline",
+          "equation",
+          "sign_convention",
+          "sign_convention_basis",
+          "quality_states",
+          "quality_rules",
+          "threshold_rule",
+          "score_formula",
+          "score_components",
+          "sensitivity",
+          "corrections",
+          "limitations",
+          "not_claimed",
+          "config"
+        ],
+        "title": "MethodologyResponse"
+      },
+      "ProfileResponse": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "app_version": {
+            "type": "string",
+            "title": "App Version",
+            "default": "0.1.0"
+          },
+          "event_id": {
+            "type": "string",
+            "title": "Event Id"
+          },
+          "target": {
+            "type": "string",
+            "title": "Target"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "road",
+              "transect"
+            ],
+            "title": "Kind"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          },
+          "length_km": {
+            "type": "number",
+            "title": "Length Km"
+          },
+          "distance_km": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array",
+            "title": "Distance Km"
+          },
+          "local_m": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Local M"
+          },
+          "scene_m": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Scene M"
+          },
+          "state": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "State"
+          },
+          "threshold_m": {
+            "type": "number",
+            "title": "Threshold M"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "event_id",
+          "target",
+          "kind",
+          "description",
+          "length_km",
+          "distance_km",
+          "local_m",
+          "scene_m",
+          "state",
+          "threshold_m"
+        ],
+        "title": "ProfileResponse"
+      },
+      "ProvenanceEvent": {
+        "properties": {
+          "event_id": {
+            "type": "string",
+            "title": "Event Id"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ready",
+              "fixture_not_built",
+              "roads_missing"
+            ],
+            "title": "Status"
+          },
+          "data_kind": {
+            "type": "string",
+            "title": "Data Kind"
+          },
+          "fixture_manifest": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fixture Manifest"
+          },
+          "checksum_problems": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Checksum Problems"
+          },
+          "infrastructure_manifest": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Infrastructure Manifest"
+          },
+          "event_definition": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Event Definition"
+          }
+        },
+        "type": "object",
+        "required": [
+          "event_id",
+          "status",
+          "data_kind",
+          "fixture_manifest",
+          "checksum_problems",
+          "infrastructure_manifest",
+          "event_definition"
+        ],
+        "title": "ProvenanceEvent"
+      },
+      "ProvenanceResponse": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "app_version": {
+            "type": "string",
+            "title": "App Version",
+            "default": "0.1.0"
+          },
+          "application": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Application"
+          },
+          "events": {
+            "items": {
+              "$ref": "#/components/schemas/ProvenanceEvent"
+            },
+            "type": "array",
+            "title": "Events"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "application",
+          "events"
+        ],
+        "title": "ProvenanceResponse"
+      },
+      "QualitySummary": {
+        "properties": {
+          "total_pixels": {
+            "type": "integer",
+            "title": "Total Pixels"
+          },
+          "counts": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object",
+            "title": "Counts"
+          },
+          "fractions": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Fractions"
+          },
+          "reason_counts": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object",
+            "title": "Reason Counts"
+          },
+          "reason_text": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Reason Text"
+          },
+          "unwrapped_region_count": {
+            "type": "integer",
+            "title": "Unwrapped Region Count"
+          },
+          "largest_region_pixels": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Largest Region Pixels"
+          },
+          "masking_applied": {
+            "type": "boolean",
+            "title": "Masking Applied"
+          },
+          "product_mask_used": {
+            "type": "boolean",
+            "title": "Product Mask Used"
+          },
+          "product_mask_note": {
+            "type": "string",
+            "title": "Product Mask Note"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "total_pixels",
+          "counts",
+          "fractions",
+          "reason_counts",
+          "reason_text",
+          "unwrapped_region_count",
+          "largest_region_pixels",
+          "masking_applied",
+          "product_mask_used",
+          "product_mask_note"
+        ],
+        "title": "QualitySummary"
+      },
+      "QueueResponse": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "app_version": {
+            "type": "string",
+            "title": "App Version",
+            "default": "0.1.0"
+          },
+          "event_id": {
+            "type": "string",
+            "title": "Event Id"
+          },
+          "score_label": {
+            "type": "string",
+            "title": "Score Label",
+            "default": "Inspection priority score"
+          },
+          "disclaimer": {
+            "type": "string",
+            "title": "Disclaimer"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "offset": {
+            "type": "integer",
+            "title": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "title": "Limit"
+          },
+          "weights": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Weights"
+          },
+          "sensitivity": {
+            "$ref": "#/components/schemas/SensitivitySummary"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/InspectionItem"
+            },
+            "type": "array",
+            "title": "Items"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "event_id",
+          "disclaimer",
+          "total",
+          "offset",
+          "limit",
+          "weights",
+          "sensitivity",
+          "items"
+        ],
+        "title": "QueueResponse"
+      },
+      "RadarSummary": {
+        "properties": {
+          "wavelength_m": {
+            "type": "number",
+            "title": "Wavelength M"
+          },
+          "center_frequency_hz": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Center Frequency Hz"
+          },
+          "derivation": {
+            "type": "string",
+            "title": "Derivation"
+          },
+          "source_hdf5_path": {
+            "type": "string",
+            "title": "Source Hdf5 Path"
+          },
+          "frequency": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Frequency"
+          },
+          "polarisation": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Polarisation"
+          },
+          "metres_per_fringe": {
+            "type": "number",
+            "title": "Metres Per Fringe"
+          },
+          "equation": {
+            "type": "string",
+            "title": "Equation"
+          },
+          "sign_convention": {
+            "type": "string",
+            "title": "Sign Convention"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "wavelength_m",
+          "center_frequency_hz",
+          "derivation",
+          "source_hdf5_path",
+          "frequency",
+          "polarisation",
+          "metres_per_fringe",
+          "equation",
+          "sign_convention"
+        ],
+        "title": "RadarSummary"
+      },
+      "RankStability": {
+        "properties": {
+          "min_rank": {
+            "type": "integer",
+            "title": "Min Rank"
+          },
+          "max_rank": {
+            "type": "integer",
+            "title": "Max Rank"
+          },
+          "stable": {
+            "type": "boolean",
+            "title": "Stable"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "min_rank",
+          "max_rank",
+          "stable"
+        ],
+        "title": "RankStability"
+      },
+      "RasterMetadata": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "app_version": {
+            "type": "string",
+            "title": "App Version",
+            "default": "0.1.0"
+          },
+          "event_id": {
+            "type": "string",
+            "title": "Event Id"
+          },
+          "displacement_url": {
+            "type": "string",
+            "title": "Displacement Url"
+          },
+          "quality_url": {
+            "type": "string",
+            "title": "Quality Url"
+          },
+          "local_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Local Url"
+          },
+          "local_colour_limit_m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Local Colour Limit M"
+          },
+          "local_note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Local Note"
+          },
+          "coordinates": {
+            "items": {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            },
+            "type": "array",
+            "title": "Coordinates",
+            "description": "Image corners: top-left, top-right, bottom-right, bottom-left (lon, lat)"
+          },
+          "width": {
+            "type": "integer",
+            "title": "Width"
+          },
+          "height": {
+            "type": "integer",
+            "title": "Height"
+          },
+          "colour_limit_m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Colour Limit M"
+          },
+          "colour_scale": {
+            "type": "string",
+            "title": "Colour Scale"
+          },
+          "display_note": {
+            "type": "string",
+            "title": "Display Note"
+          },
+          "grid": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Grid"
+          },
+          "legend": {
+            "items": {
+              "$ref": "#/components/schemas/LegendEntry"
+            },
+            "type": "array",
+            "title": "Legend"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "event_id",
+          "displacement_url",
+          "quality_url",
+          "local_url",
+          "local_colour_limit_m",
+          "local_note",
+          "coordinates",
+          "width",
+          "height",
+          "colour_limit_m",
+          "colour_scale",
+          "display_note",
+          "grid",
+          "legend"
+        ],
+        "title": "RasterMetadata"
+      },
+      "ReferenceSummary": {
+        "properties": {
+          "method": {
+            "type": "string",
+            "title": "Method"
+          },
+          "quantity": {
+            "type": "string",
+            "title": "Quantity"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          },
+          "window_m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Window M"
+          },
+          "unreferenced_pixels": {
+            "type": "integer",
+            "title": "Unreferenced Pixels"
+          },
+          "scene_description": {
+            "type": "string",
+            "title": "Scene Description"
+          },
+          "component_reference_m": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Component Reference M"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "method",
+          "quantity",
+          "description",
+          "window_m",
+          "unreferenced_pixels",
+          "scene_description",
+          "component_reference_m"
+        ],
+        "title": "ReferenceSummary"
+      },
+      "RoadCoverage": {
+        "properties": {
+          "road_count": {
+            "type": "integer",
+            "title": "Road Count"
+          },
+          "road_pixels": {
+            "type": "integer",
+            "title": "Road Pixels"
+          },
+          "valid_pixels": {
+            "type": "integer",
+            "title": "Valid Pixels"
+          },
+          "caution_pixels": {
+            "type": "integer",
+            "title": "Caution Pixels"
+          },
+          "excluded_pixels": {
+            "type": "integer",
+            "title": "Excluded Pixels"
+          },
+          "excluded_fraction": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Excluded Fraction"
+          },
+          "note": {
+            "type": "string",
+            "title": "Note"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "road_count",
+          "road_pixels",
+          "valid_pixels",
+          "caution_pixels",
+          "excluded_pixels",
+          "excluded_fraction",
+          "note"
+        ],
+        "title": "RoadCoverage"
+      },
+      "RoadsResponse": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "app_version": {
+            "type": "string",
+            "title": "App Version",
+            "default": "0.1.0"
+          },
+          "event_id": {
+            "type": "string",
+            "title": "Event Id"
+          },
+          "attribution": {
+            "type": "string",
+            "title": "Attribution"
+          },
+          "licence_url": {
+            "type": "string",
+            "title": "Licence Url"
+          },
+          "roads": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Roads"
+          },
+          "places": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Places"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "event_id",
+          "attribution",
+          "licence_url",
+          "roads",
+          "places"
+        ],
+        "title": "RoadsResponse"
+      },
+      "ScoreComponent": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "value": {
+            "type": "number",
+            "title": "Value"
+          },
+          "weight": {
+            "type": "number",
+            "title": "Weight"
+          },
+          "points": {
+            "type": "number",
+            "title": "Points"
+          },
+          "raw_value": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Raw Value"
+          },
+          "raw_unit": {
+            "type": "string",
+            "title": "Raw Unit"
+          },
+          "basis": {
+            "type": "string",
+            "title": "Basis"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "name",
+          "label",
+          "value",
+          "weight",
+          "points",
+          "raw_value",
+          "raw_unit",
+          "basis"
+        ],
+        "title": "ScoreComponent"
+      },
+      "SensitivitySummary": {
+        "properties": {
+          "runs": {
+            "type": "integer",
+            "title": "Runs"
+          },
+          "perturbation_fraction": {
+            "type": "number",
+            "title": "Perturbation Fraction"
+          },
+          "top1_changed_fraction": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Top1 Changed Fraction"
+          },
+          "unstable": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unstable"
+          },
+          "spearman_min": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Spearman Min"
+          },
+          "spearman_median": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Spearman Median"
+          },
+          "unstable_threshold": {
+            "type": "number",
+            "title": "Unstable Threshold"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "runs",
+          "perturbation_fraction",
+          "top1_changed_fraction",
+          "unstable",
+          "spearman_min",
+          "spearman_median",
+          "unstable_threshold",
+          "description"
+        ],
+        "title": "SensitivitySummary"
+      },
+      "ThresholdSummary": {
+        "properties": {
+          "threshold_m": {
+            "type": "number",
+            "title": "Threshold M"
+          },
+          "floor_m": {
+            "type": "number",
+            "title": "Floor M"
+          },
+          "robust_sigma_m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Robust Sigma M"
+          },
+          "mad_m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mad M"
+          },
+          "multiplier": {
+            "type": "number",
+            "title": "Multiplier"
+          },
+          "rule": {
+            "type": "string",
+            "title": "Rule"
+          },
+          "binding": {
+            "type": "string",
+            "title": "Binding"
+          },
+          "note": {
+            "type": "string",
+            "title": "Note"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "threshold_m",
+          "floor_m",
+          "robust_sigma_m",
+          "mad_m",
+          "multiplier",
+          "rule",
+          "binding",
+          "note"
+        ],
+        "title": "ThresholdSummary"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

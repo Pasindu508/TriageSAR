@@ -1,0 +1,15 @@
+.git
+.venv
+.cache
+.env
+.env.*
+**/node_modules
+apps/web/dist
+apps/web/test-results
+apps/web/playwright-report
+data/raw
+**/*.h5
+**/__pycache__
+.pytest_cache
+.mypy_cache
+.ruff_cache

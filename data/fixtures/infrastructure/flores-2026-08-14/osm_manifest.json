@@ -1,0 +1,42 @@
+{
+  "dataset": "OpenStreetMap road network extract",
+  "provider": "OpenStreetMap contributors, retrieved through the Overpass API",
+  "licence": "Open Database Licence (ODbL) 1.0",
+  "licence_url": "https://www.openstreetmap.org/copyright",
+  "attribution": "\u00a9 OpenStreetMap contributors, ODbL 1.0",
+  "overpass_endpoint": "https://overpass-api.de/api/interpreter",
+  "osm_base_timestamp": "2026-11-15T01:53:05Z",
+  "retrieved_at_utc": "2026-11-15T01:54:31Z",
+  "bbox_wgs84": [
+    120.95,
+    -8.92,
+    122.1,
+    -8.27
+  ],
+  "highway_classes": [
+    "motorway",
+    "trunk",
+    "primary",
+    "secondary",
+    "tertiary"
+  ],
+  "query": "[out:json][timeout:180];\n(\n  way[\"highway\"~\"^(motorway|motorway_link|primary|primary_link|secondary|secondary_link|tertiary|tertiary_link|trunk|trunk_link)$\"](-8.920000,120.950000,-8.270000,122.100000);\n  node[\"place\"~\"^(city|town)$\"](-8.920000,120.950000,-8.270000,122.100000);\n);\nout geom tags;",
+  "command": "python scripts/fetch_osm_roads.py --event flores-2026-08-14",
+  "transformations": [
+    "Ways converted to GeoJSON LineStrings; only osm_id, highway, name, ref, bridge and tunnel tags kept.",
+    "Coordinates rounded to 6 decimal places (about 0.1 m).",
+    "Place nodes (city, town) kept as labelled points for map orientation."
+  ],
+  "files": {
+    "roads.geojson": {
+      "sha256": "e68ea338e115a0e43d322550138c61db5c37382788372c192a746218edb28fa8",
+      "bytes": 1907918,
+      "features": 816
+    },
+    "places.geojson": {
+      "sha256": "21ee471f031eaa65f18f0a5a421332b3724ca1b6fa49a1e7fee0aa5b18d07d4b",
+      "bytes": 1995,
+      "features": 13
+    }
+  }
+}
