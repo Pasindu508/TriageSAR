@@ -1,0 +1,42 @@
+{
+  "dataset": "OpenStreetMap road network extract",
+  "provider": "OpenStreetMap contributors, retrieved through the Overpass API",
+  "licence": "Open Database Licence (ODbL) 1.0",
+  "licence_url": "https://www.openstreetmap.org/copyright",
+  "attribution": "\u00a9 OpenStreetMap contributors, ODbL 1.0",
+  "overpass_endpoint": "https://overpass-api.de/api/interpreter",
+  "osm_base_timestamp": "2026-11-15T10:23:48Z",
+  "retrieved_at_utc": "2026-11-15T10:25:34Z",
+  "bbox_wgs84": [
+    167.703,
+    -15.758,
+    168.853,
+    -15.108
+  ],
+  "highway_classes": [
+    "motorway",
+    "trunk",
+    "primary",
+    "secondary",
+    "tertiary"
+  ],
+  "query": "[out:json][timeout:180];\n(\n  way[\"highway\"~\"^(motorway|motorway_link|primary|primary_link|secondary|secondary_link|tertiary|tertiary_link|trunk|trunk_link)$\"](-15.758000,167.703000,-15.108000,168.853000);\n  node[\"place\"~\"^(city|town)$\"](-15.758000,167.703000,-15.108000,168.853000);\n);\nout geom tags;",
+  "command": "python scripts/fetch_osm_roads.py --event vanuatu-2026-10-08",
+  "transformations": [
+    "Ways converted to GeoJSON LineStrings; only osm_id, highway, name, ref, bridge and tunnel tags kept.",
+    "Coordinates rounded to 6 decimal places (about 0.1 m).",
+    "Place nodes (city, town) kept as labelled points for map orientation."
+  ],
+  "files": {
+    "roads.geojson": {
+      "sha256": "2c81a425eb2b5bdfe2f50d20551e94e180944eb4b8a377cb40eb712ec5b5c36a",
+      "bytes": 83284,
+      "features": 39
+    },
+    "places.geojson": {
+      "sha256": "6d18edfe75b3149104038dcbca4d0096bbcb923f0f9fa4b49f4815344e75bb90",
+      "bytes": 43,
+      "features": 0
+    }
+  }
+}

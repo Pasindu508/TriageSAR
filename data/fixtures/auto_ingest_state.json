@@ -1,5 +1,5 @@
 {
-  "last_checked_utc": "2026-11-15T05:29:06Z",
+  "last_checked_utc": "2026-11-15T10:27:50Z",
   "checked_until": "2026-11-15",
   "processed": {
     "us7000t1bu": {
@@ -12,22 +12,22 @@
     "us6000u43g": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-15T05:28:55Z"
+      "checked_utc": "2026-11-15T10:22:48Z"
     },
     "us6000u4j2": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-15T05:28:55Z"
+      "checked_utc": "2026-11-15T10:22:49Z"
     },
     "us6000u214": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-15T05:28:55Z"
+      "checked_utc": "2026-11-15T10:22:49Z"
     },
     "us6000u1z5": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-15T05:28:56Z"
+      "checked_utc": "2026-11-15T10:22:49Z"
     },
     "us7000sui3": {
       "status": "skipped",
@@ -42,12 +42,12 @@
     "us7000tx16": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-15T05:28:57Z"
+      "checked_utc": "2026-11-15T10:24:18Z"
     },
     "us7000ttxz": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-15T05:28:58Z"
+      "checked_utc": "2026-11-15T10:24:19Z"
     },
     "us7000t1cc": {
       "status": "skipped",
@@ -72,12 +72,12 @@
     "us7000twg9": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-15T05:29:01Z"
+      "checked_utc": "2026-11-15T10:27:48Z"
     },
     "us6000u4jb": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-15T05:29:01Z"
+      "checked_utc": "2026-11-15T10:27:48Z"
     },
     "us6000tkuc": {
       "status": "skipped",
@@ -92,12 +92,12 @@
     "us7000tupl": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-15T05:29:03Z"
+      "checked_utc": "2026-11-15T10:27:49Z"
     },
     "us7000ttlm": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-15T05:29:03Z"
+      "checked_utc": "2026-11-15T10:27:49Z"
     },
     "us6000u1cf": {
       "status": "skipped",
@@ -108,9 +108,53 @@
       "status": "skipped",
       "reason": "no NISAR interferogram spanning the event after 95 days",
       "checked_utc": "2026-11-15T05:29:05Z"
+    },
+    "us6000txpi": {
+      "status": "retry",
+      "reason": "road extract failed: error: Overpass returned HTTP 502",
+      "event_id": null,
+      "granule_id": "NISAR_L2_PR_GUNW_030_001_D_099_032_2000_SH_20260906T065747_20260906T065809_20260930T065748_20260930T065810_P05023_N_P_J_001",
+      "checked_utc": "2026-11-15T10:22:52Z"
+    },
+    "us6000u19w": {
+      "status": "added",
+      "reason": "129 road ways; granule NISAR_L2_PR_GUNW_032_004_A_005_033_4000_SH_20260930T110420_20260930T110435_20261012T110420_20261012T110436_P05023_N_P_J_001",
+      "event_id": "panama-rio-grande-2026-10-09",
+      "granule_id": "NISAR_L2_PR_GUNW_032_004_A_005_033_4000_SH_20260930T110420_20260930T110435_20261012T110420_20261012T110436_P05023_N_P_J_001",
+      "checked_utc": "2026-11-15T10:24:18Z"
+    },
+    "us6000u3jl": {
+      "status": "retry",
+      "reason": "road extract failed: error: Overpass returned no roads for this AOI",
+      "event_id": null,
+      "granule_id": "NISAR_L2_PR_GUNW_030_123_A_171_033_2000_SH_20260914T184434_20260914T184452_20261020T184434_20261020T184453_P05023_N_P_J_001",
+      "checked_utc": "2026-11-15T10:25:04Z"
+    },
+    "us6000u0xi": {
+      "status": "added",
+      "reason": "39 road ways; granule NISAR_L2_PR_GUNW_032_022_A_170_033_2000_SH_20261001T183541_20261001T183616_20261013T183541_20261013T183616_P05023_N_F_J_001",
+      "event_id": "vanuatu-2026-10-08",
+      "granule_id": "NISAR_L2_PR_GUNW_032_022_A_170_033_2000_SH_20261001T183541_20261001T183616_20261013T183541_20261013T183616_P05023_N_F_J_001",
+      "checked_utc": "2026-11-15T10:26:23Z"
+    },
+    "us6000u1kv": {
+      "status": "added",
+      "reason": "51 road ways; granule NISAR_L2_PR_GUNW_032_008_A_174_033_2000_SH_20260930T191932_20260930T192007_20261012T191932_20261012T192007_P05023_N_F_J_001",
+      "event_id": "papua-new-guinea-2026-10-11",
+      "granule_id": "NISAR_L2_PR_GUNW_032_008_A_174_033_2000_SH_20260930T191932_20260930T192007_20261012T191932_20261012T192007_P05023_N_F_J_001",
+      "checked_utc": "2026-11-15T10:27:47Z"
     }
   },
   "runs": [
+    {
+      "utc": "2026-11-15T10:27:50Z",
+      "added": [
+        "panama-rio-grande-2026-10-09",
+        "vanuatu-2026-10-08",
+        "papua-new-guinea-2026-10-11"
+      ],
+      "quakes_checked": 20
+    },
     {
       "utc": "2026-11-15T05:29:06Z",
       "added": [

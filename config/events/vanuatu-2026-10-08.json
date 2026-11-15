@@ -1,0 +1,66 @@
+{
+  "id": "vanuatu-2026-10-08",
+  "title": "Norsup, Vanuatu earthquake, 8 October 2026",
+  "summary": "Co-event NISAR L-band interferogram (2026-10-01 to 2026-10-13) over Norsup, Vanuatu, spanning the M 6.3 earthquake. Added automatically.",
+  "event_time_utc": "2026-10-08T09:00:08Z",
+  "event_source_name": "USGS Earthquake Hazards Program, event us6000u0xi (M 6.3 mww, 117 km NE of Norsup, Vanuatu)",
+  "event_source_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u0xi",
+  "notes": [
+    "Epicentre of us6000u0xi (USGS): 15.4332 S, 168.2783 E, depth 19 km. Catalogue values retrieved 2026-11-15 and may be revised by USGS.",
+    "This case study was added by scripts/auto_ingest.py without manual review; the study area is the default 120 km x 70 km box around the epicentre, clipped to the NISAR frame."
+  ],
+  "epicentres": [
+    {
+      "usgs_id": "us6000u0xi",
+      "magnitude": 6.3,
+      "magnitude_type": "mww",
+      "lon": 168.2783,
+      "lat": -15.4332,
+      "time_utc": "2026-10-08T09:00:08Z",
+      "place": "117 km NE of Norsup, Vanuatu"
+    }
+  ],
+  "aoi_bbox_wgs84": [
+    167.703,
+    -15.758,
+    168.853,
+    -15.108
+  ],
+  "granule": {
+    "granule_id": "NISAR_L2_PR_GUNW_032_022_A_170_033_2000_SH_20261001T183541_20261001T183616_20261013T183541_20261013T183616_P05023_N_F_J_001",
+    "file_name": "NISAR_L2_PR_GUNW_032_022_A_170_033_2000_SH_20261001T183541_20261001T183616_20261013T183541_20261013T183616_P05023_N_F_J_001.h5",
+    "collection": "NISAR_L2_GUNW_PROVISIONAL_V1",
+    "concept_id": "C2854335566-ASF",
+    "provider": "NASA Alaska Satellite Facility DAAC (ASF)",
+    "download_url": "https://nisar.asf.earthdatacloud.nasa.gov/NISAR/NISAR_L2_GUNW_PROVISIONAL_V1/NISAR_L2_PR_GUNW_032_022_A_170_033_2000_SH_20261001T183541_20261001T183616_20261013T183541_20261013T183616_P05023_N_F_J_001/NISAR_L2_PR_GUNW_032_022_A_170_033_2000_SH_20261001T183541_20261001T183616_20261013T183541_20261013T183616_P05023_N_F_J_001.h5",
+    "flight_direction": "ASCENDING",
+    "frame": 170,
+    "track": 22,
+    "pge_version": "R05.02.3",
+    "footprint_wkt": "POLYGON ((169.72508 -15.93718, 169.2691 -13.79175, 166.98209 -14.23523, 167.40893 -16.37559, 169.72508 -15.93718))",
+    "source_size_bytes": 2323644416,
+    "discovered_with": "python scripts/auto_ingest.py",
+    "discovered_on": "2026-11-15"
+  },
+  "added_by": "auto_ingest",
+  "added_on": "2026-11-15",
+  "acquisitions": [
+    {
+      "date": "2026-09-07",
+      "used": false
+    },
+    {
+      "date": "2026-09-19",
+      "used": false
+    },
+    {
+      "date": "2026-10-01",
+      "used": true
+    },
+    {
+      "date": "2026-10-13",
+      "used": true
+    }
+  ],
+  "acquisitions_source": "ASF Search API, NISAR GUNW products on track 22, frame 170, retrieved 2026-11-15"
+}
