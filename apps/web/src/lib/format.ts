@@ -1,3 +1,5 @@
+import { urls } from './api';
+
 // Formatting helpers. A missing value is always shown as "not computed", never as zero.
 
 export const NOT_COMPUTED = 'not computed';
@@ -54,7 +56,7 @@ export function shortHash(sha: string): string {
 }
 
 export function thumbnailUrl(eventId: string, target: string): string {
-  return `/api/v1/events/${encodeURIComponent(eventId)}/thumbnail/${encodeURIComponent(target)}.png`;
+  return urls.thumbnail(eventId, target);
 }
 
 export function shortDate(iso: string | null | undefined): string {

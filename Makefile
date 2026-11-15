@@ -4,7 +4,7 @@ PIP ?= .venv/bin/pip
 WEB := apps/web
 EVENT ?= venezuela-2026-06-24
 
-.PHONY: help setup lint typecheck test test-e2e build start demo auto-ingest auto-ingest-check demo-synthetic docker verify-data discover fixture roads analyse openapi clean
+.PHONY: help setup lint typecheck test test-e2e build start demo auto-ingest auto-ingest-check static-site demo-synthetic docker verify-data discover fixture roads analyse openapi clean
 
 help:
 	@grep -E '^[a-z0-9-]+:.*##' $(MAKEFILE_LIST) | awk -F':.*## ' '{printf "  %-16s %s\n", $$1, $$2}'
@@ -42,6 +42,9 @@ demo: build ## Same as start (kept for the docs)
 demo-synthetic: build ## Same, plus the clearly labelled TEST ONLY synthetic event (for development)
 	$(PY) scripts/make_synthetic_fixture.py
 	TRIAGESAR_INCLUDE_SYNTHETIC=1 $(PY) -m uvicorn app.main:app --app-dir apps/api --port 8000
+
+static-site: ## Export a static snapshot (web app + pre-computed API files) into .cache/site
+	$(PY) scripts/export_static_site.py --out .cache/site --base /
 
 docker: ## Build and run the single-container deployment on http://localhost:8000
 	docker compose up --build

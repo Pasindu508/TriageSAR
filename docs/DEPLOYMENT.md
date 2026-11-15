@@ -1,5 +1,27 @@
 # Deployment
 
+## Live site (GitHub Pages)
+
+**https://pasindu508.github.io/TriageSAR/** is published by `.github/workflows/pages.yml` on every push to `main`.
+
+It is a *static snapshot*: `scripts/export_static_site.py` runs the API in-process against the committed fixtures,
+writes every response the web app needs (event lists, analyses, map overlays, queues, profiles, thumbnails,
+provenance, methodology) as files under `static-api/`, and builds the web app with `VITE_STATIC_API=1` so it reads
+them. The numbers are the API's own output. The Case studies page states when the snapshot was exported and from
+which commit. Case studies added by the auto-ingest pull requests go live when those pull requests are merged.
+
+Limits of the static site: the queue shows the first 200 road segments per event, as the dashboard does; the
+`/api/v1/...` endpoints, OpenAPI docs and `/health` exist only on the server deployment.
+
+```bash
+make static-site          # local snapshot in .cache/site (served from /)
+```
+
+Hugging Face Spaces was tried first: Docker Spaces now need a PRO subscription, so the server image is kept for
+self-hosting (below) and the public demo uses the free static route.
+
+## Server deployment
+
 The public demo is one process: the FastAPI service, which also serves the built web app. It reads the
 prepared fixture only. Ingesting NASA data is a developer workflow (`scripts/`) and is never triggered by a
 visitor.

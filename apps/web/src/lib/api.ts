@@ -31,7 +31,7 @@ async function getJson<T>(path: string): Promise<T> {
   try {
     response = await fetch(path, { headers: { Accept: 'application/json' } });
   } catch {
-    throw new ApiError(0, 'network_error', 'The TriageSAR API could not be reached. Is the server running?');
+    throw new ApiError(0, 'network_error', 'The TriageSAR data could not be reached. Is the server running?');
   }
   if (!response.ok) {
     let body: ApiErrorBody | null = null;
@@ -50,18 +50,55 @@ async function getJson<T>(path: string): Promise<T> {
   return (await response.json()) as T;
 }
 
-const event = (id: string) => `/api/v1/events/${encodeURIComponent(id)}`;
+/**
+ * Static mode (VITE_STATIC_API=1): the site is a snapshot exported by scripts/export_static_site.py and every API
+ * response is a pre-computed file under <base>static-api/. The numbers are identical to the live API's; only the
+ * transport differs, so the site can be hosted on any static host (for example GitHub Pages).
+ */
+export const STATIC_API = import.meta.env.VITE_STATIC_API === '1';
+const BASE = import.meta.env.BASE_URL;
+const enc = encodeURIComponent;
+
+const live = {
+  events: () => '/api/v1/events',
+  event: (id: string) => `/api/v1/events/${enc(id)}`,
+  raster: (id: string) => `/api/v1/events/${enc(id)}/raster/metadata`,
+  hotspots: (id: string) => `/api/v1/events/${enc(id)}/hotspots`,
+  queue: (id: string, limit: number) => `/api/v1/events/${enc(id)}/inspection-queue?limit=${limit}`,
+  roads: (id: string) => `/api/v1/events/${enc(id)}/roads`,
+  profile: (id: string, target: string) => `/api/v1/events/${enc(id)}/profile/${enc(target)}`,
+  thumbnail: (id: string, target: string) => `/api/v1/events/${enc(id)}/thumbnail/${enc(target)}.png`,
+  ablation: (id: string) => `/api/v1/events/${enc(id)}/ablation`,
+  provenance: () => '/api/v1/provenance',
+  methodology: () => '/api/v1/methodology',
+};
+
+const snapshot = {
+  events: () => `${BASE}static-api/events.json`,
+  event: (id: string) => `${BASE}static-api/events/${enc(id)}/event.json`,
+  raster: (id: string) => `${BASE}static-api/events/${enc(id)}/raster.json`,
+  hotspots: (id: string) => `${BASE}static-api/events/${enc(id)}/hotspots.json`,
+  queue: (id: string) => `${BASE}static-api/events/${enc(id)}/queue.json`,
+  roads: (id: string) => `${BASE}static-api/events/${enc(id)}/roads.json`,
+  profile: (id: string, target: string) => `${BASE}static-api/events/${enc(id)}/profile/${enc(target)}.json`,
+  thumbnail: (id: string, target: string) =>
+    `${BASE}static-api/events/${enc(id)}/thumbnail/${enc(target)}.png`,
+  ablation: (id: string) => `${BASE}static-api/events/${enc(id)}/ablation.json`,
+  provenance: () => `${BASE}static-api/provenance.json`,
+  methodology: () => `${BASE}static-api/methodology.json`,
+};
+
+export const urls: typeof live = STATIC_API ? snapshot : live;
 
 export const api = {
-  events: () => getJson<EventsResponse>('/api/v1/events'),
-  event: (id: string) => getJson<EventDetail>(event(id)),
-  raster: (id: string) => getJson<RasterMetadata>(`${event(id)}/raster/metadata`),
-  hotspots: (id: string) => getJson<HotspotsResponse>(`${event(id)}/hotspots`),
-  queue: (id: string, limit = 200) => getJson<QueueResponse>(`${event(id)}/inspection-queue?limit=${limit}`),
-  roads: (id: string) => getJson<RoadsResponse>(`${event(id)}/roads`),
-  profile: (id: string, target: string) =>
-    getJson<ProfileResponse>(`${event(id)}/profile/${encodeURIComponent(target)}`),
-  ablation: (id: string) => getJson<AblationResponse>(`${event(id)}/ablation`),
-  provenance: () => getJson<ProvenanceResponse>('/api/v1/provenance'),
-  methodology: () => getJson<MethodologyResponse>('/api/v1/methodology'),
+  events: () => getJson<EventsResponse>(urls.events()),
+  event: (id: string) => getJson<EventDetail>(urls.event(id)),
+  raster: (id: string) => getJson<RasterMetadata>(urls.raster(id)),
+  hotspots: (id: string) => getJson<HotspotsResponse>(urls.hotspots(id)),
+  queue: (id: string, limit = 200) => getJson<QueueResponse>(urls.queue(id, limit)),
+  roads: (id: string) => getJson<RoadsResponse>(urls.roads(id)),
+  profile: (id: string, target: string) => getJson<ProfileResponse>(urls.profile(id, target)),
+  ablation: (id: string) => getJson<AblationResponse>(urls.ablation(id)),
+  provenance: () => getJson<ProvenanceResponse>(urls.provenance()),
+  methodology: () => getJson<MethodologyResponse>(urls.methodology()),
 };

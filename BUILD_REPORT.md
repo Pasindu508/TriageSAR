@@ -32,6 +32,13 @@ and can be reproduced from the repository.
 | Event context | USGS `us6000t7zp` (M 7.5) and `us6000t7zc` (M 7.2) |
 | Reference product (not committed) | NASA/JPL `NISAR_A162_20260613_20260625_displacements_cm_v2.tif`, downloaded to `.cache/reference/` |
 
+## Hosting (added 15 November 2026)
+
+Public demo on GitHub Pages: https://pasindu508.github.io/TriageSAR/ (static snapshot rebuilt on every push to
+`main`; see `docs/DEPLOYMENT.md`). The Docker image was fixed (editable install so `config/` and `data/` are found,
+uid 1000, `$PORT`) and `scripts/deploy_hf_space.py` was written, but Hugging Face now requires PRO for Docker Spaces,
+so the server image remains for self-hosting and has still not been built here.
+
 ## Automatic ingestion (added 15 November 2026)
 
 `scripts/auto_ingest.py` finds significant shallow earthquakes in the USGS catalogue, looks for NISAR GUNW

@@ -7,6 +7,8 @@
 NASA Space Apps Challenge 2026 · challenge **"Dancing with the SARs"** ·
 https://www.spaceappschallenge.org/2026/challenges/
 
+**Live demo: https://pasindu508.github.io/TriageSAR/**
+
 > **This is not a damage assessment.** TriageSAR does not detect structural damage, does not predict
 > casualties and does not treat satellite observations as ground truth. It ranks where radar evidence of
 > ground motion meets roads, so people can decide where to look first.

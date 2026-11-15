@@ -34,3 +34,6 @@ data/raw/
 
 # Local planning notes (not part of the project)
 deep-research-report.md
+
+# Static-site build output
+apps/web/dist-static/

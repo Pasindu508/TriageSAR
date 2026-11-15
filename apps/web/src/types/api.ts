@@ -53,6 +53,8 @@ export interface AutoIngestStatus {
 export interface EventsResponse extends Envelope {
   events: EventSummary[];
   auto_ingest: AutoIngestStatus;
+  /** Present only on a static snapshot: when it was exported, and from which commit. */
+  snapshot?: { generated_utc: string; commit: string | null };
 }
 
 export interface FiveNumber {

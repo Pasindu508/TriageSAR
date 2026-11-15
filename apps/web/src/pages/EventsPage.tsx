@@ -42,6 +42,13 @@ export function EventsPage() {
         cropped to a study area and analysed in exactly the same way.
       </p>
       {events.data ? <AutoIngestNote status={events.data.auto_ingest} /> : null}
+      {events.data?.snapshot ? (
+        <p className="scale-note">
+          This site is a static snapshot exported {utcDateTime(events.data.snapshot.generated_utc)}
+          {events.data.snapshot.commit ? ` from commit ${events.data.snapshot.commit.slice(0, 7)}` : ''}. New
+          case studies appear after the next rebuild.
+        </p>
+      ) : null}
       {events.isLoading ? <Loading what="case studies" /> : null}
       {events.isError ? <ErrorNote error={events.error} context="the case studies" /> : null}
       <div className="event-grid">
