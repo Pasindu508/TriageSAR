@@ -1,7 +1,7 @@
 name: Publish site (GitHub Pages)
 
 # Builds a static snapshot of TriageSAR from the committed fixtures and publishes it on GitHub Pages.
-# Runs on every push to main, so case studies merged from the auto-ingest pull requests go live automatically.
+# Runs on pushes to main and is dispatched after the daily auto-ingest publishes new data.
 on:
   push:
     branches: [main]

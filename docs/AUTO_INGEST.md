@@ -26,9 +26,9 @@ or filled in.
 5. **Limits.** At most `--max-new` (3) new case studies per run. Each fixture is about 7–15 MB and takes about
    ten minutes to read remotely.
 
-State is kept in `data/fixtures/auto_ingest_state.json`. The running app picks up new case studies without a
-restart (the browser re-checks the list every 10 minutes); they carry an "Added automatically" label, and the
-Case studies page shows when the last check ran.
+State is kept in `data/fixtures/auto_ingest_state.json`, including checks that find no new case studies.
+Automatically added case studies carry an "Added automatically" label. The public release shows its
+publication time; the check history remains in the data and workflow logs.
 
 ## Commands
 
@@ -40,9 +40,12 @@ python scripts/auto_ingest.py --max-new 1 --min-magnitude 6.5 --since 2026-10-01
 
 ## Running it on a schedule
 
-- **GitHub Actions:** `.github/workflows/auto-ingest.yml` runs daily at 03:00 UTC (and on demand), and opens a
-  pull request with the new case studies for review. Add a repository secret `EARTHDATA_TOKEN` first. Nothing
-  is merged automatically.
+- **GitHub Actions:** `.github/workflows/auto-ingest.yml` runs daily at 03:00 UTC (08:30 in Sri Lanka) and on
+  demand. The repository secret `EARTHDATA_TOKEN` supplies NASA access. After ingestion, fixture checksums and
+  the science/API tests must pass before new case studies and check history are committed to the default
+  branch. The workflow then dispatches CI and the Pages deployment explicitly, since pushes using
+  `GITHUB_TOKEN` do not trigger push workflows. The Pages build validates and exports the data before the
+  updated release is served at https://triagesar.devdragons.lk/.
 - **A server or laptop (cron):**
 
   ```cron

@@ -1,7 +1,6 @@
 name: Auto-ingest new NISAR case studies
 
-# Once a day, look for significant earthquakes that NISAR has imaged before and after, build their fixtures
-# through the normal pipeline, and open a pull request for review. Nothing is merged automatically.
+# Once a day, find earthquakes with new NISAR coverage, validate their fixtures, and publish them.
 on:
   schedule:
     - cron: "0 3 * * *"
@@ -9,11 +8,13 @@ on:
     inputs:
       max_new:
         description: "Maximum new case studies in this run"
-        default: "3"
+        type: number
+        default: 3
+        required: true
 
 permissions:
   contents: write
-  pull-requests: write
+  actions: write
 
 concurrency:
   group: auto-ingest
@@ -21,37 +22,51 @@ concurrency:
 
 jobs:
   ingest:
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
           cache: pip
-      - run: pip install -e .
+      - run: pip install -e ".[dev]"
       - name: Find and ingest new case studies
         env:
           # Repository secret holding a NASA Earthdata Login token (never printed).
           EARTHDATA_TOKEN: ${{ secrets.EARTHDATA_TOKEN }}
-        run: python scripts/auto_ingest.py --max-new "${{ github.event.inputs.max_new || '3' }}"
+          MAX_NEW: ${{ inputs.max_new || '3' }}
+        run: python -u scripts/auto_ingest.py --max-new "$MAX_NEW"
       - name: Verify every fixture
         run: python scripts/verify_fixture_hashes.py
-      - name: Open a pull request if anything changed
+      - name: Validate the science and API
+        run: python -m pytest
+      - name: Save new case studies and check history
+        id: publish
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
         run: |
-          # Only a new case study (a change to the registry) is worth a pull request; state-only runs are not kept.
-          if git diff --quiet -- data/fixtures/demo_manifest.json; then
-            echo "No new case studies."; exit 0
-          fi
-          branch="auto-ingest/$(date -u +%Y-%m-%d)"
           git config user.name "triagesar-auto-ingest"
           git config user.email "auto-ingest@users.noreply.github.com"
-          git checkout -b "$branch"
           git add config/events data/fixtures
-          git commit -m "Auto-ingest: new NISAR case studies $(date -u +%Y-%m-%d)"
-          git push --force -u origin "$branch"
-          gh pr create --fill --base "${{ github.event.repository.default_branch }}" --head "$branch" \
-            --body "Case studies found by scripts/auto_ingest.py. Review the event definitions, fixtures and the run log before merging." \
-            || echo "A pull request for $branch already exists."
+          if git diff --cached --quiet; then
+            echo "No changes to publish."
+            exit 0
+          fi
+          git commit -m "Auto-ingest: update NISAR case studies and check history $(date -u +%Y-%m-%d)"
+          git pull --rebase origin "$DEFAULT_BRANCH"
+          git push origin "HEAD:$DEFAULT_BRANCH"
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+      - name: Run CI and publish the release site
+        if: steps.publish.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        # GITHUB_TOKEN pushes do not trigger push workflows, so dispatch both explicitly.
+        run: |
+          gh workflow run ci.yml --ref "$DEFAULT_BRANCH"
+          gh workflow run pages.yml --ref "$DEFAULT_BRANCH"
