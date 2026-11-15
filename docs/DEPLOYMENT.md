@@ -2,7 +2,11 @@
 
 ## Live site (GitHub Pages)
 
-**https://pasindu508.github.io/TriageSAR/** is published by `.github/workflows/pages.yml` on every push to `main`.
+**https://triagesar.devdragons.lk/** is published by `.github/workflows/pages.yml` on every push to `main`.
+
+The custom domain is configured in the repository's GitHub Pages settings with HTTPS enforced. Its DNS record
+is a `CNAME` from `triagesar.devdragons.lk` to `pasindu508.github.io`. The workflow reads the Pages base path
+using `actions/configure-pages` so assets, navigation and static API files use `/` on the custom domain.
 
 It is a *static snapshot*: `scripts/export_static_site.py` runs the API in-process against the committed fixtures,
 writes every response the web app needs (event lists, analyses, map overlays, queues, profiles, thumbnails,

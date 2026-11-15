@@ -21,6 +21,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Read GitHub Pages configuration
+        id: pages
+        uses: actions/configure-pages@v5
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -36,7 +39,9 @@ jobs:
       - name: Verify fixtures
         run: python scripts/verify_fixture_hashes.py
       - name: Export the static site
-        run: python scripts/export_static_site.py --out site --base "/${{ github.event.repository.name }}/"
+        env:
+          PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        run: python scripts/export_static_site.py --out site --base "${PAGES_BASE_PATH}/"
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
