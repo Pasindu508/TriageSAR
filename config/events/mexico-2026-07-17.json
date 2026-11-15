@@ -1,0 +1,70 @@
+{
+  "id": "mexico-2026-07-17",
+  "title": "Puerto Madero, Mexico earthquake, 17 July 2026",
+  "summary": "Co-event NISAR L-band interferogram (2026-07-12 to 2026-07-24) over Puerto Madero, Mexico, spanning the M 7.3 earthquake. Added automatically.",
+  "event_time_utc": "2026-07-17T14:48:39Z",
+  "event_source_name": "USGS Earthquake Hazards Program, event us7000t1bu (M 7.3 mww, 60 km WSW of Puerto Madero, Mexico)",
+  "event_source_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000t1bu",
+  "notes": [
+    "Epicentre of us7000t1bu (USGS): 14.5710 N, 92.9624 W, depth 22 km. Catalogue values retrieved 2026-11-15 and may be revised by USGS.",
+    "This case study was added by scripts/auto_ingest.py without manual review; the study area is the default 120 km x 70 km box around the epicentre, clipped to the NISAR frame."
+  ],
+  "epicentres": [
+    {
+      "usgs_id": "us7000t1bu",
+      "magnitude": 7.3,
+      "magnitude_type": "mww",
+      "lon": -92.9624,
+      "lat": 14.571,
+      "time_utc": "2026-07-17T14:48:39Z",
+      "place": "60 km WSW of Puerto Madero, Mexico"
+    }
+  ],
+  "aoi_bbox_wgs84": [
+    -93.537,
+    14.246,
+    -92.387,
+    14.896
+  ],
+  "granule": {
+    "granule_id": "NISAR_L2_PR_GUNW_025_055_D_081_026_4000_SH_20260712T004120_20260712T004150_20260724T004119_20260724T004150_P05023_N_F_J_001",
+    "file_name": "NISAR_L2_PR_GUNW_025_055_D_081_026_4000_SH_20260712T004120_20260712T004150_20260724T004119_20260724T004150_P05023_N_F_J_001.h5",
+    "collection": "NISAR_L2_GUNW_PROVISIONAL_V1",
+    "concept_id": "C2854335566-ASF",
+    "provider": "NASA Alaska Satellite Facility DAAC (ASF)",
+    "download_url": "https://nisar.asf.earthdatacloud.nasa.gov/NISAR/NISAR_L2_GUNW_PROVISIONAL_V1/NISAR_L2_PR_GUNW_025_055_D_081_026_4000_SH_20260712T004120_20260712T004150_20260724T004119_20260724T004150_P05023_N_F_J_001/NISAR_L2_PR_GUNW_025_055_D_081_026_4000_SH_20260712T004120_20260712T004150_20260724T004119_20260724T004150_P05023_N_F_J_001.h5",
+    "flight_direction": "DESCENDING",
+    "frame": 81,
+    "track": 55,
+    "pge_version": "R05.02.3",
+    "footprint_wkt": "POLYGON ((-93.37005 16.19749, -93.8384 14.35487, -91.5482 13.80812, -91.06342 15.64258, -93.37005 16.19749))",
+    "source_size_bytes": 2143289344,
+    "discovered_with": "python scripts/auto_ingest.py",
+    "discovered_on": "2026-11-15"
+  },
+  "added_by": "auto_ingest",
+  "added_on": "2026-11-15",
+  "acquisitions": [
+    {
+      "date": "2026-06-18",
+      "used": false
+    },
+    {
+      "date": "2026-06-30",
+      "used": false
+    },
+    {
+      "date": "2026-07-12",
+      "used": true
+    },
+    {
+      "date": "2026-07-24",
+      "used": true
+    },
+    {
+      "date": "2026-08-17",
+      "used": false
+    }
+  ],
+  "acquisitions_source": "ASF Search API, NISAR GUNW products on track 55, frame 81, retrieved 2026-11-15"
+}

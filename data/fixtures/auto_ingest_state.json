@@ -1,0 +1,122 @@
+{
+  "last_checked_utc": "2026-11-15T05:29:06Z",
+  "checked_until": "2026-11-15",
+  "processed": {
+    "us7000t1bu": {
+      "status": "added",
+      "reason": "77 road ways; granule NISAR_L2_PR_GUNW_025_055_D_081_026_4000_SH_20260712T004120_20260712T004150_20260724T004119_20260724T004150_P05023_N_F_J_001",
+      "event_id": "mexico-2026-07-17",
+      "granule_id": "NISAR_L2_PR_GUNW_025_055_D_081_026_4000_SH_20260712T004120_20260712T004150_20260724T004119_20260724T004150_P05023_N_F_J_001",
+      "checked_utc": "2026-11-15T05:28:54Z"
+    },
+    "us6000u43g": {
+      "status": "waiting",
+      "reason": "no NISAR interferogram spanning the event published yet",
+      "checked_utc": "2026-11-15T05:28:55Z"
+    },
+    "us6000u4j2": {
+      "status": "waiting",
+      "reason": "no NISAR interferogram spanning the event published yet",
+      "checked_utc": "2026-11-15T05:28:55Z"
+    },
+    "us6000u214": {
+      "status": "waiting",
+      "reason": "no NISAR interferogram spanning the event published yet",
+      "checked_utc": "2026-11-15T05:28:55Z"
+    },
+    "us6000u1z5": {
+      "status": "waiting",
+      "reason": "no NISAR interferogram spanning the event published yet",
+      "checked_utc": "2026-11-15T05:28:56Z"
+    },
+    "us7000sui3": {
+      "status": "skipped",
+      "reason": "no NISAR interferogram spanning the event after 149 days",
+      "checked_utc": "2026-11-15T05:28:57Z"
+    },
+    "us7000stti": {
+      "status": "skipped",
+      "reason": "no NISAR interferogram spanning the event after 151 days",
+      "checked_utc": "2026-11-15T05:28:57Z"
+    },
+    "us7000tx16": {
+      "status": "waiting",
+      "reason": "no NISAR interferogram spanning the event published yet",
+      "checked_utc": "2026-11-15T05:28:57Z"
+    },
+    "us7000ttxz": {
+      "status": "waiting",
+      "reason": "no NISAR interferogram spanning the event published yet",
+      "checked_utc": "2026-11-15T05:28:58Z"
+    },
+    "us7000t1cc": {
+      "status": "skipped",
+      "reason": "same NISAR interferogram as case study mexico-2026-07-17",
+      "checked_utc": "2026-11-15T05:28:58Z"
+    },
+    "us7000szpb": {
+      "status": "skipped",
+      "reason": "no NISAR interferogram spanning the event after 127 days",
+      "checked_utc": "2026-11-15T05:28:58Z"
+    },
+    "us7000t01n": {
+      "status": "skipped",
+      "reason": "no NISAR interferogram spanning the event after 125 days",
+      "checked_utc": "2026-11-15T05:29:00Z"
+    },
+    "us6000tmrw": {
+      "status": "skipped",
+      "reason": "no NISAR interferogram spanning the event after 85 days",
+      "checked_utc": "2026-11-15T05:29:01Z"
+    },
+    "us7000twg9": {
+      "status": "waiting",
+      "reason": "no NISAR interferogram spanning the event published yet",
+      "checked_utc": "2026-11-15T05:29:01Z"
+    },
+    "us6000u4jb": {
+      "status": "waiting",
+      "reason": "no NISAR interferogram spanning the event published yet",
+      "checked_utc": "2026-11-15T05:29:01Z"
+    },
+    "us6000tkuc": {
+      "status": "skipped",
+      "reason": "same NISAR interferogram as case study flores-2026-08-14",
+      "checked_utc": "2026-11-15T05:29:02Z"
+    },
+    "us6000t9sj": {
+      "status": "skipped",
+      "reason": "no NISAR interferogram spanning the event after 135 days",
+      "checked_utc": "2026-11-15T05:29:02Z"
+    },
+    "us7000tupl": {
+      "status": "waiting",
+      "reason": "no NISAR interferogram spanning the event published yet",
+      "checked_utc": "2026-11-15T05:29:03Z"
+    },
+    "us7000ttlm": {
+      "status": "waiting",
+      "reason": "no NISAR interferogram spanning the event published yet",
+      "checked_utc": "2026-11-15T05:29:03Z"
+    },
+    "us6000u1cf": {
+      "status": "skipped",
+      "reason": "same NISAR interferogram as case study panama-2026-10-09",
+      "checked_utc": "2026-11-15T05:29:04Z"
+    },
+    "us6000tk74": {
+      "status": "skipped",
+      "reason": "no NISAR interferogram spanning the event after 95 days",
+      "checked_utc": "2026-11-15T05:29:05Z"
+    }
+  },
+  "runs": [
+    {
+      "utc": "2026-11-15T05:29:06Z",
+      "added": [
+        "mexico-2026-07-17"
+      ],
+      "quakes_checked": 42
+    }
+  ]
+}

@@ -25,6 +25,12 @@
       "event_config": "config/events/flores-2026-08-14.json",
       "nisar_dir": "nisar/flores-2026-08-14",
       "infrastructure_dir": "infrastructure/flores-2026-08-14"
+    },
+    {
+      "id": "mexico-2026-07-17",
+      "event_config": "config/events/mexico-2026-07-17.json",
+      "nisar_dir": "nisar/mexico-2026-07-17",
+      "infrastructure_dir": "infrastructure/mexico-2026-07-17"
     }
   ]
 }
