@@ -1,0 +1,74 @@
+{
+  "id": "panama-2026-10-12",
+  "title": "R\u00edo Grande, Panama earthquake, 12 October 2026",
+  "summary": "Co-event NISAR L-band interferogram (2026-10-09 to 2026-10-21) over R\u00edo Grande, Panama, spanning the M 6.1 earthquake. Added automatically.",
+  "event_time_utc": "2026-10-12T23:20:36Z",
+  "event_source_name": "USGS Earthquake Hazards Program, event us6000u1wn (M 6.1 mww, 15 km W of R\u00edo Grande, Panama)",
+  "event_source_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u1wn",
+  "notes": [
+    "Epicentre of us6000u1wn (USGS): 7.7098 N, 81.4715 W, depth 11 km. Catalogue values retrieved 2026-11-16 and may be revised by USGS.",
+    "This case study was added by scripts/auto_ingest.py without manual review; the study area is the default 120 km x 70 km box around the epicentre, clipped to the NISAR frame."
+  ],
+  "epicentres": [
+    {
+      "usgs_id": "us6000u1wn",
+      "magnitude": 6.1,
+      "magnitude_type": "mww",
+      "lon": -81.4715,
+      "lat": 7.7098,
+      "time_utc": "2026-10-12T23:20:36Z",
+      "place": "15 km W of R\u00edo Grande, Panama"
+    }
+  ],
+  "aoi_bbox_wgs84": [
+    -82.047,
+    7.385,
+    -80.897,
+    8.035
+  ],
+  "granule": {
+    "granule_id": "NISAR_L2_PR_GUNW_032_141_D_085_033_2000_SH_20261009T235335_20261009T235349_20261021T235335_20261021T235349_P05036_N_P_J_001",
+    "file_name": "NISAR_L2_PR_GUNW_032_141_D_085_033_2000_SH_20261009T235335_20261009T235349_20261021T235335_20261021T235349_P05036_N_P_J_001.h5",
+    "collection": "NISAR_L2_GUNW_V1",
+    "concept_id": "C3622247503-ASF",
+    "provider": "NASA Alaska Satellite Facility DAAC (ASF)",
+    "download_url": "https://nisar.asf.earthdatacloud.nasa.gov/NISAR/L2_L_GUNW/NISAR_L2_PR_GUNW_032_141_D_085_033_2000_SH_20261009T235335_20261009T235349_20261021T235335_20261021T235349_P05036_N_P_J_001/NISAR_L2_PR_GUNW_032_141_D_085_033_2000_SH_20261009T235335_20261009T235349_20261021T235335_20261021T235349_P05036_N_P_J_001.h5",
+    "flight_direction": "DESCENDING",
+    "frame": 85,
+    "track": 141,
+    "pge_version": "R05.03.2",
+    "footprint_wkt": "POLYGON ((-82.79189 8.24571, -82.99803 7.35136, -80.77201 6.83786, -80.56155 7.72866, -82.79189 8.24571))",
+    "source_size_bytes": 1363148800,
+    "discovered_with": "python scripts/auto_ingest.py",
+    "discovered_on": "2026-11-16"
+  },
+  "added_by": "auto_ingest",
+  "added_on": "2026-11-16",
+  "acquisitions": [
+    {
+      "date": "2026-09-03",
+      "used": false
+    },
+    {
+      "date": "2026-09-15",
+      "used": false
+    },
+    {
+      "date": "2026-09-27",
+      "used": false
+    },
+    {
+      "date": "2026-10-09",
+      "used": true
+    },
+    {
+      "date": "2026-10-21",
+      "used": true
+    },
+    {
+      "date": "2026-11-02",
+      "used": false
+    }
+  ],
+  "acquisitions_source": "ASF Search API, NISAR GUNW products on track 141, frame 85, retrieved 2026-11-16"
+}
