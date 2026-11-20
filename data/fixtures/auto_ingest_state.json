@@ -1,6 +1,6 @@
 {
-  "last_checked_utc": "2026-11-19T11:07:23Z",
-  "checked_until": "2026-11-19",
+  "last_checked_utc": "2026-11-20T10:56:24Z",
+  "checked_until": "2026-11-20",
   "processed": {
     "us7000t1bu": {
       "status": "added",
@@ -12,22 +12,22 @@
     "us6000u43g": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-19T11:06:08Z"
+      "checked_utc": "2026-11-20T10:53:24Z"
     },
     "us6000u4j2": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-19T11:06:08Z"
+      "checked_utc": "2026-11-20T10:53:24Z"
     },
     "us6000u214": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-19T11:06:09Z"
+      "checked_utc": "2026-11-20T10:53:24Z"
     },
     "us6000u1z5": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-19T11:06:09Z"
+      "checked_utc": "2026-11-20T10:53:25Z"
     },
     "us7000sui3": {
       "status": "skipped",
@@ -42,12 +42,12 @@
     "us7000tx16": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-19T11:06:33Z"
+      "checked_utc": "2026-11-20T10:53:25Z"
     },
     "us7000ttxz": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-19T11:06:33Z"
+      "checked_utc": "2026-11-20T10:53:25Z"
     },
     "us7000t1cc": {
       "status": "skipped",
@@ -72,12 +72,12 @@
     "us7000twg9": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-19T11:06:36Z"
+      "checked_utc": "2026-11-20T10:54:12Z"
     },
     "us6000u4jb": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-19T11:06:36Z"
+      "checked_utc": "2026-11-20T10:54:12Z"
     },
     "us6000tkuc": {
       "status": "skipped",
@@ -92,12 +92,12 @@
     "us7000tupl": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-19T11:06:36Z"
+      "checked_utc": "2026-11-20T10:54:13Z"
     },
     "us7000ttlm": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-19T11:06:37Z"
+      "checked_utc": "2026-11-20T10:54:13Z"
     },
     "us6000u1cf": {
       "status": "skipped",
@@ -125,10 +125,10 @@
     },
     "us6000u3jl": {
       "status": "retry",
-      "reason": "road extract failed: error: Overpass returned HTTP 502",
+      "reason": "road extract failed: error: Overpass returned no roads for this AOI",
       "event_id": null,
       "granule_id": "NISAR_L2_PR_GUNW_030_123_A_171_033_2000_SH_20260914T184434_20260914T184452_20261020T184434_20261020T184453_P05023_N_P_J_001",
-      "checked_utc": "2026-11-19T11:06:35Z"
+      "checked_utc": "2026-11-20T10:54:12Z"
     },
     "us6000u0xi": {
       "status": "added",
@@ -156,22 +156,29 @@
       "reason": "road extract failed: error: Overpass returned no roads for this AOI",
       "event_id": null,
       "granule_id": "NISAR_L2_PR_GUNW_030_123_A_171_033_2000_SH_20260914T184434_20260914T184452_20261020T184434_20261020T184453_P05023_N_P_J_001",
-      "checked_utc": "2026-11-19T11:07:20Z"
+      "checked_utc": "2026-11-20T10:54:57Z"
     },
     "us6000u24c": {
-      "status": "retry",
-      "reason": "road extract failed: error: Overpass returned HTTP 502",
-      "event_id": null,
+      "status": "added",
+      "reason": "41 road ways; granule NISAR_L2_PR_GUNW_032_037_A_175_033_2000_SH_20261002T193648_20261002T193719_20261014T193648_20261014T193719_P05023_N_F_J_001",
+      "event_id": "papua-new-guinea-2026-10-13",
       "granule_id": "NISAR_L2_PR_GUNW_032_037_A_175_033_2000_SH_20261002T193648_20261002T193719_20261014T193648_20261014T193719_P05023_N_F_J_001",
-      "checked_utc": "2026-11-19T11:07:23Z"
+      "checked_utc": "2026-11-20T10:56:24Z"
     },
     "us7000tz37": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-19T11:06:35Z"
+      "checked_utc": "2026-11-20T10:54:12Z"
     }
   },
   "runs": [
+    {
+      "utc": "2026-11-20T10:56:24Z",
+      "added": [
+        "papua-new-guinea-2026-10-13"
+      ],
+      "quakes_checked": 21
+    },
     {
       "utc": "2026-11-19T11:07:23Z",
       "added": [],

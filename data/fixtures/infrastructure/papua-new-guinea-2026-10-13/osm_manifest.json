@@ -1,0 +1,42 @@
+{
+  "dataset": "OpenStreetMap road network extract",
+  "provider": "OpenStreetMap contributors, retrieved through the Overpass API",
+  "licence": "Open Database Licence (ODbL) 1.0",
+  "licence_url": "https://www.openstreetmap.org/copyright",
+  "attribution": "\u00a9 OpenStreetMap contributors, ODbL 1.0",
+  "overpass_endpoint": "https://overpass-api.de/api/interpreter",
+  "osm_base_timestamp": "2026-11-20T10:54:06Z",
+  "retrieved_at_utc": "2026-11-20T10:55:27Z",
+  "bbox_wgs84": [
+    151.596,
+    -5.814,
+    152.746,
+    -5.164
+  ],
+  "highway_classes": [
+    "motorway",
+    "trunk",
+    "primary",
+    "secondary",
+    "tertiary"
+  ],
+  "query": "[out:json][timeout:180];\n(\n  way[\"highway\"~\"^(motorway|motorway_link|primary|primary_link|secondary|secondary_link|tertiary|tertiary_link|trunk|trunk_link)$\"](-5.814000,151.596000,-5.164000,152.746000);\n  node[\"place\"~\"^(city|town)$\"](-5.814000,151.596000,-5.164000,152.746000);\n);\nout geom tags;",
+  "command": "python scripts/fetch_osm_roads.py --event papua-new-guinea-2026-10-13",
+  "transformations": [
+    "Ways converted to GeoJSON LineStrings; only osm_id, highway, name, ref, bridge and tunnel tags kept.",
+    "Coordinates rounded to 6 decimal places (about 0.1 m).",
+    "Place nodes (city, town) kept as labelled points for map orientation."
+  ],
+  "files": {
+    "roads.geojson": {
+      "sha256": "1b58543a2c6d863e4466e7c7ddd673e67277e775adebbb3f4384d7ff8b763352",
+      "bytes": 68394,
+      "features": 41
+    },
+    "places.geojson": {
+      "sha256": "6d18edfe75b3149104038dcbca4d0096bbcb923f0f9fa4b49f4815344e75bb90",
+      "bytes": 43,
+      "features": 0
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "id": "papua-new-guinea-2026-10-13",
+  "title": "Kokopo, Papua New Guinea earthquake, 13 October 2026",
+  "summary": "Co-event NISAR L-band interferogram (2026-10-02 to 2026-10-14) over Kokopo, Papua New Guinea, spanning the M 6 earthquake. Added automatically.",
+  "event_time_utc": "2026-10-13T18:45:02Z",
+  "event_source_name": "USGS Earthquake Hazards Program, event us6000u24c (M 6 mww, 127 km S of Kokopo, Papua New Guinea)",
+  "event_source_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u24c",
+  "notes": [
+    "Epicentre of us6000u24c (USGS): 5.4887 S, 152.1707 E, depth 20 km. Catalogue values retrieved 2026-11-20 and may be revised by USGS.",
+    "This case study was added by scripts/auto_ingest.py without manual review; the study area is the default 120 km x 70 km box around the epicentre, clipped to the NISAR frame."
+  ],
+  "epicentres": [
+    {
+      "usgs_id": "us6000u24c",
+      "magnitude": 6.0,
+      "magnitude_type": "mww",
+      "lon": 152.1707,
+      "lat": -5.4887,
+      "time_utc": "2026-10-13T18:45:02Z",
+      "place": "127 km S of Kokopo, Papua New Guinea"
+    }
+  ],
+  "aoi_bbox_wgs84": [
+    151.596,
+    -5.814,
+    152.746,
+    -5.164
+  ],
+  "granule": {
+    "granule_id": "NISAR_L2_PR_GUNW_032_037_A_175_033_2000_SH_20261002T193648_20261002T193719_20261014T193648_20261014T193719_P05023_N_F_J_001",
+    "file_name": "NISAR_L2_PR_GUNW_032_037_A_175_033_2000_SH_20261002T193648_20261002T193719_20261014T193648_20261014T193719_P05023_N_F_J_001.h5",
+    "collection": "NISAR_L2_GUNW_PROVISIONAL_V1",
+    "concept_id": "C2854335566-ASF",
+    "provider": "NASA Alaska Satellite Facility DAAC (ASF)",
+    "download_url": "https://nisar.asf.earthdatacloud.nasa.gov/NISAR/NISAR_L2_GUNW_PROVISIONAL_V1/NISAR_L2_PR_GUNW_032_037_A_175_033_2000_SH_20261002T193648_20261002T193719_20261014T193648_20261014T193719_P05023_N_F_J_001/NISAR_L2_PR_GUNW_032_037_A_175_033_2000_SH_20261002T193648_20261002T193719_20261014T193648_20261014T193719_P05023_N_F_J_001.h5",
+    "flight_direction": "ASCENDING",
+    "frame": 175,
+    "track": 37,
+    "pge_version": "R05.02.3",
+    "footprint_wkt": "POLYGON ((153.03521 -5.73054, 152.62414 -3.8214, 150.42685 -4.29066, 150.82809 -6.19428, 153.03521 -5.73054))",
+    "source_size_bytes": 2109734912,
+    "discovered_with": "python scripts/auto_ingest.py",
+    "discovered_on": "2026-11-20"
+  },
+  "added_by": "auto_ingest",
+  "added_on": "2026-11-20",
+  "acquisitions": [
+    {
+      "date": "2026-09-08",
+      "used": false
+    },
+    {
+      "date": "2026-09-20",
+      "used": false
+    },
+    {
+      "date": "2026-10-02",
+      "used": true
+    },
+    {
+      "date": "2026-10-14",
+      "used": true
+    },
+    {
+      "date": "2026-10-26",
+      "used": false
+    }
+  ],
+  "acquisitions_source": "ASF Search API, NISAR GUNW products on track 37, frame 175, retrieved 2026-11-20"
+}
