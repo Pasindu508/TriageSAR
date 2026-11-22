@@ -61,6 +61,12 @@
       "event_config": "config/events/papua-new-guinea-2026-10-13.json",
       "nisar_dir": "nisar/papua-new-guinea-2026-10-13",
       "infrastructure_dir": "infrastructure/papua-new-guinea-2026-10-13"
+    },
+    {
+      "id": "china-2026-10-22",
+      "event_config": "config/events/china-2026-10-22.json",
+      "nisar_dir": "nisar/china-2026-10-22",
+      "infrastructure_dir": "infrastructure/china-2026-10-22"
     }
   ]
 }

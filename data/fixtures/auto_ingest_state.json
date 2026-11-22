@@ -1,6 +1,6 @@
 {
-  "last_checked_utc": "2026-11-21T10:39:07Z",
-  "checked_until": "2026-11-21",
+  "last_checked_utc": "2026-11-22T10:42:57Z",
+  "checked_until": "2026-11-22",
   "processed": {
     "us7000t1bu": {
       "status": "added",
@@ -10,24 +10,26 @@
       "checked_utc": "2026-11-15T05:28:54Z"
     },
     "us6000u43g": {
-      "status": "waiting",
-      "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-21T10:37:59Z"
+      "status": "added",
+      "reason": "165 road ways; granule NISAR_L2_PR_GUNW_033_091_D_072_034_2000_SH_20261018T123206_20261018T123241_20261030T123206_20261030T123237_P05036_N_F_J_001",
+      "event_id": "china-2026-10-22",
+      "granule_id": "NISAR_L2_PR_GUNW_033_091_D_072_034_2000_SH_20261018T123206_20261018T123241_20261030T123206_20261030T123237_P05036_N_F_J_001",
+      "checked_utc": "2026-11-22T10:42:49Z"
     },
     "us6000u4j2": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-21T10:37:59Z"
+      "checked_utc": "2026-11-22T10:42:49Z"
     },
     "us6000u214": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-21T10:38:00Z"
+      "checked_utc": "2026-11-22T10:42:49Z"
     },
     "us6000u1z5": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-21T10:38:00Z"
+      "checked_utc": "2026-11-22T10:42:49Z"
     },
     "us7000sui3": {
       "status": "skipped",
@@ -42,12 +44,12 @@
     "us7000tx16": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-21T10:38:00Z"
+      "checked_utc": "2026-11-22T10:42:49Z"
     },
     "us7000ttxz": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-21T10:38:00Z"
+      "checked_utc": "2026-11-22T10:42:50Z"
     },
     "us7000t1cc": {
       "status": "skipped",
@@ -72,12 +74,14 @@
     "us7000twg9": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-21T10:38:36Z"
+      "checked_utc": "2026-11-22T10:42:51Z"
     },
     "us6000u4jb": {
-      "status": "waiting",
-      "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-21T10:38:36Z"
+      "status": "retry",
+      "reason": "road extract failed: error: Overpass returned HTTP 502",
+      "event_id": null,
+      "granule_id": "NISAR_L2_PR_GUNW_033_123_A_170_034_2000_SH_20261020T184401_20261020T184435_20261101T184401_20261101T184429_P05036_N_F_J_001",
+      "checked_utc": "2026-11-22T10:42:53Z"
     },
     "us6000tkuc": {
       "status": "skipped",
@@ -90,14 +94,16 @@
       "checked_utc": "2026-11-15T05:29:02Z"
     },
     "us7000tupl": {
-      "status": "waiting",
-      "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-21T10:38:37Z"
+      "status": "retry",
+      "reason": "road extract failed: error: Overpass returned HTTP 502",
+      "event_id": null,
+      "granule_id": "NISAR_L2_PR_GUNW_033_123_A_170_034_2000_SH_20261020T184401_20261020T184435_20261101T184401_20261101T184429_P05036_N_F_J_001",
+      "checked_utc": "2026-11-22T10:42:55Z"
     },
     "us7000ttlm": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-21T10:38:37Z"
+      "checked_utc": "2026-11-22T10:42:55Z"
     },
     "us6000u1cf": {
       "status": "skipped",
@@ -125,10 +131,10 @@
     },
     "us6000u3jl": {
       "status": "retry",
-      "reason": "road extract failed: error: Overpass returned no roads for this AOI",
+      "reason": "road extract failed: error: Overpass returned HTTP 502",
       "event_id": null,
       "granule_id": "NISAR_L2_PR_GUNW_030_123_A_171_033_2000_SH_20260914T184434_20260914T184452_20261020T184434_20261020T184453_P05023_N_P_J_001",
-      "checked_utc": "2026-11-21T10:38:36Z"
+      "checked_utc": "2026-11-22T10:42:51Z"
     },
     "us6000u0xi": {
       "status": "added",
@@ -153,10 +159,10 @@
     },
     "us6000u3bc": {
       "status": "retry",
-      "reason": "road extract failed: error: Overpass returned no roads for this AOI",
+      "reason": "road extract failed: error: Overpass returned HTTP 502",
       "event_id": null,
       "granule_id": "NISAR_L2_PR_GUNW_030_123_A_171_033_2000_SH_20260914T184434_20260914T184452_20261020T184434_20261020T184453_P05023_N_P_J_001",
-      "checked_utc": "2026-11-21T10:39:07Z"
+      "checked_utc": "2026-11-22T10:42:57Z"
     },
     "us6000u24c": {
       "status": "added",
@@ -168,10 +174,17 @@
     "us7000tz37": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-21T10:38:36Z"
+      "checked_utc": "2026-11-22T10:42:53Z"
     }
   },
   "runs": [
+    {
+      "utc": "2026-11-22T10:42:57Z",
+      "added": [
+        "china-2026-10-22"
+      ],
+      "quakes_checked": 21
+    },
     {
       "utc": "2026-11-21T10:39:07Z",
       "added": [],

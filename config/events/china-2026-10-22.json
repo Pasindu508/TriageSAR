@@ -1,0 +1,74 @@
+{
+  "id": "china-2026-10-22",
+  "title": "Nagqu, China earthquake, 22 October 2026",
+  "summary": "Co-event NISAR L-band interferogram (2026-10-18 to 2026-10-30) over Nagqu, China, spanning the M 7 earthquake. Added automatically.",
+  "event_time_utc": "2026-10-22T14:33:40Z",
+  "event_source_name": "USGS Earthquake Hazards Program, event us6000u43g (M 7 mww, 189 km ENE of Nagqu, China)",
+  "event_source_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u43g",
+  "notes": [
+    "Epicentre of us6000u43g (USGS): 32.3376 N, 93.7837 E, depth 18 km. Catalogue values retrieved 2026-11-22 and may be revised by USGS.",
+    "This case study was added by scripts/auto_ingest.py without manual review; the study area is the default 120 km x 70 km box around the epicentre, clipped to the NISAR frame."
+  ],
+  "epicentres": [
+    {
+      "usgs_id": "us6000u43g",
+      "magnitude": 7.0,
+      "magnitude_type": "mww",
+      "lon": 93.7837,
+      "lat": 32.3376,
+      "time_utc": "2026-10-22T14:33:40Z",
+      "place": "189 km ENE of Nagqu, China"
+    }
+  ],
+  "aoi_bbox_wgs84": [
+    93.209,
+    32.013,
+    94.359,
+    32.663
+  ],
+  "granule": {
+    "granule_id": "NISAR_L2_PR_GUNW_033_091_D_072_034_2000_SH_20261018T123206_20261018T123241_20261030T123206_20261030T123237_P05036_N_F_J_001",
+    "file_name": "NISAR_L2_PR_GUNW_033_091_D_072_034_2000_SH_20261018T123206_20261018T123241_20261030T123206_20261030T123237_P05036_N_F_J_001.h5",
+    "collection": "NISAR_L2_GUNW_V1",
+    "concept_id": "C3622247503-ASF",
+    "provider": "NASA Alaska Satellite Facility DAAC (ASF)",
+    "download_url": "https://nisar.asf.earthdatacloud.nasa.gov/NISAR/L2_L_GUNW/NISAR_L2_PR_GUNW_033_091_D_072_034_2000_SH_20261018T123206_20261018T123241_20261030T123206_20261030T123237_P05036_N_F_J_001/NISAR_L2_PR_GUNW_033_091_D_072_034_2000_SH_20261018T123206_20261018T123241_20261030T123206_20261030T123237_P05036_N_F_J_001.h5",
+    "flight_direction": "DESCENDING",
+    "frame": 72,
+    "track": 91,
+    "pge_version": "R05.03.2",
+    "footprint_wkt": "POLYGON ((92.89535 34.1097, 92.19192 31.98763, 94.91954 31.3008, 95.69046 33.40354, 92.89535 34.1097))",
+    "source_size_bytes": 2248146944,
+    "discovered_with": "python scripts/auto_ingest.py",
+    "discovered_on": "2026-11-22"
+  },
+  "added_by": "auto_ingest",
+  "added_on": "2026-11-22",
+  "acquisitions": [
+    {
+      "date": "2026-09-12",
+      "used": false
+    },
+    {
+      "date": "2026-09-24",
+      "used": false
+    },
+    {
+      "date": "2026-10-06",
+      "used": false
+    },
+    {
+      "date": "2026-10-18",
+      "used": true
+    },
+    {
+      "date": "2026-10-30",
+      "used": true
+    },
+    {
+      "date": "2026-11-11",
+      "used": false
+    }
+  ],
+  "acquisitions_source": "ASF Search API, NISAR GUNW products on track 91, frame 72, retrieved 2026-11-22"
+}
