@@ -1,6 +1,6 @@
 {
-  "last_checked_utc": "2026-11-26T11:53:46Z",
-  "checked_until": "2026-11-26",
+  "last_checked_utc": "2026-11-27T11:44:36Z",
+  "checked_until": "2026-11-27",
   "processed": {
     "us7000t1bu": {
       "status": "added",
@@ -19,17 +19,17 @@
     "us6000u4j2": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-26T11:52:09Z"
+      "checked_utc": "2026-11-27T11:44:24Z"
     },
     "us6000u214": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-26T11:52:09Z"
+      "checked_utc": "2026-11-27T11:44:24Z"
     },
     "us6000u1z5": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-26T11:52:09Z"
+      "checked_utc": "2026-11-27T11:44:25Z"
     },
     "us7000sui3": {
       "status": "skipped",
@@ -43,15 +43,15 @@
     },
     "us7000tx16": {
       "status": "retry",
-      "reason": "road extract failed: error: Overpass returned no roads for this AOI",
+      "reason": "road extract failed: error: Could not reach Overpass at https://overpass-api.de/api/interpreter: ConnectionError",
       "event_id": null,
       "granule_id": "NISAR_L2_PR_GUNW_035_030_D_094_036_2000_SH_20261107T071129_20261107T071158_20261119T071129_20261119T071158_P05036_N_F_J_001",
-      "checked_utc": "2026-11-26T11:52:53Z"
+      "checked_utc": "2026-11-27T11:44:26Z"
     },
     "us7000ttxz": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-26T11:52:54Z"
+      "checked_utc": "2026-11-27T11:44:27Z"
     },
     "us7000t1cc": {
       "status": "skipped",
@@ -76,14 +76,14 @@
     "us7000twg9": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-26T11:52:56Z"
+      "checked_utc": "2026-11-27T11:44:29Z"
     },
     "us6000u4jb": {
       "status": "retry",
-      "reason": "road extract failed: error: Overpass returned no roads for this AOI",
+      "reason": "road extract failed: error: Could not reach Overpass at https://overpass-api.de/api/interpreter: ConnectionError",
       "event_id": null,
       "granule_id": "NISAR_L2_PR_GUNW_033_123_A_170_034_2000_SH_20261020T184401_20261020T184435_20261101T184401_20261101T184429_P05036_N_F_J_001",
-      "checked_utc": "2026-11-26T11:53:42Z"
+      "checked_utc": "2026-11-27T11:44:31Z"
     },
     "us6000tkuc": {
       "status": "skipped",
@@ -97,15 +97,15 @@
     },
     "us7000tupl": {
       "status": "retry",
-      "reason": "road extract failed: error: Overpass returned HTTP 502",
+      "reason": "road extract failed: error: Could not reach Overpass at https://overpass-api.de/api/interpreter: ConnectionError",
       "event_id": null,
       "granule_id": "NISAR_L2_PR_GUNW_033_123_A_170_034_2000_SH_20261020T184401_20261020T184435_20261101T184401_20261101T184429_P05036_N_F_J_001",
-      "checked_utc": "2026-11-26T11:53:44Z"
+      "checked_utc": "2026-11-27T11:44:34Z"
     },
     "us7000ttlm": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-26T11:53:44Z"
+      "checked_utc": "2026-11-27T11:44:34Z"
     },
     "us6000u1cf": {
       "status": "skipped",
@@ -133,10 +133,10 @@
     },
     "us6000u3jl": {
       "status": "retry",
-      "reason": "road extract failed: error: Overpass returned HTTP 502",
+      "reason": "road extract failed: error: Could not reach Overpass at https://overpass-api.de/api/interpreter: ConnectionError",
       "event_id": null,
       "granule_id": "NISAR_L2_PR_GUNW_030_123_A_171_033_2000_SH_20260914T184434_20260914T184452_20261020T184434_20261020T184453_P05023_N_P_J_001",
-      "checked_utc": "2026-11-26T11:52:55Z"
+      "checked_utc": "2026-11-27T11:44:29Z"
     },
     "us6000u0xi": {
       "status": "added",
@@ -161,10 +161,10 @@
     },
     "us6000u3bc": {
       "status": "retry",
-      "reason": "road extract failed: error: Overpass returned HTTP 502",
+      "reason": "road extract failed: error: Could not reach Overpass at https://overpass-api.de/api/interpreter: ConnectionError",
       "event_id": null,
       "granule_id": "NISAR_L2_PR_GUNW_030_123_A_171_033_2000_SH_20260914T184434_20260914T184452_20261020T184434_20261020T184453_P05023_N_P_J_001",
-      "checked_utc": "2026-11-26T11:53:46Z"
+      "checked_utc": "2026-11-27T11:44:36Z"
     },
     "us6000u24c": {
       "status": "added",
@@ -176,15 +176,20 @@
     "us7000tz37": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-26T11:53:42Z"
+      "checked_utc": "2026-11-27T11:44:32Z"
     },
     "us6000ud6h": {
       "status": "waiting",
       "reason": "no NISAR interferogram spanning the event published yet",
-      "checked_utc": "2026-11-26T11:52:10Z"
+      "checked_utc": "2026-11-27T11:44:25Z"
     }
   },
   "runs": [
+    {
+      "utc": "2026-11-27T11:44:36Z",
+      "added": [],
+      "quakes_checked": 21
+    },
     {
       "utc": "2026-11-26T11:53:46Z",
       "added": [],
